@@ -1,0 +1,750 @@
+\documentclass[a4paper,11pt]{article}
+\setlength{\textheight}{23.30cm}
+\setlength{\textwidth}{16.5cm}
+\setlength{\oddsidemargin}{0.2cm}
+\setlength{\evensidemargin}{0.2cm}
+\setlength{\topmargin}{0cm}
+\setlength{\parindent}{0.4cm}
+
+\usepackage{graphics,color}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{mathrsfs}
+\usepackage{cite}
+\usepackage{verbatim}
+\usepackage{float}
+\usepackage{graphicx}
+\usepackage{amsthm}
+\usepackage{textcomp}
+\usepackage{subfig}
+\usepackage{esint}
+\usepackage{enumerate}
+\usepackage{hyperref}
+%\usepackage{showkeys}
+
+
+\newcommand{\red}{\color{red}}
+\newcommand{\blue}{\color{blue}}
+\newcommand{\black}{\color{black}}
+
+\numberwithin{equation}{section}
+\mathchardef\emptyset="001F
+
+\newtheorem{Theorem}{Theorem}[section]
+\newtheorem{Definition}[Theorem]{Definition}
+\newtheorem{Proposition}[Theorem]{Proposition}
+\newtheorem{Corollary}[Theorem]{Corollary}
+\newtheorem{Lemma}[Theorem]{Lemma}
+
+
+\newcommand{\nada}[1]{}
+\newcommand{\numberset}{\mathbb}
+\newcommand{\C}{\numberset{C}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\grad}{\nabla}
+\newcommand{\grado}{{\rm deg}}
+\newcommand{\graphofmapvk}{V_k}
+\newcommand{\graphofmapu}{U}
+\newcommand{\homogeneousmap}{\varphi}
+\newcommand{\indice}{j}
+\newcommand{\intervallounitario}{I}
+\newcommand{\latus}{L}
+\newcommand{\lift}{\Phi}
+\newcommand{\M}{\numberset{M}}% la massa
+\newcommand{\mappa}{u}
+\newcommand{\mappabuona}{v}
+\newcommand{\mres}{\mathbin{\vrule height 1.6ex depth 0pt width
+0.13ex\vrule height 0.13ex depth 0pt width 1.3ex}}
+\newcommand{\N}{\numberset{N}} 
+\newcommand{\Om}{\Omega} 
+\newcommand{\R}{\numberset{R}} 
+\newcommand{\Rn}{\numberset{R}^n} 
+\newcommand{\Suno}{{\mathbb S}^1}
+\newcommand{\Z}{\numberset{Z}}
+
+\DeclareMathOperator*{\esssup}{ess\,sup}
+
+\theoremstyle{definition}
+\newtheorem{Remark}[Theorem]{Remark}
+\newtheorem{Example}[Theorem]{Example}
+
+ \title{Maximum Principle for Absolute Minimisers
+}
+\author{
+Simone Carano and Nikos Katzourakis }
+
+\begin{document}
+\maketitle
+
+\begin{abstract} 
+
+\end{abstract}
+{\bf 2020 MSC:}\\
+{\bf Key words and phrases:} Vectorial Calculus of Variations in $L^\infty$; higher order problems; Absolute Minimisers, Maximum Principle.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Introduction}\label{sec:introduction}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+For $n,N,k\in\N$,
+ let $\Om\subset\R^n$ be an open bounded set and $H:\Om\times\R^N\times\R^{Nn}
+\times\ldots\times\R^{Nn^k}\to\R$ be $\mathscr{L}(\Om)\otimes\mathscr{B}(\R^\alpha)$-measurable, where we have identified $\R^\alpha\cong\R^N\times\R^{Nn}\times\ldots\times\R^{Nn^k}$ for $\alpha=\alpha(n,N,k)=N\frac{n^{k+1}-1}{n-1}$. Here $\mathscr{L}(\Om)$ is the Lebesgue $\sigma$-algebra of $\Om$ and $\mathscr{B}(\R^\alpha)$ is the Borel $\sigma$-algebra of $\R^\alpha$. Let $U\subseteq\Om$ be an open subset and consider the supremal functional
+\begin{align}\label{E infty}
+E_{\infty}(u, U):=\esssup_{x\in U}H\big(x, \mathrm D ^{[k]}u(x)\big),
+\end{align}
+where $u\in W^{k,\infty}(\Om,\R^N)$
+and $\mathrm D^{[k]} u:=(u,\mathrm Du,\ldots, \mathrm D^ku)$ is the jet of order $k$ of $u$. \\
+The goal herein is to prove a maximum principle property for the absolute minimisers of the functional $E_\infty$. We recall that $u\in W^{k,\infty}(\Om,\R^N)$ is an absolute minimiser of $E_\infty$ if 
+$$
+E_\infty(u,U)\leq E_\infty (u+\Phi,U)\qquad\forall \Phi\in W^{k,\infty}_0(U,\R^N)\quad\forall U\subseteq\Om \mbox{ open}.
+$$
+Under very mild assumptions on the supremand $H$, we prove that for an absolute minimiser the essential supremum in \eqref{E infty} is ``attained at the boundary of $U$". In order to give a precise meaning to this expression, we refer to the supremum on $\partial U$ of the $L^\infty$-representative of $H(\cdot, \mathrm D ^{[k]}u)$, which is defined as
+\begin{align}\label{rep}
+H(x,\mathrm D ^{[k]}u(x))^*:=\lim_{\eps\to 0}\esssup_{B_\eps(x)\cap U}H(\cdot,\mathrm D ^{[k]}u)\qquad\forall x\in \partial U.
+\end{align}
+Therefore, we say that $u\in W^{k,\infty}(\Om,\R^N)$ satisfies the maximum principle for $E_\infty$ in $\Om$ if 
+$$
+\esssup_U H(\cdot, \mathrm D ^{[k]}u)=\sup_{\partial U}H(\cdot,\mathrm D ^{[k]}u)^*\qquad\forall U\subseteq\Om \mbox{ open}.
+$$
+Notice that this property is only necessary for absolute minimisers: the cone function $u(x)=|x|$ belongs to $W^{1,\infty}(\R^n)$ and clearly satisfies the maximum principle for $E_\infty(u,\Om):=\esssup_\Om|\mathrm Du|$, but it is not an absolute minimiser. However, we will see that the maximum principle is a property that characterises a class of maps which is larger than the one of absolute minimisers, and are the ones that minimise $E_\infty$ with respect to compactly supported variations.
+
+Before stating our main results, we underline that $E_\infty$ in \eqref{E infty} is the general object of study in the $L^\infty$-Calculus of Variations, a field initiated by Aronsson in \cite{A}. His pioneering work on the scalar first order case (namely when $N=k=1$) has been well developed by now, and most challenges have been thoroughly analysed and understood (see \cite{Kbook} for a survey reference). More recently, in \cite{K1}, the second author approached the vectorial case ($N>1$), which turned out to be more involved and intriguing than the scalar one. For this reason, a complete theory is still far from reach. The situation is very similar in the higher order case ($k>1$), recently started in \cite{KM,KP2}.  Without any pretension of being exhaustive, we refer also to \cite{K1,K3,K4,KM1} for a glimpse of the literature on vectorial first order problems and to \cite{CKM,DK,KP1,KM2,KM3} for higher order ones. Furthermore, the fractional order case ($k\notin\N$) has been recently explored in \cite{CM}.  
+
+It is worth to mention that, given boundary data $u_0\in W^{k,\infty}(\Om,\R^N)$, the existence (and/or uniqueness) of absolute minimisers to the Dirichlet problem in $W_{u_0}^{k,\infty}(\Om,\R^N)$ associated to $E_\infty$ in \eqref{E infty} 
+ is an open problem already when $k=1$ and $n,N>1$ or when $N=1$ and $n,k>1$. There are some exceptions in the second order case, in case $H$ has special dependence in the second derivatives of $u$. We refer to \cite{KM, KM3, KP2} for the scalar second order case and to \cite{CKM} for the vectorial one (see also \cite{CM} for the fractional case).
+
+Now we proceed to specify the assumptions on the function $H$. By denoting $X=(X_0,X_1,\ldots,X_k)\in R^N\times \R^{Nn}\times\ldots\R^{Nn^k}=\R^\alpha$, we assume that $H:\Om\times\R^\alpha\to\R$ is Carathéodory and radially non-decreasing w.r.t. $X$, i.e. for almost every $x\in\Om$ and every $X\in\R^\alpha$ the function
+$$
+t\mapsto H(x,tX) \mbox{ is non-decreasing in }\R^+.
+$$
+Notice that radial monotonicity implies that, for almost every $x\in\Om$, $H(x,\cdot)$ has a global minimum at $X=0$. Without loss of generality we can assume that $H(x,0)=0$ a.e. $x\in\Om$, so that $H$ takes values in $\R^+$ and we can write $E_\infty(u,U)=\|H(\cdot, \mathrm D^{[k]}u)\|_{L^\infty(U)}$ for every $U\subseteq\Om$ open.
+
+We point out that any level convex function with global minimum at the origin is necessarily radially non-decreasing, so that our result applies to the class of level convex functions, which is a common assumption for $H$ in $L^\infty$ variational problems (see e.g. \cite{BJW}).
+ Moreover, one can even apply the result to non-continuous supremands: indeed, for a function $g:\R^+\to\R^+$ lower semicontinuous and non-decreasing, set $G=g\circ H$ and $E'_\infty(u,U):=\esssup_U G(\cdot,\mathrm D^{[k]} u)$. It is not difficult to see that $E_\infty$ and $E'_\infty$ share the same minimisers. In addition, if $u\in W^{k,\infty}(\Om,\R^N)$ satisfies the maximum principle for $E_\infty$ in $\Om$, then for every $U\subseteq\Om$ open
+$$
+E'_\infty(u,U)=g\left(\esssup_U H(\cdot, \mathrm D^{[k]}u)\right)=g\left(\esssup_{\partial U}H(\cdot, \mathrm D^{[k]}u)^*\right)=\left(\esssup_{\partial U}G(\cdot, \mathrm D^{[k]}u)^*\right),
+$$ 
+i.e. $u$ satisfies the maximum principle for $E_\infty'$ as well.
+
+Now we can state our main result.
+\begin{Theorem}[Maximum Principle for Absolute Minimisers]\label{thm1}
+Let $\Om\subset\R^n$ be a bounded open set and let $H:\Om\times\R^\alpha\to\R^+$ be a Carathéodory function with $H(x,0)=0$ and $H(x, \cdot)$ radially non-decreasing for a.e. $x\in\Om$. Assume that $u\in W^{k,\infty}(\Om,\R^N)$ is an absolute minimiser for the functional $E_\infty$, defined in \eqref{E infty}. Then $u$ satisfies the maximum principle for $E_\infty$ in $\Om$, namely
+\begin{align}\label{MP}
+\esssup_U H(\cdot, \mathrm D ^{[k]}u)=\sup_{\partial U}H(\cdot,\mathrm D ^{[k]}u)^*\qquad\forall U\subseteq\Om \mbox{ open}.
+\end{align}
+where $H(\cdot,\mathrm D ^{[k]}u)^*$ is the $L^\infty$-representative of $H(\cdot,\mathrm D ^{[k]}u)$, defined in \eqref{rep}.
+\end{Theorem}
+Before stating our second theorem, we give the definition of absolute minimiser w.r.t. compactly supported variations. 
+\begin{Definition}[The class $\mathrm {AM}_c(\Om,\R^N)$]
+We say that $u\in W^{k,\infty}(\Om,\R^N)$ is an absolute minimiser w.r.t. compactly supported variations, and we write $u\in \mathrm {AM}_c(\Om,\R^N)$, if
+$$
+E_\infty(u,U)\leq E_\infty (u+\Phi,U)\qquad\forall \Phi\in W^{k,\infty}_c(\Om,\R^N)\quad\forall U\subseteq\Om\mbox{ open}.
+$$
+\end{Definition}
+
+Our second result is the following.
+\begin{Theorem}\label{thm2}
+Let $\Om\subset\R^n$ be a bounded open set and let $H:\Om\times\R^\alpha\to\R^+$ be a Carathéodory function with $H(x,0)=0$ and $H(x, \cdot)$ radially non-decreasing for a.e. $x\in\Om$. Consider the functional $E_\infty$, defined in \eqref{E infty}.
+Then, the following are equivalent for a map $u\in W^{k,\infty}(\Om,\R^N)$:
+\begin{enumerate}
+\item[i)] $u$ satisfies the maximum principle for $E_\infty$ in $\Om$;
+\item[ii)] $u\in \mathrm {AM}_c(\Om,\R^N)$.
+\end{enumerate}
+\end{Theorem}
+The proof of Theorems \ref{thm1} and \ref{thm2} are in Sections ...., after a short preliminary section.
+
+\section{Preparatory tools}\label{prep}
+\subsection{On radial monotonicity}\label{radial mon}
+In this first preliminary section, we recall some notions of radial monotonicity for function on $\R^\alpha$, together with some relevant examples.
+
+\begin{Definition}
+\indent
+A function $H:\R^\alpha\to\R$ is said to be
+\begin{enumerate}
+\item[i)] radially non-decreasing if for every $X\in\R^\alpha$ the function $t\mapsto H(tX)$ is non-decreasing in $\R^+$;
+\item[ii)] strictly radially increasing if for every $X\in\R^\alpha$ the function $t\mapsto H(tX)$ is strictly increasing in $\R^+$;
+\item[iii)] strongly radially increasing if there exists a continuous function $c:[0,1]\times\R^+\to\R^+$, with $c(1,\cdot)=c(\cdot,0)=0$ and $c>0$ in $(0,1)\times(0,\infty)$, such that
+$$
+H(tX)\leq H(X)-c(t,|X|)\qquad\forall t\in[0,1]\quad\forall X\in\R^\alpha.
+$$ 
+\end{enumerate}
+\end{Definition}
+Notice that $i)\Rightarrow ii)\Rightarrow iii)$, and implications do not invert in general.
+The above definition is in complete analogy with the notion of level convexity and its stronger versions. In particular, any  level convex (resp. strictly level convex) function with global minimum at the origin is radially non-decreasing (resp. strictly radially increasing). Of course, a radially non-decreasing function need not to be level convex, since its level sets need only to be star shaped w.r.t. the origin.
+
+Strongly radially increasing functions can be seen as strict radially increasing functions with a modulus of monotonicity. This class of functions will be particularly important for us, since in the proof of Theorem \ref{thm1} we will use it to approximate  radially non-decreasing functions in the uniform convergence.
+
+
+\begin{Example}
+Relevant examples of strongly radially increasing functions are:
+\begin{itemize}
+\item Any strongly convex function with global minimum at the origin;
+\item The cone function associated to a (smooth) open set $S\subset\R^\alpha$ star shaper w.r.t. the origin with $\nu_{S}(X)\cdot X>0$ for every $X\in\partial S$, where $\nu_S$ is the outward normal vector to $\partial S$.
+\item Functions of the form $H_{\lambda,\beta}(X)=H(X)+\lambda|X|^\beta$, for $\lambda,\beta>0$ and $H$ radially non-decreasing. 
+\end{itemize}
+\end{Example}
+
+
+
+
+\subsection{Properties of convex functions}
+In this second preliminary section, we prove some results concerning convex functions on $\R^N$. In what follows, we denote by $F_\xi$ and $F_{\xi\xi}$ respectively the gradient and the Hessian of a function $F:\R^N\to\R$.
+
+\begin{Lemma}\label{convex lemma}
+Let $F:\R^N\to\R$ be $C^2$ and convex, with $F(0)=0$. Then $$F(\xi)\leq F_\xi(\xi)\cdot\xi\quad\forall\xi\in\R^N.$$
+\end{Lemma}
+\begin{proof}
+For $\xi\in\R^N$, set $\Phi(\xi):=F_\xi(\xi)\cdot\xi$.
+Then $ \Phi_\xi(\xi)=F_{\xi\xi}(\xi)\xi+F_\xi(\xi)$. For any $\lambda\geq0$, since $F$ is convex, we get
+$$
+\frac{d}{d\lambda}[\Phi(\lambda\xi)]=\Phi_\xi(\lambda\xi)\cdot\xi=\lambda F_{\xi\xi}(\lambda\xi)\xi\cdot\xi+ F_\xi(\lambda\xi)\cdot\xi\geq F_\xi(\lambda\xi)\cdot\xi=\frac{d}{d\lambda}[F(\lambda\xi)].
+$$
+Therefore, by integrating on $(0,1)$, we conclude by using $F(0)=0$, as
+$$
+\Phi(\xi)=\int_0^1\frac{d}{d\lambda}[\Phi(\lambda\xi)]d\lambda\geq\int_0^1\frac{d}{d\lambda}[F(\lambda\xi)]d\lambda=F(\xi).
+$$
+\end{proof}
+
+We also need the next invertibility result.
+\begin{Lemma}\label{invertibility}
+Let $F:\R^N\to\R$ be $C^2$ and strictly convex, with $F\geq0$ and $F(0)=0$. Then the map $\Phi:\R^N\to\R^N$ defined by $$\Phi(\xi):=F(\xi)\frac{F_\xi(\xi)}{|F_\xi(\xi)|}\quad\forall\xi\in\R^N$$
+is a homeomorphism in $\R^N$.
+\end{Lemma}
+\begin{proof}
+We divide the proof in two steps, showing first that $\Phi$ is a local diffeomorphism in $\R^N\setminus\{0\}$, and secondly that it is a global homeomorphism in $\R^N$.\\
+{\textit{Step 1}}: We show that det$\Phi_\xi(\xi)>0$ away from the origin.\\
+Let us compute the derivative of $\Phi$ at fixed $\xi\neq0$:
+\begin{align*}
+\Phi_\xi&=\frac{1}{|F_\xi|}\left(F_\xi\otimes F_\xi+FF_{\xi\xi}\left( I-\frac{F_\xi\otimes F_\xi}{|F_\xi|^2}\right)\right)\\
+&=\frac{1}{|F_\xi|}\left(FF_{\xi\xi}+(|F_\xi|^2I-FF_{\xi\xi})\frac{F_\xi\otimes F_\xi}{|F_\xi|^2}\right),\quad\mbox{in }\R^N\setminus\{0\}.
+\end{align*}
+Notice that it is well defined and continuous in $\R^N\setminus\{0\}$, since our assumptions imply that both $F$ and $F_\xi$ vanish only at $\xi=0$.
+Now we recall the following formula concerning the determinant of rank 1-perturbation of invertible matrices:
+$$
+\mathrm{det}(A+a\otimes b)=(\mathrm{det}A)(1+(A^{-1}a)\cdot b)\quad\forall A\in GL_N(\R)\quad\forall a,b\in\R^N.
+$$
+Applying it to $A=FF_{\xi\xi}$, $a=(|F_\xi|^2I-FF_{\xi\xi})\frac{F_\xi}{|F_\xi|}$, $b=\frac{F_\xi}{|F_\xi|}$, we get
+\begin{align*}
+\mathrm{det}\Phi_\xi&=\frac{1}{|F_\xi|^N}\mathrm{det}(FF_{\xi\xi})\left(1+(FF_{\xi\xi})^{-1}\left((|F_\xi|^2I-FF_{\xi\xi})\frac{F_\xi}{|F_\xi|}\right)\cdot\frac{F_\xi}{|F_\xi|}\right)\\
+&=\frac{F^{N-1}}{|F_\xi|^N}\mathrm{det}(F_{\xi\xi})\left((F_{\xi\xi})^{-1}F_\xi\cdot F_\xi\right)\\
+&>0\quad\mbox{in }\R^N\setminus\{0\},
+\end{align*}
+where we used that det$(F_{\xi\xi})>0$ and that $(F_{\xi\xi})^{-1}$ is positive definite, by strict convexity of $F$.\\
+
+\noindent
+{\textit {Step 2}}: We show that $\Phi$ is a global homeomorphism in $\R^N$.\\
+Notice that $\Phi$ is continuous on $\R^N$ and $\Phi(0)=0$. Since $F$ is strictly convex, positive and null at $0$, we have that $\Phi^{-1}(\{0\})=\{0\}$, which implies $\Phi(\R^N\setminus\{0\})\subset\R^N\setminus\{0\}$.
+ Let us prove that the restriction  $\Phi|_{\R^N\setminus\{0\}}:\R^N\setminus\{0\}\to\R^N\setminus\{0\}$ is surjective, by showing that $\Phi(\R^N\setminus\{0\})$ is open and closed in $\R^N\setminus\{0\}$.\\
+Since $\Phi$ is a local diffeomorphism in $\R^N\setminus\{0\}$, it is immediate to prove that $\Phi(\R^N\setminus\{0\})$ is open. To show the closedness, consider a sequence ${(\eta_k)}_k\subset\Phi(\R^N\setminus\{0\})$ converging to some $\eta_\infty\in\R^N\setminus\{0\}$ and let ${(\xi_k)}_k\in\R^N\setminus\{0\}$ be such that $\Phi(\xi_k)=\eta_k$. Our assumptions on $F$ implies 
+\begin{align}\label{phi to infty}
+\lim_{|\xi|\to\infty}F(\xi)=\lim_{|\xi|\to\infty}|\Phi(\xi)|=\infty.
+\end{align}
+So, ${(\xi_k)}_k$ is necessarily bounded and there exists a subsequence ${(\xi_{k_j})}_j\subset{(\xi_k)}_k$ such that $\xi_{k_j}\to\xi_\infty$, for some $\xi_\infty\in\R^N$, as $j\to\infty$. Therefore, we conclude
+\begin{align*}
+\eta_\infty=\lim_{j\to\infty}\eta_{k_j}=\lim_{j\to\infty}\Phi(\xi_{k_j})=\Phi(\xi_\infty),
+\end{align*}
+that also ensures $\xi_\infty\neq0$.\\
+%In particular, we have proved that $\Phi(\R^N)=\R^N$, i.e. $\Phi$ is surjective.  
+Now we claim that any $\eta\in\R^N\setminus\{0\}$ has finitely many preimages. Indeed, if for the sake of contradiction we assume there exists a sequence of distinct points ${(\xi_k)}_k\subset\R^N$ such that $\Phi(\xi_k)=\eta$, then ${(\xi_k)}_k$ is bounded, from \eqref{phi to infty}. So, there exists a subsequence ${(\xi_{k_j})}_j\subset{(\xi_k)}_k$ such that $\xi_{k_j}\to\xi_\infty$, for some $\xi_\infty\in\R^N\setminus\{0\}$, as $j\to\infty$. Then any neighbourhood of $\xi_\infty$ contains infinitely many preimages of $\eta$, contradicting the local invertibility of $\Phi$ in $\R^N\setminus\{0\}$. Therefore, we have proved that $\Phi$ is a topological covering of $\R^N\setminus\{0\}$. For $N\geq3$, we infer that $\Phi$ is a homeomorphism in $\R^N\setminus\{0\}$, since it is a universal covering of a simply connected space (see \cite[Prop. 13.30]{Ma}). Finally, since $\Phi$ is continuous at $0$ and $\Phi^{-1}(0)=\{0\}$, it is not difficult to see that $\Phi$ extends to a global homeomorphism in $\R^N$, for any $N\geq3$.\\
+It remains to discuss the case $N\leq 2$. The one dimensional case is immediate, so let us assume $N=2$. Extend $F$ to $\R^3$ by defining the function
+$$
+\tilde F(\xi_1,\xi_2,\xi_3)=F(\xi_1,\xi_2)+\xi_3^2.
+$$
+Then $\tilde F:\R^3\to\R$ is $C^2$ and strictly convex, with $\tilde F\geq0$ and $\tilde F(0)=0$. Thanks to the previuos argument, the map
+$$
+\tilde \Phi(\xi)=\tilde F(\xi)\frac{\tilde F_\xi(\xi)}{|\tilde F_\xi(\xi)|}\quad\forall\xi\in\R^3
+$$
+is a homeomorphism in $\R^3$. Since $\tilde \Phi|_{{\R^2}\times\{0\}}=\Phi$, we obtain the conclusion.
+\end{proof}
+
+
+
+
+\section{Proof of the main results}\label{sec:proofs}
+We divide the proof of Theorem \ref{main thm} into three parts, concerning existence, PDE derivation and uniqueness respectively. In the first two, our arguments follow similar lines to those in \cite{KM}, appropriately extended to the vectorial setting up to some technical issues, while in the last part our arguments are significantly different.
+
+\begin{comment}
+\subsection{Existence}\label{subs:existence}
+Let $p\geq1$ and recall that $u_0\in\mathcal{W}^{2,\infty}(\Om,\R^N)$. We begin by considering the functional
+$$
+E_p(u):=\left(\fint_{\Om}F(x,\mathrm{L} u(x))^pdx\right)^{\frac{1}{p}},\quad u\in W_{u_0}^{2,2p}(\Om,\R^N).
+$$
+Fix $u\in W_{u_0}^{2,2p}(\Om,\R^N)$ such that $E_p(u)<\infty$. By making use of \eqref{ass1} and Corollary \ref{CZ}, we have $\mathrm{L}u\in L^{2p}(\Om,\R^N)$ and
+$$
+\|u\|_{2,2p}\leq C(\|\mathrm{L}u\|_{2p}+\|u_0\|_{2,2p})\leq C(c^\frac12|\Om|^\frac{1}{2p}E_p(u)^\frac12+\|u_0\|_{2,2p})
+$$
+for a constant $C=C(\Om,p,\lambda,A)$.
+Thus, we deduce that $E_p$ is coercive in $W_{u_0}^{2,2p}(\Om,\R^N)$. Moreover, since $F$ is convex with respect to $\xi$, by Direct Methods we obtain the existence of a minimiser $u_p\in W_{u_0}^{2,2p}(\Om,\R^N)$ of $E_p$. \\
+Now let $(u_p)_p$ be a sequence of minimisers and  fix $k\in\N$. If $p\geq k/2$, by \eqref{ass1}, H\"older inequality and minimality of $u_p$, we have
+\begin{align}\label{coerciv bound}
+c^{-\frac12}|\Om|^{-\frac{1}{2k}}\|\mathrm{L}u_p\|_k\leq E_k(u_p)^\frac12\leq  E_{2p}(u_p)^\frac12\leq E_{2p}(u_0)^\frac12\leq E_\infty(u_0)^\frac12.
+\end{align}
+Hence, by Corollary \ref{CZ}
+$$
+\|u_p\|_{2,k}\leq C(\|\mathrm{L}u_p\|_k+\|u_0\|_{2,k})\leq C(c^\frac12 |\Om|^\frac1k E_\infty(u_0)^\frac12+\|u_0\|_{2,k}).
+$$
+ Then $(u_p)_p$ is bounded in $W_{u_0}^{2,k}(\Om,\R^N)$ for any $k\in\N$. \\
+By weak compactness and a standard diagonal argument, there exists $u_\infty\in \bigcap_{k\in\N}W_{u_0}^{2,k}(\Om,\R^N)$ and a subsequence ${(u_{p_\ell})}_\ell$ such that $u_{p_\ell}\rightharpoonup u_\infty$ weakly in $W_{u_0}^{2,k}(\Om,\R^N)$ as $\ell\to\infty$, for any $ k\in\N$.\\
+Passing to the limit in \eqref{coerciv bound} as $\ell\to\infty$, by the lower semicontinuity of $\|\cdot\|_k$, we have
+$$
+\|\mathrm{L}u_\infty\|_k\leq c^\frac12 |\Om|^\frac1{2k} E_\infty(u_0)^\frac12.
+$$
+As $k\to\infty$, we obtain $\mathrm{L}u_\infty\in L^\infty(\Om,\R^N)$, giving $u_\infty\in\mathcal{W}^{2,\infty}_{u_0}(\Om,\R^N)$.\\
+Finally, it remains to show that $u_\infty$ is a minimiser of $E_{\infty}$ in $W_{u_0}^{2,\infty}(\Om,\R^N)$.\\
+For any $p\leq q$, by the H\"older inequality, $E_p(u_p)\leq E_p(u_q)\leq E_q(u_q)$. Thus, $E_p(u_p)$ has a limit as $p\to\infty$. Let $\phi\in \mathcal{W}_0^{2,\infty}(\Om,\R^N)$, then
+$$
+E_\infty(u_\infty)=\lim_k E_k(u_\infty)\leq\liminf_k(\liminf_p E_k(u_p))\leq\lim_p E_p(u_p)\leq\limsup_p E_p(u_\infty+\phi)\leq E_\infty(u_\infty+\phi)
+$$
+implying the minimality of $u_\infty$.\\
+Notice that by choosing $\phi=0$, we have
+\begin{align}\label{limit ep}
+E_p(u_p)\to E_\infty({u_\infty}) \quad\mbox{as }p\to\infty.
+\end{align}
+\end{comment}
+
+\subsection{Existence}\label{subs:existence}
+Let $p\geq1$ and recall that $u_0\in\mathcal{W}^{2,\infty}(\Om,\R^N)$. We begin by considering the functional
+$$
+E_p(u):=\left(\fint_{\Om}F(x,\mathrm{L} u(x))^pdx\right)^{\frac{1}{p}},\quad u\in W_{u_0}^{2,2p}(\Om,\R^N).
+$$
+Assume that $E_p(u)<\infty$ for some $u\in W_{u_0}^{2,2p}(\Om,\R^N)$. By making use of \eqref{ass1} and Corollary \ref{CZ}, we have $\mathrm{L}u\in L^{2p}(\Om,\R^N)$ and
+$$
+\|u\|_{2,2p}\leq C\left(\|\mathrm{L}u\|_{2p}+\|u_0\|_{2,2p}\right)\leq C\left(c^\frac12|\Om|^\frac{1}{2p}E_p(u)^\frac12+\|u_0\|_{2,2p}\right)
+$$
+for a constant $C=C(\Om,p,\lambda,A)$.
+Thus, we deduce that $E_p$ is coercive in $W_{u_0}^{2,2p}(\Om,\R^N)$. Moreover, since $F$ is convex with respect to $\xi$, by Direct Methods we obtain the existence of a minimiser $u_p\in W_{u_0}^{2,2p}(\Om,\R^N)$ of $E_p$. \\
+Fix $k\in\N$. Extend $E_p$ and $E_\infty$ to $W^{2,k}_{u_0}(\Om,\R^N)$ as
+\begin{equation}\nonumber
+E_p(u)=\left\{
+\begin{aligned}
+&\left(\fint_{\Om}F(x,\mathrm{L} u(x))^p\right)^{\frac{1}{p}}\!\!\!\!\!&,\quad&u\in W_{u_0}^{2,2p},\\
+&+\infty&,\quad&u\in W_{u_0}^{2,k}\setminus W_{u_0}^{2,2p},
+\end{aligned}
+\right.\,\,\,
+E_\infty(u)=\left\{
+\begin{aligned}
+&\|F(\cdot,\mathrm{L}u)\|_\infty \!\!\!\!\!&,\quad& u\in \mathcal{W}_{u_0}^{2,\infty},\\
+&+\infty &,\quad&  u\in W_{u_0}^{2,k}\setminus \mathcal{W}_{u_0}^{2,\infty}.
+\end{aligned}
+\right.
+\end{equation}
+Let us show that $(E_p)_p$ is equi-coercive in $W^{2,k}_{u_0}$ with respect to $p$. Assume $E_p(u)\leq M$ for all $p\in[k/2,\infty)$. By \eqref{ass1} and the H\"older inequality, we have
+\begin{align}\label{equi coerciv bound}
+c^{-\frac12}|\Om|^{-\frac{1}{2k}}\|\mathrm{L}u\|_k\leq E_k(u)^\frac12\leq  E_{2p}(u)^\frac12\leq M^\frac12.
+\end{align}
+Hence, by Corollary \ref{CZ}
+$$
+\|u\|_{2,k}\leq C\left(\|\mathrm{L}u\|_k+\|u_0\|_{2,k}\right)\leq C\left(c^\frac12 |\Om|^\frac1k M^\frac12+\|u_0\|_{2,k}\right),
+$$
+for a constant $C=C(\Om,k,\lambda,A)$. This gives the equi-coercivity of $(E_p)_p$ in $W^{2,k}_{u_0}$. \\
+Moreover, $(E_p)_p$ is a monotone increasing sequence of weakly lower semicontinuous functionals
+ on $W^{2,k}_{u_0}$, thus its $\Gamma$-limit is given by (see \cite[Remark 2.12]{Br})
+$$
+\Gamma-\lim_p E_p=\lim_pE_p=E_\infty.
+$$
+By the Fundamental Theorem of Gamma Convergence \cite[Thm. 2.10]{Br}, if $(u_p)_p$ is a sequence of minimisers of $E_p$, up to passing to a subsequence, we have $u_p\rightharpoonup u_\infty$ weakly $W_{u_0}^{2,k}$ where $u_\infty$ is a minimiser of $E_\infty$ on $W_{u_0}^{2,k}$. By definition of $E_\infty$, we necessarily have $u_\infty\in\mathcal{W}^{2,\infty}_{u_0}(\Om,\R^N)$.
+Moreover, by the same Theorem
+\begin{align}\label{limit ep}
+E_p(u_p)\to E_\infty({u_\infty}) \quad\mbox{as }p\to\infty.
+\end{align}
+
+
+\subsection{PDE derivation}\label{subs: PDE derivation}
+
+Now we work towards the proof of \eqref{PDE u infty}.
+Let us begin by writing down the system of Euler-Lagrange equations satisfied by $u_p$, using the variational nature of the operator $L$ and the symmetry of $A$: 
+\begin{align}\label{EL for Ep}
+\mathrm{L} f_p=0,\quad \mbox{ in }\mathcal{D}'(\Om,\R^N),
+\end{align}
+where, for $e_p:=E_p(u_p)$, $f_p:\Om\to\R^N$ is defined by
+\begin{align}\label{fp}
+f_p:=e_p^{1-p}F(\cdot,\mathrm{L} u_p)^{p-1} F_\xi(\cdot,\mathrm{L} u_p).
+\end{align}
+Since the only interesting case is $e_\infty>0$, we may assume that $e_p\geq\alpha>0$ (for $p$ large enough). In fact, if $e_\infty=0$, then $F(\cdot,\mathrm{L}u_\infty)=0$ and system \eqref{PDE u infty} reduces to $\mathrm{L}u_\infty=0$.
+For this reason, $f_p$ is a well defined measurable map.\\
+Let us prove that that $(f_p)_p$ is bounded in $L^1(\Om,\R^N)$:
+\begin{equation}\label{fp bdd}
+\begin{aligned}
+\fint_\Om|f_p(x)|dx&=e_p^{1-p}\fint_\Om F(x,\mathrm{L} u_p(x))^{p-1}|F_\xi(x,\mathrm{L} u_p(x))|dx\\
+&\leq ce_p^{1-p}\fint_\Om F(x,\mathrm{L} u_p(x))^{p-1}|\mathrm{L}u_p(x)|dx\\
+&\leq ce_p^{1-p}\left(\fint_\Om F(x,\mathrm{L} u_p(x))^pdx\right)^\frac{p-1}{p}\left(\fint_\Om |\mathrm{L} u_p(x)|^pdx\right)^\frac{1}{p}\\
+&=c\left(\fint_\Om |\mathrm{L} u_p(x)|^pdx\right)^\frac{1}{p}\\
+&\leq c\left(\fint_\Om[c F(x,\mathrm{L} u_p(x))]^\frac{p}{2}dx\right)^\frac{1}{p}\\
+&\leq c{c}^\frac{1}{2}\left(\fint_\Om F(x,\mathrm{L} u_p(x))^pdx\right)^\frac{1}{2p}=c^\frac{3}{2}{e_p}^\frac{1}{2}\leq c^\frac{3}{2}{e_\infty}^\frac{1}{2}.
+\end{aligned}
+\end{equation}
+In particular, thanks to Proposition \ref{distrib to weak}, $f_p\in W^{1,2}_{loc}(\Om,\R^N)\cap L^1(\Om,\R^N)$ is a weak solution of \eqref{EL for Ep}. Thus, by Corollary \ref{interior 2,p est II}, for every $q<\infty$,
+$$
+\|f_p\|_{2,q,U}\leq C\|f_p\|_1\leq C,\quad\forall U\Subset\Om,
+$$
+for some constant $C=C(q,U,\Om,c,e_\infty)>0$. Hence, by Morrey's theorem, we deduce that ${(f_p)}_p$ is bounded in the local topology of $C^1$, and so there exists $f_\infty$ and a subsequence ${(f_{p_\ell})}_\ell$ such that $f_{p_\ell}\to f_\infty$ locally uniformly as $\ell\to\infty$. In particular, $\mathrm{L}f_\infty=0$ in the sense of distributions and $f_\infty\in L^1(\Om,\R^N)$ as well. \\
+The next lemma is central in our argument.
+\begin{Lemma}{\bf (Non-triviality of $f_\infty$)}\label{opt lemma}
+The map $f_\infty$ constructed above is such that $f_\infty\not\equiv0$.
+\end{Lemma}
+\begin{proof}
+First we show that $f_p\stackrel{*}{\rightharpoonup}f_\infty$ in $\mathcal{M}(\overline\Om,\R^N)$, as $p\to\infty$ along a subsequence.\\
+ By approximating with $C_c^\infty$-maps, thanks to the regularity assumptions on $A$, for every $ p\in(1,\infty)$ we have 
+\begin{align}\label{strong A-harm}
+\mathrm{L}f_p=\mathrm{L}f_\infty=0 \quad\mbox{ in }\left(W^{2,\infty}_0(\Om,\R^N)\right)^*.
+\end{align}
+From the boundedness in $L^1$, there exists a measure $\mu\in\mathcal{M}(\overline\Om,\R^N)$ such that $f_p\mathscr{L}^n\mres\Om\stackrel{*}{\rightharpoonup}\mu$ in $\mathcal{M}(\overline\Om,\R^N)$. Since $f_p\rightharpoonup f_\infty$ in $W^{2,q}_{loc}(\Om,\R^N)$, we necessarily have $\mu\mres\Om=f_\infty\mathscr{L}^n\mres\Om$. So we can write $$\mu=f_\infty\mathscr{L}^n\mres\Om+\mu\mres\partial\Om.$$
+Now we claim that $\mu\mres\partial\Om=0$.
+Let us denote $d:=\mathrm{dist}(\cdot,\partial\Om)$ and $\Om_r:=\{x\in\Om:d(x)\leq r\}$. Then, by the regularity of $\partial\Om$, we have $d\in C^2(\overline\Om_r)$ for some $r>0$ sufficiently small. Extend it to a function $d\in C^2(\overline\Om)$ and fix a map $g\in C^2(\overline\Om,\R^N)$. Set $\psi:=d^2g\in  C^2(\overline\Om,\R^N)\cap W^{2,\infty}_0(\Om,\R^N)$ and test \eqref{strong A-harm} with $\psi$:
+\begin{align}\label{test psi}
+0=\int_\Om(f_p-f_\infty)\cdot \mathrm{L}\psi =\int_\Om(f_p-f_\infty)\cdot[(\mathrm{div}A) \mathrm{D}\psi+A\mathrm{D}^2\psi].
+\end{align}
+By a computation,
+\begin{align*}
+&\mathrm{D}\psi=2d\,g\otimes\mathrm{D}d+d^2\mathrm{D}g ,\\
+&\mathrm{D}^2\psi=2g\otimes\mathrm{D}d\otimes \mathrm{D}d+2d\, g\otimes\mathrm{D}^2d+4d\mathrm{D}g\otimes \mathrm{D}d+d^2\mathrm{D}^2g.
+\end{align*}
+Thus,
+$$
+\mathrm{D}^2\psi\mres\partial\Om=2(g\otimes\mathrm{D}d\otimes \mathrm{D}d)\mres\partial\Om=2\, g\otimes\nu \otimes\nu\mres\partial\Om,
+$$
+where $\nu$ is the outwards unit normal to the boundary.
+Since $(\mathrm{div}A) \mathrm{D}\psi\in C_0(\Om,\R^N)$ and \\$(f_p-f_\infty)\mathscr{L}^n\mres\Om\stackrel{*}{\rightharpoonup}\mu\mres\partial\Om$ in $\mathcal{M}(\overline\Om,\R^N)$, we can pass to the limit in \eqref{test psi} to obtain
+$$
+0=2\int_{\partial\Om}A:g \otimes\nu \otimes\nu\cdot d\mu.
+$$
+By the ellipticity of $A$, the matrix $M:=A:\nu\otimes\nu$ is positive definite, so we conclude that
+$$
+\int_{\partial\Om}Mg\cdot d\mu=0,\quad\forall g\in C^2(\overline\Om,\R^N),
+$$
+which gives $\mu\mres\partial\Om=0$.\\
+By Lemma \ref{convex lemma}, we estimate
+\begin{align*}
+\int_\Om f_p\cdot \mathrm{L} u_p&=e_p^{1-p}\int_\Om F(x,\mathrm{L} u_p(x))^{p-1}F_\xi(x,\mathrm{L} u_p(x))\cdot \mathrm{L} u_p(x)dx\\
+&\geq e_p^{1-p}\int_\Om F(x,\mathrm{L} u_p(x))^pdx\\
+&=e_p^{1-p}e_p^p|\Om|={|\Om|}e_p\geq|\Om|\alpha,
+\end{align*}
+where in the last step, we recall we are under the assumption $e_\infty>0$.\\
+Thanks to Whitney's extension theorem, there exists $u_*\in C^2(\R^n,\R^N)$ such that $u_*=u_0$ and $\mathrm{D}u_*=\mathrm{D}u_0$ on $\partial\Om$. Now we observe that \eqref{EL for Ep} clearly holds also in $\left(W^{2,2p}_0(\Om,\R^N)\right)^*$, therefore by testing with $u_p-u_*\in W^{2,2p}_0(\Om,\R^N)$, we obtain
+$$
+|\Om|\alpha\leq\int_\Om f_p\cdot \mathrm{L}u_p=\int_\Om f_p\cdot \mathrm{L}u_*.
+$$ 
+So, we can pass to the limit on the right hand side, observing that $\mathrm{L}u_*\in C(\overline\Om,\R^N)$, and conclude
+$$
+\int_\Om f_\infty\cdot \mathrm{L}u_*\geq|\Om|\alpha.
+$$
+In particular, this ensures that $f_\infty\not\equiv0$.
+\end{proof}
+Thanks to Lemma \ref{opt lemma}, we are now able to derive the PDE satisfied by $u_\infty$. \\
+Set $\Gamma_\infty:=f_\infty^{-1}(0)\subsetneq\Om$. From \eqref{fp}, we obtain the equation
+\begin{align}\label{inverting expr 1}
+|f_p(x)|^\frac{2}{2p-1}\frac{f_p(x)}{|f_p(x)|}=e_p^{-1+\frac{1}{2p-1}}F(x,\mathrm{L} u_p(x))\left(\frac{|F_{\xi}(x,\mathrm{L} u_p(x))|}{\sqrt{F}(x,\mathrm{L} u_p(x))}\right)^\frac{2}{2p-1}\frac{F_\xi(x,\mathrm{L} u_p(x))}{|F_\xi(x,\mathrm{L} u_p(x))|},\qquad\mbox{a.e. }x\in \Om,
+\end{align}
+which we rewrite as
+\begin{align}\label{inverting expr 2}
+e_p^{1-\frac{1}{2p-1}}\left(\frac{|F_{\xi}(x,\mathrm{L} u_p(x))|}{\sqrt{F}(x,\mathrm{L} u_p(x))}\right)^{-\frac{2}{2p-1}}|f_p(x)|^\frac{2}{2p-1}\frac{f_p(x)}{|f_p(x)|}=\Phi(x,\mathrm{L} u_p(x)),\qquad\mbox{a.e. }x\in \Om,
+\end{align}
+where we have symbolised
+$$\Phi(x,\xi):=F(x,\xi)\frac{F_\xi(x,\xi)}{|F_\xi(x,\xi)|},\qquad\mbox{ a.e. }  x\in\Om,\quad\forall\xi\in\R^N.$$
+Notice that equations \eqref{inverting expr 1} and \eqref{inverting expr 2} are well defined. Indeed, from \eqref{ass1},\eqref{ass2}, and Lemma \ref{convex lemma}, it is easy to see that $|F_\xi|/\sqrt{F}$ is bounded from above and below. Moreover, by the assumptions on $F$, we have
+$f_p=0$ on a set of positive measure $E\subset \Om$ if and only if $\mathrm Lu_p=0$ on the same set. So, points in $E$ are not singular for both sides of \eqref{inverting expr 1} and \eqref{inverting expr 2}, naturally vanishing on $E$.\\
+Now we recall that by Lemma \ref{invertibility}, for almost every $x\in\Om$, the map $\Phi_x:=\Phi(x,\cdot):\R^N\to\R^N$ is a homeomorphism. So, applying the inverse map $\Phi_x^{-1}$, we rewrite the previous equation as
+$$
+\mathrm{L} u_p(x)=\Phi_x^{-1}\left(e_p^{1-\frac{1}{2p-1}}\left(\frac{|F_{\xi}(x,\mathrm{L} u_p(x))|}{\sqrt{F}(x,\mathrm{L} u_p(x))}\right)^{-\frac{2}{2p-1}}|f_p(x)|^\frac{2}{2p-1}\frac{f_p(x)}{|f_p(x)|}\right),\qquad\mbox{a.e. }x\in \Om.
+$$
+ Recall that $f_{p_\ell}\to f_\infty$ uniformly on every compact $K\subset\Om\setminus\Gamma_\infty$ and, by \eqref{limit ep}, $e_{p_\ell}\to e_\infty$ as $\ell\to\infty$. So we can pass to the limit locally uniformly in the right hand side along the subsequence ${(p_\ell)}_\ell$. On the other hand, since we already know that $\mathrm{L}u_p\rightharpoonup \mathrm{L}u_\infty$ weakly in $L^q$ for every $q\geq1$, we obtain
+$$
+\mathrm{L}u_\infty(x)=\Phi_x^{-1}\left(e_\infty\frac{f_\infty(x)}{|f_\infty(x)|}\right),\qquad\mbox{a.e. }x\in K.
+$$
+By inverting again, we get
+$$
+\Phi(x,\mathrm Lu_\infty)=F(x,\mathrm Lu_\infty)\frac{F_\xi(x,\mathrm Lu_\infty)}{|F_\xi(x,\mathrm Lu_\infty)|}=e_\infty\frac{f_\infty(x)}{|f_\infty(x)|},\qquad\mbox{a.e. }x\in K.
+$$
+Since $\mathrm{L}f_\infty=0$, the unique continuation property of L yields $|\Gamma_\infty|=0$. As a consequence, we obtain \eqref{PDE u infty}.
+
+
+\subsection{Uniqueness}\label{subs: uniqueness}
+In the previous sections, we proved the existence of a minimiser $u_\infty\in\mathcal{W}^{2,\infty}_{u_0}(\Om,\R^N)$ of $E_\infty$ and that it satisfies the PDE system \eqref{PDE u infty}. As a first step to provide uniqueness of minimisers of $E_\infty$ in $\mathcal{W}^{2,\infty}_{u_0}(\Om,\R^N)$, we show that every minimiser of $E_\infty$ satisfies a PDE system of the same structure as \eqref{PDE u infty}. Some of the arguments are similar to Section \ref{subs:existence}, but we will present the complete proof for sake of clarity. More precisely, we start with proving the following result.
+\begin{Lemma}{\bf (Necessity of the PDE system)}\label{necessity of PDE}
+Let $F, A$, and $u_0$ be as in Theorem \ref{main thm}. Suppose that $u\in\mathcal{W}^{2,\infty}_{u_0}(\Om,\R^N)$ is a minimiser of $E_\infty$. Then there exists $f\in L^1(\Om,\R^N)$ such that $f\in W^{2,q}_{loc}(\Om,\R^N)$ for all $q<\infty$ and
+\begin{equation}\label{PDE u}
+\left\{
+\begin{aligned}
+&F(x,\mathrm{L} u(x))\frac{F_\xi(x,\mathrm{L} u(x))}{|F_\xi(x,\mathrm{L} u(x))|}=e_\infty\frac{f(x)}{|f(x)|},\quad \mbox{a.e. } x\in\Om,\\
+&\mathrm{L} f(x)=0, \quad \mbox{a.e. } x\in\Om.
+\end{aligned}
+\right.
+\end{equation}
+\end{Lemma}
+\begin{proof}
+Let $u\in\mathcal{W}^{2,\infty}_{u_0}(\Om,\R^N)$ be a minimiser of $E_\infty$. For any $p\geq1$, we consider the auxiliary functional
+$$
+A_p(v):=E_p(v)+\frac{1}{2}\fint_\Om|v-u|^2,\,\qquad v\in W^{2,2p}_{u_0}(\Om,\R^N).
+$$
+Using the Direct Method, it is not difficult to see that $A_p$ attains a minimum point. Let $v_p\in W^{2,2p}_{u_0}(\Om,\R^N)$ be a minimiser of $A_p$, then, recalling that $u_p$ is a minimiser of $E_p$ in the same space, we have
+$$
+e_p=E_p(u_p)\leq E_p(v_p)\leq A_p(v_p)\leq A_p(u)=E_p(u)\leq E_\infty(u)=e_\infty.
+$$
+Since $e_p\to e_\infty$, we have $A_p(v_p)\to e_\infty$ as $p\to\infty$. Now, if $(v_p)_p$ is a sequence of minimisers of $A_p$, by Calderon-Zygmund estimates, we can prove as in Section \ref{subs:existence} that $(v_p)_p$ bounded in $W^{2,q}_{u_0}(\Om,\R^N)$ for any fixed $q\geq1$. So, $v_{p_\ell}\rightharpoonup v_\infty$ weakly $ W^{2,q}_{u_0}$ for a subsequence $(p_\ell)_\ell$ and some $v_\infty\in W^{2,q}_{u_0}(\Om,\R^N)$.\\
+We claim that $v_\infty=u$. Indeed, passing to the limit as $\ell\to\infty$ in the following inequality
+$$
+e_{p_\ell}+\frac{1}{2}\fint_\Om|v_{p_\ell}-u|^2\,\leq A_{p_\ell}(v_{p_\ell}),
+$$
+we get
+$$
+e_\infty+\frac{1}{2}\fint_\Om|v_\infty-u|^2\,\leq e_\infty,
+$$
+which necessarily implies $v_\infty=u$.\\
+Now, for simplicity let us denote $v_p=v_{p_\ell}$ and write down the Euler-Lagrange equation satisfied by $v_p$:
+\begin{align}\label{EL for vp}
+\mathrm{L} g_p+v_p-u=0\qquad\mbox{in }\mathcal{D}'(\Om,\R^N),
+\end{align}
+ where, for $a_p:=E_p(v_p)$, $g_p$ is defined by $g_p:=a_p^{1-p}F(\cdot,\mathrm{L} v_p)^{p-1}F_\xi(\cdot,\mathrm{L} v_p)$. We can prove that $g_p$ is well defined and bounded in $L^1$ as showed for $f_p$ in Section \ref{subs:existence}.
+%Notice that $$\Delta g_p\rightharpoonup 0\quad \mbox{ weakly in }W^{2,q}_0(\Om,\R^N)\quad \forall q\geq1.$$
+In particular, thanks to Proposition \ref{distrib to weak}, $g_p\in W^{1,2}_{loc}(\Om,\R^N)\cap L^1(\Om,\R^N)$ is a weak solution of \eqref{EL for vp}. Thus, by Corollary \ref{interior 2,p est II}, for every $q<\infty$,
+$$
+\|g_p\|_{2,q,U}\leq C\left(\|g_p\|_1+\|v_p-u\|_{q}\right)\leq C,\quad\forall U\Subset\Om,
+$$
+for some constant $C=C(q,U,\Om,c,e_\infty)>0$.
+By Sobolev embeddings, up to passing to a (not relabeled) subsequence, $g_p\to g_\infty$ locally uniformly as $p\to\infty$, for some $g_\infty\in L^1(\Om,\R^N)\cap W^{2,q}_{loc}(\Om,\R^N) $ such that $\mathrm{L}g_\infty=0$. We can prove that $g_\infty\not\equiv0$ as in Lemma \ref{opt lemma}, since the same argument holds even if $\mathrm{L} g_p\rightharpoonup0$ in the sense of distributions only. Finally, since $a_p\to e_\infty$ as $p\to\infty$, we can pass to the limit in the expression defining $g_p$ exactly as we did for $f_p$, obtaining \eqref{PDE u} with $f=g_\infty$.
+\end{proof}
+
+We conclude this section with the proof of uniqueness of the solution to the minimum problem associated to $E_\infty$. Let $u_1$ and $u_2$ be two minimisers in $\mathcal{W}^{2,\infty}_{u_0}(\Om,\R^N)$, then, by \eqref{PDE u}, we have
+$$
+F(\cdot,\mathrm{L} u_1)=F(\cdot,\mathrm{L} u_2)=e_\infty,\quad\mbox{a.e. in } \Om.
+$$
+By convexity of $F(x,\cdot)$ and linearity of L, for a.e. $x\in\Om$ we have
+\begin{equation}\label{average}
+\begin{aligned}
+F\left(x,\mathrm{L}\left(\frac{u_1(x)+u_2(x)}{2}\right)\right)&=F\left(x,\frac{\mathrm{L} u_1(x)}{2}+\frac{\mathrm{L} u_2(x)}{2}\right)\\
+&\leq\frac{1}{2}F(x,\mathrm{L} u_1(x))+\frac{1}{2}F(x,\mathrm{L}u_2(x))\\
+&=e_\infty.
+\end{aligned}
+\end{equation}
+The average $\frac{u_1+u_2}{2}$ still belongs to $\mathcal{W}^{2,\infty}_{u_0}(\Om,\R^N)$, then necessarily
+$$
+F\left(\cdot\,,\mathrm{L}\left(\frac{u_1+u_2}{2}\right)\right)=e_\infty,\quad\mbox{a.e. in } \Om.
+$$
+But $F(x,\cdot)$ is strictly convex, so the only possibility to have equality in \eqref{average} is that $\mathrm{L} u_1=\mathrm{L} u_2$, giving $u_1=u_2$ by uniqueness results for elliptic systems with Dirichlet boundary conditions (see \cite[Theorems 3.39 and 3.46]{GM}). 
+\\
+
+
+\section{On the unique continuation property}\label{ucp}
+In this last section, we identify classes of operators satisfying the unique continuation property (see Definition \ref{def ucp}).
+First, it is worth mentioning that a slightly different notion that often appears in the literature is the \textit{strong unique continuation property}, namely the only solution to $\mathrm{L}u=0$ with a zero of infinite order is the trivial one. We recall that $x_0\in \Om$ is a zero of infinite order for $u$ if $$\int_{{B_r}(x_0)}|u|^2dx=O(r^k)\quad\mbox{ as }r\to0\quad\forall k\in\N.$$ There is also the definition of \textit{weak unique continuation property} (the only solution to $\mathrm{L}u=0$ vanishing on an open set is the trivial one), but we are not interested in that one. For a proof of the fact that the strong definition implies the one in Definition \ref{def ucp}, we refer to \cite{FG}. Their proof actually applies to elliptic equations, but it can be identically readapted for systems, since it is basically a consequence of Caccioppoli inequalities \cite[Sec. 4.2]{GM}.
+However, differently from the scalar case, where the zero nodal set is even $(n-1)$-dimensional \cite{HS}, we have no theory available that guarantees sufficient conditions for (strong) unique continuation property for elliptic systems. For this reason, we restrict ourself to list some examples of interest, although one of them is deeply connected to the scalar case. In what follows, we assume that $u\in L^1(\Om,\R^N)$ is a distributional solution of $\mathrm{L}u=\mathrm{div}(A\mathrm{D}u)=0$ with $A$ satisfying either (H1) or (H2). Notice that by Proposition \ref{distrib to weak}, $u$ is actually a weak solution. Without loss of generality, we assume that $u$ is not constant. We consider the following cases:
+\begin{itemize}
+\item $A$ has analytic coefficients.\\
+In this case, it is well known  that solutions to $\mathrm Lu=0$ are analytic \cite{OR}. In particular, if $u$ is not constant, its nodal sets are negligible.
+
+\item $A$ has the form 
+$$A=\sum_{h=1}^Ne_h\otimes e_h \otimes B_h$$ 
+with $\{e_h\}_{h=1,\ldots,N}$ orthonormal base of $\R^N$ and $B_h\in C^1(\overline\Om,\R^{n\times n})$ elliptic for every $h=1,\ldots,N$.\\
+We have
+$$
+(\mathrm{L}u)_i=\mathrm{D}_\alpha\left(\left[\sum_{h=1}^Ne_{h_i}e_{h_j}B_h^{\alpha\beta}\right]\mathrm{D}_\beta u^j\right)=0\quad\forall i=1,\ldots,N.
+$$
+Fix $k\in\{1,\ldots,N\}$ and take the scalar product of $Lu$ with $e_k$:
+\begin{align*}
+0&=e_k^i(\mathrm{L}u)_i\\
+&=\mathrm{D}_\alpha\left(\left[\sum_{h=1}^Ne_k^ie_{h_i}e_{h_j}B_h^{\alpha\beta}\right]\mathrm{D}_\beta u^j\right)\\
+&=\mathrm{D}_\alpha\left(e_{k_j}B_k^{\alpha\beta}\mathrm{D}_\beta u^j\right)\\
+&=\mathrm{D}_\alpha\left(B_k^{\alpha\beta}\mathrm{D}_\beta(e_{k_j} u^j)\right)
+\end{align*}
+Set $u^{(k)}=e_k\cdot u$, namely the $k$-{th} component of $u$ w.r.t. the base $\{e_h\}$. Then, for each $k=1,\ldots,N$, $u^{(k)}$ solves an elliptic equation in divergence form. Since we assumed that $u$ is not constant, there is at least one $k$ such that $u^{(k)}$ is not constant. So, by applying the scalar theory \cite{HS} to $u^{(k)}$, since
+$
+\{|u|=0\}\subset\{u^{(k)}=0\}
+$, the unique continuation must hold.
+
+
+\end{itemize} 
+
+\textsc{Acknowledgements:} S.C and R.M. acknowledge partial financial support through the EPSRC grant EP/X017206/1. S.C and N.K. acknowledge partial financial support through the EPSRC grant EP/X017109/1. 
+S.C. is a member of Gruppo Nazionale per
+l’Analisi Matematica, la Probabilità e le loro Applicazioni (GNAMPA) of the Istituto Nazionale
+di Alta Matematica (INdAM) of Italy.\\
+
+\textsc{Data availability}: Our manuscript has no associated data.\\
+
+\textsc{Conflict of interest}: The authors have no Conflict of interest to declare for this article.
+
+%%%%%%%%%%%%%        BIBLIOGRAFIA        %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{thebibliography}{AA} 
+\addcontentsline{toc}{chapter}{Bibliografia} 
+
+\bibitem{ACM}
+ L. Ambrosio, A. Carlotto, A. Massaccesi, {\it Lectures on Elliptic Partial Differential Equations}, Publications of the Scuola Normale Superiore (2019).
+
+\bibitem{AP} N. Ansini, F. Prinari, \emph{On the lower semicontinuity of supremal functional under differential constraints}, ESAIM - Control, Opt. and Calc. Var., \textbf{21} (4), 1053--1075 (2015).
+
+\bibitem{A}
+G. Aronsson, {\it Minimization problems for the functional $\sup_xF(x, f(x), f'(x))$ I, II, III}, Arkiv
+fur Mat. 33 - 53 (1965); 409 - 431 (1966); 509 - 512 (1969).
+
+\bibitem{BJW}
+E.N. Barron, R.R. Jensen, C.Y. Wang, {\it The Euler equation and absolute minimizers of $L^\infty$ functionals}, Arch. Rational
+Mech. Anal. {\bf 157}, 255-283 (2001).
+
+\bibitem{BKR}
+V. I. Bogachev, N. V. Krylov, M. R\"ockner, {\it Elliptic and parabolic equations for measures}, Uspekhi Mat. Nauk {\bf 64}, 5–116 (2009), translation in
+Russian Math. Surveys {\bf 64}, 973–1078 (2009).
+
+\bibitem{Br}
+A. Braides, {\it A handbook of $\Gamma$-convergence},
+Handbook of Differential Equations: Stationary Partial Differential Equations,
+North-Holland,
+{\bf 3}, 101-213 (2006).
+
+\bibitem{BDP}
+ C. Brizzi, L. De Pascale, \emph{A property of Absolute Minimizers in $ L^{\infty}$  Calculus of Variations and of solutions of the Aronsson-Euler equation}, Advances in Differential Equations 28 (3/4), 287-310 (2023).
+
+\bibitem{BK} L. Bungert, Y. Korolev, \emph{Eigenvalue problems in $ L^{\infty}$: optimality conditions, duality, and relations with optimal transport}, Communications of the American Mathematical Society 2:345  (2022).
+
+\bibitem{CKM}
+S. Carano, N. Katzourakis, R. Moser, \emph{
+Existence, uniqueness and characterisation of vector-valued absolute minimisers for a second order $L^\infty$-variational problem}, Preprint arXiv https://arxiv.org/abs/2504.04181 (2025).
+
+\bibitem{CM}
+S. Carano, R. Moser, \emph{
+An $L^\infty$-variational problem involving the Fractional Laplacian}, Preprint arXiv https://arxiv.org/abs/2510.14476 (2025).
+
+
+\bibitem{Dac}
+B. Dacorogna, {\it Direct Methods in the Calculus of Variations}, 2nd ed., Appl. Math. Sci. 78, Springer, New York, 2008.
+
+\bibitem{D}
+J. M. Danskin, {\it The theory of max-min with applications}, J. SIAM Appl. Math. {\bf 14}(4), 641-665 (1966).
+
+\bibitem{DK}
+B. Dutton, N. Katzourakis, {\it On Second-Order $L^\infty$ Variational Problems with Lower-Order Terms}, ArXiv Preprint https://arxiv.org/abs/2412.11701 (2024).
+
+
+\bibitem{GM}
+M. Giaquinta, L. Martinazzi, {\it An Introduction
+to the Regularity Theory
+for Elliptic Systems,
+Harmonic Maps
+and Minimal Graphs}, Publications of the Scuola Normale Superiore (2018).
+
+\bibitem{FG}
+D. G. de Figueiredo,  J. P. Gossez, {\it Strict Monotonicity of Eigenvalues and Unique Continuation}, Communications in Partial Differential Equations {\bf 17}, 339–346 (1992).
+
+\bibitem{HS}
+R. Hardt, L. Simon, {\it Nodal sets for solutions of elliptic equations}, J. Differential Geom. {\bf 30} 505 - 522 (1989).
+
+\bibitem{K1}
+N. Katzourakis, {\it $L^\infty$ Variational Problems for maps and the Aronsson PDE System}, J. Differential
+Equations {\bf 253}(7), 2123 - 2139 (2012).
+
+%\bibitem{K2}
+%N. Katzourakis. {\it Explicit 2D $\infty$-harmonic maps whose interfaces have junctions
+%and corners}, C. R. Math. Acad. Sci. Paris {\bf 351}, 677–680 (2013).
+
+\bibitem{Kbook}
+N. Katzourakis, {\it An Introduction to Viscosity Solutions for Fully Nonlinear PDE with Applications
+to Calculus of Variations in $L^\infty$}, Springer Briefs in Mathematics,  DOI 10.1007/978-
+3-319-12829-0 (2015).
+
+\bibitem{K3}
+N. Katzourakis, {\it $\infty$-minimal submanifolds}, Proc. Amer. Math. Soc. {\bf 142}, 2797-2811 (2014).
+
+\bibitem{K4}
+N. Katzourakis, {\it On the structure of $\infty$-harmonic maps}, Comm. Partial Differential
+Equations {\bf 39}, 2091–2124 (2014).
+
+%\bibitem{K5}
+%N. Katzourakis. {\it Nonuniqueness in vector-valued calculus of variations in $L^\infty$ and some linear elliptic systems}, Commun. Pure Appl. Anal. {\bf 14}, 313–327 (2015).
+
+%\bibitem{K6}
+%N. Katzourakis. {\it A characterisation of $\infty$-harmonic and $p$-harmonic maps via affine variations in $L^\infty$}, Electron. J. Differential Equations , {\bf 29} (2017).
+
+\bibitem{KM}
+N. Katzourakis, R. Moser, {\it Existence, uniqueness and structure of second order absolute minimisers}, ARMA {\bf 231}(3), 1615-1634 (2019).
+
+\bibitem{KM1}
+N. Katzourakis, R. Moser, {\it Minimisers of supremal functionals and mass-minimising 1-currents}, Calc. Var.{ \bf 64}(26) (2025).
+
+\bibitem{KM2}
+N. Katzourakis, R. Moser, {\it Variational problems in $L^\infty$ involving semilinear second order differential operators}, ESAIM: COCV, {\bf 29}(76) (2023).
+
+\bibitem{KM3}
+N. Katzourakis, R. Moser, {\it Existence, uniqueness and characterisation of local minimisers in higher order Calculus of Variations in $L^\infty$}, ArXiv Preprint, https://arxiv.org/abs/2403.12625 (2024).
+
+\bibitem{KP1}
+N. Katzourakis, T. Pryer, {\it On the numerical approximation of $p$-Biharmonic and $\infty$-Biharmonic functions},
+Numerical Methods for Partial Differential Equations, {\bf 35}(1), 155-180 (2018).
+
+
+\bibitem{KP2}
+N. Katzourakis, T. Pryer, {\it 2nd order $L^\infty$ Variational Problems and the $\infty$-Polylaplacian},
+Advances in Calculus of Variations {\bf 13}, 115-140 (2020).
+
+\bibitem{KZ} C. Kreisbeck, E. Zappale, \emph{Lower semicontinuity and relaxation of nonlocal $ L^{\infty}$-functionals}, Calculus of Variations and PDE, \textbf{59} (138), 1--36 (2020).
+
+\bibitem{Ma}
+M. Manetti, {\it Topology}, Springer Cham, DOI 10.1007/978-3-319-16958-3 (2015).
+
+\bibitem{MWZ}
+ Q. Miao, C. Wang, Y. Zhou, \emph{Uniqueness of Absolute Minimizers for $ L^{\infty}$-Functionals Involving Hamiltonians $H(x,p)$}, Archive for Rational Mechanics and Analysis \textbf{223} (1), 141--198 (2017).
+
+\bibitem{M}
+R. Moser, 
+{\it Structure and classification results for the $\infty$-elastica problem}, American Journal
+of Mathematics {\bf 144}(5), 1299-1329 (2022).
+
+
+
+\bibitem{MS}
+R. Moser, H. Schwetlick, {\it Minimizers of a weighted maximum of the Gauss curvature}, Annals
+of Global Analysis and Geometry {\bf 41}, 199-207 (2012).
+
+\bibitem{PWZ} F. Peng, C. Wang, Y. Zhou, \emph{Regularity of absolute minimizers for continuous convex Hamiltonians}, Journal of Differential Equations, Volume 274 (2021), 1115-1164.
+
+ \bibitem{PZ} F. Prinari, E. Zappale, \emph{A Relaxation Result in the Vectorial Setting and Power Law Approximation for Supremal Functionals}, J Optim. Theory Appl., \textbf{186}, 412--452 (2020).
+
+\bibitem{RZ} A. M. Ribeiro, E. Zappale, \emph{Existence of minimisers for nonlevel convex functionals}, SIAM J. Control Opt., \textbf{52} (5), 3341--3370 (2014).
+
+\bibitem{RZ1}
+ A. M. Ribeiro, E. Zappale, \emph{Revisited convexity notions for $ L^\infty$ variational problems}, Revista Matem\'atica Complutense, published online, https://doi.org/10.1007/s13163-024-00499-0 (2024).
+
+\bibitem{OR}
+O. A. Oleĭnik, E. V. Radkevič, {\it On the analyticity of solutions of linear partial differential equations}, Math. USSR Sb. {\bf 19}(581) (1973).
+
+\bibitem{W}
+H. Whitney, {\it Analytic Extensions of Differentiable Functions Defined in Closed Sets}, Transactions
+of the American Mathematical Society {\bf 36}(1), 63-89 (1934).
+
+
+
+
+
+\end{thebibliography}
+
+\vspace{3mm}
+\textsc{Simone Carano}\\
+Department of Mathematical Sciences, University of Bath\\
+Bath BA2 7AY, UK\\
+E-mail: sc3705@bath.ac.uk\\
+
+\textsc{Nikos Katzourakis}\\
+Department of Mathematics and Statistics, University of Reading\\
+Whiteknights Campus, Pepper Lane, Reading RG6 6AX, UK\\
+E-mail: n.katzourakis@reading.ac.uk\\
+
+\textsc{Roger Moser}\\
+Department of Mathematical Sciences, University of Bath\\
+Bath BA2 7AY, UK\\
+E-mail: r.moser@bath.ac.uk
+
+
+
+
+
+\end{document}
+
+
+
+
+
+
+
+
+
+
+
