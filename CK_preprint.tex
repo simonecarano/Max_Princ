@@ -6,6 +6,9 @@
 \setlength{\topmargin}{0cm}
 \setlength{\parindent}{0.4cm}
 
+
+\usepackage{bbm}
+\usepackage{amsfonts}
 \usepackage{graphics,color}
 \usepackage{amsmath}
 \usepackage{amssymb}
@@ -99,15 +102,15 @@ The goal herein is to prove a maximum principle property for the absolute minimi
 $$
 E_\infty(u,U)\leq E_\infty (u+\Phi,U)\qquad\forall \Phi\in W^{k,\infty}_0(U,\R^N)\quad\forall U\subseteq\Om \mbox{ open}.
 $$
-Under very mild assumptions on the supremand $H$, we prove that for an absolute minimiser the essential supremum in \eqref{E infty} is ``attained at the boundary of $U$". In order to give a precise meaning to this expression, we refer to the supremum on $\partial U$ of the $L^\infty$-representative of $H(\cdot, \mathrm D ^{[k]}u)$, which is defined as
+Under very mild assumptions on the supremand $H$, we prove that for an absolute minimiser the essential supremum in \eqref{E infty} is ``attained at the boundary of $U$". In order to give a precise meaning to this expression, we refer to the supremum on $\partial U$ of the essential limsup of $H(\cdot, \mathrm D ^{[k]}u)$, which is defined as
 \begin{align}\label{rep}
 H(x,\mathrm D ^{[k]}u(x))^*:=\lim_{\eps\to 0}\esssup_{B_\eps(x)\cap U}H(\cdot,\mathrm D ^{[k]}u)\qquad\forall x\in \partial U.
 \end{align}
-Therefore, we say that $u\in W^{k,\infty}(\Om,\R^N)$ satisfies the maximum principle for $E_\infty$ in $\Om$ if 
+Therefore, we prove that $u\in W^{k,\infty}(\Om,\R^N)$ satisfies the following
 $$
 \esssup_U H(\cdot, \mathrm D ^{[k]}u)=\sup_{\partial U}H(\cdot,\mathrm D ^{[k]}u)^*\qquad\forall U\subseteq\Om \mbox{ open}.
 $$
-Notice that this property is only necessary for absolute minimisers: the cone function $u(x)=|x|$ belongs to $W^{1,\infty}(\R^n)$ and clearly satisfies the maximum principle for $E_\infty(u,\Om):=\esssup_\Om|\mathrm Du|$, but it is not an absolute minimiser. However, we will see that the maximum principle is a property that characterises a class of maps which is larger than the one of absolute minimisers, and are the ones that minimise $E_\infty$ with respect to compactly supported variations.
+This maximum principle property is only necessary for absolute minimisers: the cone function $u(x)=|x|$ belongs to $W^{1,\infty}(\R^n)$ and clearly satisfies the maximum principle for $E_\infty(u,\Om):=\esssup_\Om|\mathrm Du|$, but it is not an absolute minimiser. However, we will see that the maximum principle is a property that characterises a class of maps which is larger than the one of absolute minimisers, and are the ones that minimise $E_\infty$ with respect to compactly supported variations.
 
 Before stating our main results, we underline that $E_\infty$ in \eqref{E infty} is the general object of study in the $L^\infty$-Calculus of Variations, a field initiated by Aronsson in \cite{A}. His pioneering work on the scalar first order case (namely when $N=k=1$) has been well developed by now, and most challenges have been thoroughly analysed and understood (see \cite{Kbook} for a survey reference). More recently, in \cite{K1}, the second author approached the vectorial case ($N>1$), which turned out to be more involved and intriguing than the scalar one. For this reason, a complete theory is still far from reach. The situation is very similar in the higher order case ($k>1$), recently started in \cite{KM,KP2}.  Without any pretension of being exhaustive, we refer also to \cite{K1,K3,K4,KM1} for a glimpse of the literature on vectorial first order problems and to \cite{CKM,DK,KP1,KM2,KM3} for higher order ones. Furthermore, the fractional order case ($k\notin\N$) has been recently explored in \cite{CM}.  
 
@@ -133,7 +136,7 @@ Let $\Om\subset\R^n$ be a bounded open set and let $H:\Om\times\R^\alpha\to\R^+$
 \begin{align}\label{MP}
 \esssup_U H(\cdot, \mathrm D ^{[k]}u)=\sup_{\partial U}H(\cdot,\mathrm D ^{[k]}u)^*\qquad\forall U\subseteq\Om \mbox{ open}.
 \end{align}
-where $H(\cdot,\mathrm D ^{[k]}u)^*$ is the $L^\infty$-representative of $H(\cdot,\mathrm D ^{[k]}u)$, defined in \eqref{rep}.
+where $H(\cdot,\mathrm D ^{[k]}u)^*$ is the essential limsup of $H(\cdot,\mathrm D ^{[k]}u)$, defined in \eqref{rep}.
 \end{Theorem}
 Before stating our second theorem, we give the definition of absolute minimiser w.r.t. compactly supported variations. 
 \begin{Definition}[The class $\mathrm {AM}_c(\Om,\R^N)$]
@@ -188,75 +191,73 @@ Relevant examples of strongly radially increasing functions are:
 
 
 
-\subsection{Properties of convex functions}
-In this second preliminary section, we prove some results concerning convex functions on $\R^N$. In what follows, we denote by $F_\xi$ and $F_{\xi\xi}$ respectively the gradient and the Hessian of a function $F:\R^N\to\R$.
+\subsection{Properties of the essential limsup}
+In this second preliminary section, we give the definition of essential limsup, together with some properties.
 
-\begin{Lemma}\label{convex lemma}
-Let $F:\R^N\to\R$ be $C^2$ and convex, with $F(0)=0$. Then $$F(\xi)\leq F_\xi(\xi)\cdot\xi\quad\forall\xi\in\R^N.$$
-\end{Lemma}
-\begin{proof}
-For $\xi\in\R^N$, set $\Phi(\xi):=F_\xi(\xi)\cdot\xi$.
-Then $ \Phi_\xi(\xi)=F_{\xi\xi}(\xi)\xi+F_\xi(\xi)$. For any $\lambda\geq0$, since $F$ is convex, we get
+\begin{Definition}[Essential limsup]\label{ess limsup}
+Let $U\subseteq\R^n$ be a Borel set and $f\in L^\infty(U)$. We say that the function $f^*\in L^\infty(U)$, defined as
 $$
-\frac{d}{d\lambda}[\Phi(\lambda\xi)]=\Phi_\xi(\lambda\xi)\cdot\xi=\lambda F_{\xi\xi}(\lambda\xi)\xi\cdot\xi+ F_\xi(\lambda\xi)\cdot\xi\geq F_\xi(\lambda\xi)\cdot\xi=\frac{d}{d\lambda}[F(\lambda\xi)].
+f^*(x):=\lim_{\eps\to0}\esssup_{B_\eps(x)\cap U}f\qquad\forall x\in U,
 $$
-Therefore, by integrating on $(0,1)$, we conclude by using $F(0)=0$, as
-$$
-\Phi(\xi)=\int_0^1\frac{d}{d\lambda}[\Phi(\lambda\xi)]d\lambda\geq\int_0^1\frac{d}{d\lambda}[F(\lambda\xi)]d\lambda=F(\xi).
-$$
-\end{proof}
-
-We also need the next invertibility result.
-\begin{Lemma}\label{invertibility}
-Let $F:\R^N\to\R$ be $C^2$ and strictly convex, with $F\geq0$ and $F(0)=0$. Then the map $\Phi:\R^N\to\R^N$ defined by $$\Phi(\xi):=F(\xi)\frac{F_\xi(\xi)}{|F_\xi(\xi)|}\quad\forall\xi\in\R^N$$
-is a homeomorphism in $\R^N$.
-\end{Lemma}
-\begin{proof}
-We divide the proof in two steps, showing first that $\Phi$ is a local diffeomorphism in $\R^N\setminus\{0\}$, and secondly that it is a global homeomorphism in $\R^N$.\\
-{\textit{Step 1}}: We show that det$\Phi_\xi(\xi)>0$ away from the origin.\\
-Let us compute the derivative of $\Phi$ at fixed $\xi\neq0$:
-\begin{align*}
-\Phi_\xi&=\frac{1}{|F_\xi|}\left(F_\xi\otimes F_\xi+FF_{\xi\xi}\left( I-\frac{F_\xi\otimes F_\xi}{|F_\xi|^2}\right)\right)\\
-&=\frac{1}{|F_\xi|}\left(FF_{\xi\xi}+(|F_\xi|^2I-FF_{\xi\xi})\frac{F_\xi\otimes F_\xi}{|F_\xi|^2}\right),\quad\mbox{in }\R^N\setminus\{0\}.
-\end{align*}
-Notice that it is well defined and continuous in $\R^N\setminus\{0\}$, since our assumptions imply that both $F$ and $F_\xi$ vanish only at $\xi=0$.
-Now we recall the following formula concerning the determinant of rank 1-perturbation of invertible matrices:
-$$
-\mathrm{det}(A+a\otimes b)=(\mathrm{det}A)(1+(A^{-1}a)\cdot b)\quad\forall A\in GL_N(\R)\quad\forall a,b\in\R^N.
-$$
-Applying it to $A=FF_{\xi\xi}$, $a=(|F_\xi|^2I-FF_{\xi\xi})\frac{F_\xi}{|F_\xi|}$, $b=\frac{F_\xi}{|F_\xi|}$, we get
-\begin{align*}
-\mathrm{det}\Phi_\xi&=\frac{1}{|F_\xi|^N}\mathrm{det}(FF_{\xi\xi})\left(1+(FF_{\xi\xi})^{-1}\left((|F_\xi|^2I-FF_{\xi\xi})\frac{F_\xi}{|F_\xi|}\right)\cdot\frac{F_\xi}{|F_\xi|}\right)\\
-&=\frac{F^{N-1}}{|F_\xi|^N}\mathrm{det}(F_{\xi\xi})\left((F_{\xi\xi})^{-1}F_\xi\cdot F_\xi\right)\\
-&>0\quad\mbox{in }\R^N\setminus\{0\},
-\end{align*}
-where we used that det$(F_{\xi\xi})>0$ and that $(F_{\xi\xi})^{-1}$ is positive definite, by strict convexity of $F$.\\
-
-\noindent
-{\textit {Step 2}}: We show that $\Phi$ is a global homeomorphism in $\R^N$.\\
-Notice that $\Phi$ is continuous on $\R^N$ and $\Phi(0)=0$. Since $F$ is strictly convex, positive and null at $0$, we have that $\Phi^{-1}(\{0\})=\{0\}$, which implies $\Phi(\R^N\setminus\{0\})\subset\R^N\setminus\{0\}$.
- Let us prove that the restriction  $\Phi|_{\R^N\setminus\{0\}}:\R^N\setminus\{0\}\to\R^N\setminus\{0\}$ is surjective, by showing that $\Phi(\R^N\setminus\{0\})$ is open and closed in $\R^N\setminus\{0\}$.\\
-Since $\Phi$ is a local diffeomorphism in $\R^N\setminus\{0\}$, it is immediate to prove that $\Phi(\R^N\setminus\{0\})$ is open. To show the closedness, consider a sequence ${(\eta_k)}_k\subset\Phi(\R^N\setminus\{0\})$ converging to some $\eta_\infty\in\R^N\setminus\{0\}$ and let ${(\xi_k)}_k\in\R^N\setminus\{0\}$ be such that $\Phi(\xi_k)=\eta_k$. Our assumptions on $F$ implies 
-\begin{align}\label{phi to infty}
-\lim_{|\xi|\to\infty}F(\xi)=\lim_{|\xi|\to\infty}|\Phi(\xi)|=\infty.
+is the essential limsup of $f$.
+\end{Definition}
+From \cite[Proposition 9]{KSIAM}, we have that $f\leq f^*$ almost everywhere and $f^*$ is upper semicontinuous on $U$. In general, $f\neq f^*$ on a set of positive measure: for instance, consider $f=\mathbbm{1}_{\R\setminus K}$ for a nowhere dense compact set $K$, with $\mathscr L^n(K)>0$. Moreover, again by \cite[Proposition 9]{KSIAM}, the definition of $f^*$ allows us to give a pointwise meaning to the essential supremum, indeed for any Borel set $U\subseteq\R^n$ we have
+\begin{align}\label{pointwise sup}
+\sup_U f^*=\esssup_U f.
 \end{align}
-So, ${(\xi_k)}_k$ is necessarily bounded and there exists a subsequence ${(\xi_{k_j})}_j\subset{(\xi_k)}_k$ such that $\xi_{k_j}\to\xi_\infty$, for some $\xi_\infty\in\R^N$, as $j\to\infty$. Therefore, we conclude
+For a set $E\subset\R^n$ and $\rho>0$, we denote by $E^\rho$ the $\rho$-neighbourhood of $E$, namely $$E^\rho:=\{x\in\R^n: \mathrm{dist}(x,\partial E)<\rho\}.$$
+The following lemma is in order.
+
+\begin{Lemma}\label{lemma esssup}
+Let $U\subset\R^n$ be on open bounded set. Then for any $K\subseteq\partial U$ compact subset, we have
+$$
+\sup_K f^*=\lim_{\rho\to0} \esssup_{K^\rho\cap U}f.
+$$
+\end{Lemma}
+\begin{proof}
+We start with noticing that for every $x\in K$ there exists $\rho>0$ such that $B_\rho(x)\cap U\subset K^\rho\cap U$, so that
+$$
+\esssup_{B_\rho(x)\cap U}f\leq \esssup_{K^\rho\cap U}f.
+$$
+By passing to the limit as $\rho\to0$ in both sides and taking the supremum on $K$ in the left hand side, we obtain
+$$
+\sup_K f^*\leq\lim_{\rho\to0} \esssup_{K^\rho\cap U}f.
+$$
+It remains to prove the opposite inequality. By definition \eqref{ess limsup}, for any fixed $x\in K$ and $\sigma>0$, there exists $\rho_{x,\sigma}>0$ such that 
+\begin{align}\label{def of lim}
+f^*(x)\geq\esssup_{B_{\rho_{x,\sigma}}(x)\cap U}f-\sigma.
+\end{align}
+\begin{comment}
+Let $(x_j)_{j\in\N}\subset K$ be a dense sequence and set
+$$
+U_\sigma:=\bigcup_{j\in\N}\left(B_{\rho_{{x_j},\sigma}}(x_j)\cap U\right).
+$$
+Notice that $K\subset \partial U_\sigma$. Indeed, for every $x\in K$, let $(x_{j_k})\subset(x_j)$ be a subsequence such that $x_{j_k}\to x$. Since $x_{j_k}\in U_\sigma$ for every $k$, we have $x\in \bar{U}_\sigma$. But $K\cap U_\sigma=\varnothing$, so $K\subset \partial U_\sigma$.\\
+\end{comment}
+The family of balls $\{B_{\rho_{x,\sigma}}(x); \,x\in K\}$ is an open covering of $K$. Thus, we can extract a finite subcovering $\{B_{\rho_{x_i,\sigma}}(x_i); \,x_i\in K\} _{i=1,\ldots,m}$.
+For seek of brevity, let us denote $B_{i,\sigma}=B_{\rho_{x_i,\sigma}}(x_i)$.\\
+We claim that there exists $\rho_\sigma>0$ such that $K^{\rho_\sigma}\subset \bigcup_{i=1}^m B_{i,\sigma}$.\\
+By contradiction, suppose that for every $j\in\N$ there exists $y_j\in K^{1/j}\setminus\bigcup_{i=1}^m B_{i,\sigma}$. This is equivalent to say that 
+\begin{equation}\label{contr}
+\forall j\in\N\quad\exists y_j\in\R^n:\left\{
+\begin{aligned}
+ &y_j\notin B_{i,\sigma}\quad\forall i=1,\ldots,m,\\
+&\mathrm{dist}(y_j,K)\leq 1/j.
+\end{aligned}
+\right.
+\end{equation}
+ Let $\bar y_j\in K$ be a point realising $d(y_j,K)$. Since $K$ is compact, there exists a subsequence $(\bar y_{j_k})\subset(\bar y_j)$ such that $\bar y_{j_k}\to \bar x$ as $k\to\infty$, for some $\bar x\in K$. Moreover, since $\mathrm{dist}(y_{j_k},\bar y_{j_k})\leq1/{j_k}$, we have also that $y_{j_k}\to \bar x$ as $k\to\infty$. But being $\{B_{i,\sigma}\}_{i=1,\ldots,m}$ a covering of $K$, we must have that eventually $y_{j_k}\in B_{i,\sigma}$ for some $i\in\{1,\ldots,m\}$, which contradicts \eqref{contr}.\\
+Now, define $U_\sigma=\bigcup_{i=1}^m (B_{i,\sigma}\cap U)$ and notice that ${K^\rho\cap U}\subset U_\sigma$. Thus, using also \eqref{def of lim}, we have
 \begin{align*}
-\eta_\infty=\lim_{j\to\infty}\eta_{k_j}=\lim_{j\to\infty}\Phi(\xi_{k_j})=\Phi(\xi_\infty),
+\lim_{\rho\to0}\esssup_{K^\rho\cap U}f&\leq\esssup_{K^{\rho_\sigma}\cap U}f\\
+&\leq \esssup_{U_\sigma}f\\
+&\leq\max_{i=1,\ldots,m}\esssup_{B_{i,\sigma}\cap U}f\\
+&\leq\max_{i=1,\ldots,m} f^*(x_i)+\sigma\\
+&\leq\sup_K f^*+\sigma.
 \end{align*}
-that also ensures $\xi_\infty\neq0$.\\
-%In particular, we have proved that $\Phi(\R^N)=\R^N$, i.e. $\Phi$ is surjective.  
-Now we claim that any $\eta\in\R^N\setminus\{0\}$ has finitely many preimages. Indeed, if for the sake of contradiction we assume there exists a sequence of distinct points ${(\xi_k)}_k\subset\R^N$ such that $\Phi(\xi_k)=\eta$, then ${(\xi_k)}_k$ is bounded, from \eqref{phi to infty}. So, there exists a subsequence ${(\xi_{k_j})}_j\subset{(\xi_k)}_k$ such that $\xi_{k_j}\to\xi_\infty$, for some $\xi_\infty\in\R^N\setminus\{0\}$, as $j\to\infty$. Then any neighbourhood of $\xi_\infty$ contains infinitely many preimages of $\eta$, contradicting the local invertibility of $\Phi$ in $\R^N\setminus\{0\}$. Therefore, we have proved that $\Phi$ is a topological covering of $\R^N\setminus\{0\}$. For $N\geq3$, we infer that $\Phi$ is a homeomorphism in $\R^N\setminus\{0\}$, since it is a universal covering of a simply connected space (see \cite[Prop. 13.30]{Ma}). Finally, since $\Phi$ is continuous at $0$ and $\Phi^{-1}(0)=\{0\}$, it is not difficult to see that $\Phi$ extends to a global homeomorphism in $\R^N$, for any $N\geq3$.\\
-It remains to discuss the case $N\leq 2$. The one dimensional case is immediate, so let us assume $N=2$. Extend $F$ to $\R^3$ by defining the function
-$$
-\tilde F(\xi_1,\xi_2,\xi_3)=F(\xi_1,\xi_2)+\xi_3^2.
-$$
-Then $\tilde F:\R^3\to\R$ is $C^2$ and strictly convex, with $\tilde F\geq0$ and $\tilde F(0)=0$. Thanks to the previuos argument, the map
-$$
-\tilde \Phi(\xi)=\tilde F(\xi)\frac{\tilde F_\xi(\xi)}{|\tilde F_\xi(\xi)|}\quad\forall\xi\in\R^3
-$$
-is a homeomorphism in $\R^3$. Since $\tilde \Phi|_{{\R^2}\times\{0\}}=\Phi$, we obtain the conclusion.
+By letting $\sigma\to0$, we conclude the proof.
 \end{proof}
+
 
 
 
@@ -631,6 +632,9 @@ R. Hardt, L. Simon, {\it Nodal sets for solutions of elliptic equations}, J. Dif
 \bibitem{K1}
 N. Katzourakis, {\it $L^\infty$ Variational Problems for maps and the Aronsson PDE System}, J. Differential
 Equations {\bf 253}(7), 2123 - 2139 (2012).
+
+\bibitem{KSIAM}
+N. Katzourakis, {\it An $L^\infty$ regularisation strategy to the inverse source identification problem for elliptic equations}, SIAM...................................
 
 %\bibitem{K2}
 %N. Katzourakis. {\it Explicit 2D $\infty$-harmonic maps whose interfaces have junctions
