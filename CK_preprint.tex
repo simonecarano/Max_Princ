@@ -132,11 +132,11 @@ $$
 E'_\infty(u,U)=g\left(\esssup_U H(\cdot, \mathrm D^{[k]}u)\right)=g\left(\esssup_{\partial U}H(\cdot, \mathrm D^{[k]}u)^*\right)=\left(\esssup_{\partial U}G(\cdot, \mathrm D^{[k]}u)^*\right),
 $$ 
 i.e. $u$ satisfies the maximum principle for $E_\infty'$ as well.\\
-The second assumption on $H$ concerns the uniformity w.r.t. $x$ of its modulus continuity: since $H(x,\cdot)$ is continuous in $\R^\alpha$, it is uniformly continuous on every ball $B_R(0)\subset\R^\alpha$. Thus, we require that the modulus of continuity on $B_R(0)$ is independent of $x$. More precisely, we assume
+The second assumption on $H$ concerns the uniformity w.r.t. $x$ of its modulus continuity: since $H(x,\cdot)$ is continuous in $\R^\alpha$, it is uniformly continuous on every closed ball $\overline{\mathbb B}_R(0)\subset\R^\alpha$. Thus, we require that the modulus of continuity on $B_R(0)$ is independent of $x$. More precisely, we assume
 \begin{equation}\label{uniformity}
 \begin{array}{l}
 \forall R>0 \,\,\exists\, \omega_R\in C(\mathbb{R}^+)\ \text{non-decreasing, with } \omega_R(0)=0: \\
-\multicolumn{1}{c}{|H(x,X)-H(x,X')|\leq\omega_R(|X-X'|),\qquad \text{a.e. } x\in\Omega,\quad\forall X\in B_R(0)}.
+\multicolumn{1}{c}{|H(x,X)-H(x,X')|\leq\omega_R(|X-X'|),\qquad \text{a.e. } x\in\Omega,\quad\forall X\in \overline{\mathbb B}_R(0)}.
 \end{array}
 \end{equation}
 
@@ -184,9 +184,9 @@ $$
 \end{enumerate}
 \end{Definition}
 Notice that $i)\Rightarrow ii)\Rightarrow iii)$, and implications do not invert in general.
-The above definition is in complete analogy with the notion of level convexity and its stronger versions. In particular, any  level convex (resp. strictly level convex) function with global minimum at the origin is radially non-decreasing (resp. strictly radially increasing). Of course, a radially non-decreasing function need not to be level convex, since its level sets need only to be star shaped w.r.t. the origin.
+The above definition is in complete analogy with the notion of level convexity and its stronger versions. In particular, any  level convex (resp. strictly level convex) function with global minimum at the origin is radially non-decreasing (resp. strictly radially increasing). Of course, a radially non-decreasing function need not to be level convex, since its level sets only need to be star shaped w.r.t. the origin.
 
-Strongly radially increasing functions can be seen as strict radially increasing functions with a modulus of monotonicity. This class of functions will be particularly important for us, since in the proof of Theorem \ref{thm1} we will use it to approximate  radially non-decreasing functions in the uniform convergence.
+Strongly radially increasing functions can be seen as strict radially increasing functions with a modulus of monotonicity. This class of functions will be particularly important for us, since in the proof of Theorem \ref{thm1} we will approximate radially non-decreasing functions with stronly radially increasing ones in the uniform convergence.
 
 
 \begin{Example}
@@ -194,7 +194,7 @@ Relevant examples of strongly radially increasing functions are:
 \begin{itemize}
 \item Any strongly convex function with global minimum at the origin;
 \item The cone function associated to a (smooth) open set $S\subset\R^\alpha$ star shaper w.r.t. the origin with $\nu_{S}(X)\cdot X>0$ for every $X\in\partial S$, where $\nu_S$ is the outward normal vector to $\partial S$.
-\item Functions of the form $H_{\lambda,\beta}(X)=H(X)+\lambda|X|^\beta$, for $\lambda,\beta>0$ and $H$ radially non-decreasing. 
+\item Functions of the form $H_{\lambda,\beta}(X)=H(X)+\lambda|X|^\beta$, with $\lambda,\beta>0$ and $H$ radially non-decreasing. 
 \end{itemize}
 \end{Example}
 
@@ -284,8 +284,12 @@ From definition \ref{ess limsup}, by passing to the limit as $\rho\to0$ and then
 \begin{align}\label{one ineq}
 \sup_{\partial U}H(\cdot,\mathrm D ^{[k]}u)^*\leq\esssup_U H(\cdot, \mathrm D ^{[k]}u).
 \end{align}
-Let us prove the opposite inequality. To this purpose, set $$M:=\esssup_U H(\cdot, \mathrm D ^{[k]}u).$$
-If $M=0$, there is nothing to prove, so we can suppose that $M>0$.
+Let us prove the opposite inequality. We divide the proof in two steps: First, we treat the case when $H(x,\cdot)$ is strongly radially increasing. Then, we will deal with the general case.\\
+
+\noindent
+\textit{Step 1:} $H(x,\cdot)$ strongly radially increasing on $\R^\alpha$.\\ 
+We start by setting $$M:=\esssup_U H(\cdot, \mathrm D ^{[k]}u).$$
+If $M=0$, there is nothing to prove, so we can assume that $M>0$.
 For seek of contradiction, assume that \eqref{one ineq} holds strict. Then, by applying Lemma \ref{lemma esssup} to $K=\partial U$, one can find $\delta>0$ such that
 $$
 \lim_{\rho\to0}\esssup_{U^\rho\cap U}H(\cdot, \mathrm D ^{[k]}u)+2\delta\leq M.
@@ -298,28 +302,60 @@ By possibly reducing $\eps$ in size, we can choose a function $\varphi_\eps\in C
 $$
 u_\lambda:=\lambda u + (1-\lambda)\varphi_\eps u.
 $$
-Notice that $u_\lambda\in W^{k,\infty}{(U,\R^N)}$. Moreover, $u_\lambda=u$ on $U^{\eps/2}\cap U$, so that $u_\lambda\in u+W^{k,\infty}_c(U,\R^N)$.\\
+Notice that $u_\lambda\in W^{k,\infty}{(U,\R^N)}$. Moreover, $u_\lambda=u$ on $U^{\eps/2}\cap U$, so that 
+$$u_\lambda\in u+W^{k,\infty}_c(U,\R^N)\subset W_u^{1,\infty}(U,\R^N).$$
 Let us compute $\mathrm D^{[k]} u_\lambda$.  For every $h=1,\ldots, k$, we have
-$$
+\begin{align}\label{deriv product}
 \mathrm D^hu_\lambda=\lambda \mathrm D^h u+(1-\lambda)\mathrm D^h(\varphi_\eps u).
-$$
+\end{align}
 By the Leibniz formula,
-$$
+\begin{align*}
 \partial ^h_{i_1,\ldots,i_h}(\varphi_\eps u)=\sum_{j=0}^h \binom{h}{j}(\partial^{h-j}_{i_{j+1},\ldots, i_h} \varphi_\eps)(\partial^{j}_{i_{1},\ldots, i_j} u).
-$$
+\end{align*}
 In particular, for every $h=0,\ldots, k$, we can estimate
 $$
-|\mathrm D^h(\varphi_\eps u)|\leq 2^h\|\varphi_\eps\|_{W^{h,\infty}(U)}\|u\|_{W^{h,\infty}(U,\R^N)}\qquad \mbox{in }U.
+|\mathrm D^h(\varphi_\eps u)|\leq 2^h\|\varphi_\eps\|_{W^{h,\infty}(U)}\|u\|_{W^{h,\infty}(U,\R^N)}\qquad \mbox{in }U, 
 $$
-
-
-
-
-
-
-
-
-
+which gives
+\begin{align}\label{crude est}
+|\mathrm D^{[k]}(\varphi_\eps u)|\leq 2^{k+1}\|\varphi_\eps\|_{W^{k,\infty}(U)}\|u\|_{W^{k,\infty}(U,\R^N)}\qquad \mbox{in }U.
+\end{align}
+Putting together \eqref{deriv product} and \eqref{crude est}, we obtain
+\begin{align}\label{fund est}
+|\mathrm D^{[k]}u_\lambda-\lambda \mathrm D^{[k]}u|\leq(1-\lambda)2^{k+1}\|\varphi_\eps\|_{W^{k,\infty}(U)}\|u\|_{W^{k,\infty}(U,\R^N)}\qquad\mbox{in }U.
+\end{align}
+In particular, if we set 
+$$C_1=C_1(\eps,k,\lambda)=(1-\lambda)2^{k+1}\|\varphi_\eps\|_{W^{k,\infty}(U)}+\lambda,$$
+then
+$$
+|\mathrm D^{[k]}u_\lambda|\leq C_1\|u\|_{W^{k,\infty}(U,\R^N)}\qquad\mbox{in }U.
+$$
+Now, we recall assumption \eqref{uniformity} and apply it to $$R:=C_1\|u\|_{W^{k,\infty}(U,\R^N)}, \qquad\mathrm D^{[k]}u_\lambda(x),\,\lambda\mathrm D^{[k]}u(x)\in \overline{\mathbb B}_R(0)\quad\mbox{for a.e.   }x\in U,$$
+obtaining the existence of a continuous function $\omega=\omega_R:\R^+\to\R^+$, non-decreasing, with $\omega(0)=0$, such that
+\begin{align*}
+|H(x,\mathrm D^{[k]}u_\lambda(x))-H(x,\lambda\mathrm D^{[k]}u(x))|\leq \omega(|\mathrm D^{[k]}u_\lambda(x)-\lambda\mathrm D^{[k]}u(x)|)\qquad\mbox{ a.e. }x\in U.
+\end{align*} 
+From \eqref{fund est} and the monotonicity of $\omega$, setting
+$$
+C_2=C_2(\eps,k)=2^{k+1}\|\varphi_\eps\|_{W^{k,\infty}(U)}\|u\|_{W^{k,\infty}(U,\R^N)},
+$$
+we get
+\begin{align*}
+|H(\cdot,\mathrm D^{[k]}u_\lambda)-H(\cdot,\lambda\mathrm D^{[k]}u)|\leq \omega\left((1-\lambda)C_2\right)\qquad\mbox{ a.e. in } U.
+\end{align*}
+By restricting the previous estimate to $U^\eps\cap U$ and passing to the essential supremum on this set, we have
+\begin{align*}
+\esssup_{U^\eps\cap U}H(\cdot, \mathrm D^{[k]}u_\lambda)&\leq\esssup_{U^\eps\cap U}H(\cdot, \lambda\mathrm D^{[k]}u)+ \omega\left((1-\lambda)C_2\right)\\
+&\leq M-\delta +\omega\left((1-\lambda)C_2\right),
+\end{align*}
+where in the last inequality we have applied \eqref{from contr}. Now, for $\lambda$ sufficiently close to $1$, by continuity of $\omega$, we have $\omega\left((1-\lambda)C_2\right)\leq\delta/2$, giving
+\begin{align}\label{first key}
+\esssup_{U^\eps\cap U}H(\cdot, \mathrm D^{[k]}u_\lambda)\leq M-\frac{\delta}{2}<M.
+\end{align}
+On the other hand, let us prove that
+$$
+\esssup_{U\setminus U^\eps}H(\cdot, \mathrm D^{[k]}u_\lambda)<M.
+$$
 
 
 
