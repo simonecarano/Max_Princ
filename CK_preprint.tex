@@ -189,7 +189,7 @@ The above definition is in complete analogy with the notion of level convexity a
 Strongly radially increasing functions can be seen as strict radially increasing functions with a modulus of monotonicity. This class of functions will be particularly important for us, since in the proof of Theorem \ref{thm1} we will approximate radially non-decreasing functions with stronly radially increasing ones in the uniform convergence.
 
 
-\begin{Example}
+\begin{Example}\label{Ex}
 Relevant examples of strongly radially increasing functions are:
 \begin{itemize}
 \item Any strongly convex function with global minimum at the origin;
@@ -274,6 +274,7 @@ By letting $\sigma\to0$, we conclude the proof.
 
 \section{Proof of the main results}\label{sec:proofs}
 This section is devoted to the proof of Theorems \ref{thm1} and \ref{thm2}. The proof of the latter is basically a consequence of the argument in the proof of the former. Indeed, the key idea in the proof of Theorem \ref{thm1} is to find, for every $U\subseteq\Om$, a suitable competitor in $u_\lambda\in W^{k,\infty}_u(U,\R^N)$ to compare with the absolute minimiser $u$. Actually, it turns out that $u_\lambda\in u+W^{k,\infty}_c(U,\R^N)$, and this will be the crucial observation for the proof of Theorem \ref{thm2}.\\
+We start with proving Theorem \ref{thm1}: the key argument is based on the case $H$ is strongly radially increasing in $X$ uniformly w.r.t. $x$. The result in the general case, i.e. when $H$ is only radially non-decreasing in $X$, is recovered by an approximation argument.\\
 
 \textit{Proof of Theorem \ref{thm1}}:\\
 Fix $U\subseteq\Om$ an open subset. First, notice that for every $x\in\partial U$ and every $\rho>0$, we clearly have
@@ -284,11 +285,18 @@ From definition \ref{ess limsup}, by passing to the limit as $\rho\to0$ and then
 \begin{align}\label{one ineq}
 \sup_{\partial U}H(\cdot,\mathrm D ^{[k]}u)^*\leq\esssup_U H(\cdot, \mathrm D ^{[k]}u).
 \end{align}
-Let us prove the opposite inequality. We divide the proof in two steps: First, we treat the case when $H(x,\cdot)$ is strongly radially increasing. Then, we will deal with the general case.\\
+Let us prove the opposite inequality. We divide the proof in two steps: First, we treat the case when $H(x,\cdot)$ is strongly radially increasing, uniformly in $x$. Then, we will deal with the general case.\\
 
 \noindent
-\textit{Step 1:} $H(x,\cdot)$ strongly radially increasing on $\R^\alpha$.\\ 
-We start by setting $$M:=\esssup_U H(\cdot, \mathrm D ^{[k]}u).$$
+\textit{Step 1:} $H(x,\cdot)$ strongly radially increasing on $\R^\alpha$, uniformly w.r.t $x\in \Omega$.\\ 
+Assume that there exists a continuous function $c:[0,1]\times\R^+\to\R^+$, with $c(1,\cdot)=c(\cdot,0)=0$ and $c>0$ in $(0,1)\times(0,\infty)$, such that
+\begin{align}\label{strong mon}
+H(x,tX)\leq H(x,X)-c(t,|X|)\qquad\forall t\in[0,1]\quad\forall X\in\R^\alpha\quad\mbox{a.e. }x\in \Om.
+\end{align}
+We start by setting 
+\begin{align}\label{M}
+M:=\esssup_U H(\cdot, \mathrm D ^{[k]}u).
+\end{align}
 If $M=0$, there is nothing to prove, so we can assume that $M>0$.
 For seek of contradiction, assume that \eqref{one ineq} holds strict. Then, by applying Lemma \ref{lemma esssup} to $K=\partial U$, one can find $\delta>0$ such that
 $$
@@ -303,7 +311,9 @@ $$
 u_\lambda:=\lambda u + (1-\lambda)\varphi_\eps u.
 $$
 Notice that $u_\lambda\in W^{k,\infty}{(U,\R^N)}$. Moreover, $u_\lambda=u$ on $U^{\eps/2}\cap U$, so that 
-$$u_\lambda\in u+W^{k,\infty}_c(U,\R^N)\subset W_u^{1,\infty}(U,\R^N).$$
+\begin{align}\label{u lambda}
+u_\lambda\in u+W^{k,\infty}_c(U,\R^N)\subset W_u^{1,\infty}(U,\R^N).
+\end{align}
 Let us compute $\mathrm D^{[k]} u_\lambda$.  For every $h=1,\ldots, k$, we have
 \begin{align}\label{deriv product}
 \mathrm D^hu_\lambda=\lambda \mathrm D^h u+(1-\lambda)\mathrm D^h(\varphi_\eps u).
@@ -353,17 +363,80 @@ where in the last inequality we have applied \eqref{from contr}. Now, for $\lamb
 \esssup_{U^\eps\cap U}H(\cdot, \mathrm D^{[k]}u_\lambda)\leq M-\frac{\delta}{2}<M.
 \end{align}
 On the other hand, let us prove that
-$$
+\begin{align}\label{second key}
 \esssup_{U\setminus U^\eps}H(\cdot, \mathrm D^{[k]}u_\lambda)<M.
+\end{align}
+To this purpose, notice that, since $\varphi_\eps=0$ in $U\setminus U^\eps$, we have $u_\lambda=\lambda u$ in $U\setminus U^\eps$. Thus, set $$\overline M:=\esssup_U H(\cdot, \lambda \mathrm D^{[k]}u)$$ and aim at proving $\overline M<M$. Without loss of generality, we can assume $\overline M>0$. So, by definition of essential supremum, for every $\delta\in (\overline M/2,\overline M)$, there exists $x_\delta\in U$ such that
+\begin{align}\label{def ess}
+ H(x_\delta,\lambda \mathrm{D}^{[k]}u(x_\delta))\geq\overline M-\delta.
+\end{align}
+On the other hand, by recalling assumption \eqref{strong mon} and \eqref{M}, we have
+\begin{align}
+ H(x_\delta,\lambda \mathrm{D}^{[k]}u(x_\delta))&\leq H(x_\delta, \mathrm{D}^{[k]}u(x_\delta))-c(\lambda, |\mathrm D^{[k]}u(x_\delta)|)\nonumber\\
+&\leq M-c(\lambda, |\mathrm D^{[k]}u(x_\delta)|).\label{from strong}
+\end{align}
+Now we claim that there exists $\sigma>0$ independent of $\delta$ such that
+\begin{align}\label{c}
+c(\lambda,|\mathrm D^{[k]}u(x_\delta)|)\geq\sigma.
+\end{align}
+Indeed, from \eqref{def ess} and the continuity of $H$ at $X=0$, we infer that $|\mathrm D^{[k]}u(x_\delta)|$ is bounded away from $0$. Moreover, since $u\in W^{k,\infty}(\Om,\R^N)$, we have that $|\mathrm D^{[k]}u(x_\delta)|$ is also bounded from above. In other words, there exist two constants $R\geq r>0$, independent of $\delta$, such that
 $$
+r\leq| \mathrm D^{[k]}u(x_\delta)|\leq R.
+$$
+Hence, since $c>0$ in $(0,1)\times(0,\infty)$, by continuity we have $$c(\lambda,| \mathrm D^{[k]}u(x_\delta)|)\geq\min_{\rho\in[r,R]}c(\lambda,\rho)=:\sigma>0.$$
+Putting together \eqref{def ess}, \eqref{from strong}, and \eqref{c}, we obtain
+$$
+\overline M-\delta\leq M-c(\lambda, |\mathrm D^{[k]}u(x_\delta)|)\leq M-\sigma,
+$$
+for $\sigma>0$ independent of $\delta$. We conclude that $\overline M\leq M-\sigma<M$, by letting $\delta\to 0$.\\
+As a consequence, we deduce \eqref{second key}, indeed
+\begin{align*}
+\esssup_{U\setminus U^\eps}H(\cdot, \mathrm D^{[k]}u_\lambda)&=\esssup_{U\setminus U^\eps}H(\cdot, \lambda\mathrm D^{[k]}u)\\
+&\leq \esssup_{U}H(\cdot, \lambda\mathrm D^{[k]}u)\\
+&=\overline M<M
+\end{align*}
+Finally, by recalling \eqref{M}, and the inequalities \eqref{first key} and \eqref{second key}, we obtain
+$$
+\esssup_{U}H(\cdot, \mathrm D^{[k]}u_\lambda)\leq \max\left\{\esssup_{U^\eps\cap U}H(\cdot, \mathrm D^{[k]}u_\lambda), \esssup_{U\setminus U^\eps}H(\cdot, \mathrm D^{[k]}u_\lambda)\right\}<M.
+$$
+This inequality and \eqref{u lambda} contradict the absolute minimality of $u$.\\
 
-
-
-
-
-
-
-
+\noindent
+\textit{Step 2:} General case.\\
+Assume that $H(x,\cdot)$ is radially non-decreasing for almost every $x\in\Om$. For $\eps>0$, consider the function $H_\eps:\Om\times\R^\alpha\to\R^+$ defined as
+$$
+H_\eps(x,X)=H(x,X)+\eps|X|^2 \qquad\forall X\in\R^\alpha\quad\mbox{a.e. }x\in\Om.
+$$
+Then, $H_\eps$ is strongly radially increasing in $X$, uniformly w.r.t. $x$ (see also Example \ref{Ex}): indeed, it is enough to take $c(t,\rho):=\eps(1-t^2)\rho^2$. Hence, by \eqref{one ineq} and \textit{Step 1}, for every open subset $U\subseteq\Om$, we have
+\begin{align}\label{eq H eps}
+\esssup_U H_\eps(\cdot, \mathrm D ^{[k]}u)=\sup_{\partial U}H_\eps(\cdot,\mathrm D ^{[k]}u)^*.
+\end{align}
+Moreover, for every compact subset $K\subset\R^\alpha$, $H_\eps\to H$ uniformly in $\Om\times K$ as $\eps\to 0$. Therefore, recalling Lemma \eqref{lemma esssup}, we have
+\begin{align*}
+\sup_{\partial U}H_\eps(\cdot,\mathrm D ^{[k]}u)^*&=\lim_{\rho\to0}\esssup_{(\partial U)^\rho\cap U}H_\eps(\cdot, \mathrm D ^{[k]}u)\\
+&\leq \inf_{\rho>0}\esssup_{(\partial U)^\rho\cap U}H_\eps(\cdot, \mathrm D ^{[k]}u).
+\end{align*}
+In particular, for every $\rho>0$,
+$$
+\sup_{\partial U}H_\eps(\cdot,\mathrm D ^{[k]}u)^*\leq \esssup_{(\partial U)^\rho\cap U}H_\eps(\cdot, \mathrm D ^{[k]}u).
+$$
+Passing to the limit in both sides as $\eps\to 0$, by uniform convergence of $H_\eps$ to $H$, we get
+$$
+\lim_{\eps\to0}\sup_{\partial U}H_\eps(\cdot,\mathrm D ^{[k]}u)^*\leq\esssup_{(\partial U)^\rho\cap U}H(\cdot, \mathrm D ^{[k]}u)\qquad\forall \rho>0.
+$$
+Sending $\rho\to0$ in the right hand side, using again Lemma \eqref{lemma esssup}, we obtain
+\begin{align}\label{eq1}
+\lim_{\eps\to0}\sup_{\partial U}H_\eps(\cdot,\mathrm D ^{[k]}u)^*\leq\sup_{\partial U}H(\cdot,\mathrm D ^{[k]}u)^*.
+\end{align}
+On the other hand, by recalling \eqref{one ineq} and the uniform convergence of $H_\eps$ to $H$, we can write
+\begin{align}\label{eq2}
+\sup_{\partial U}H(\cdot,\mathrm D ^{[k]}u)^*\leq\esssup_U H(\cdot, \mathrm D ^{[k]}u)=\lim_{\eps\to0}\esssup_U H_\eps(\cdot, \mathrm D ^{[k]}u).
+\end{align}
+Putting together \eqref{eq1} and \eqref{eq2}, identity \eqref{eq H eps} allows to conclude
+$$
+\esssup_U H(\cdot, \mathrm D ^{[k]}u)=\sup_{\partial U}H(\cdot,\mathrm D ^{[k]}u)^*.
+$$
+The proof is completed. \qed
 
 
 
