@@ -102,7 +102,7 @@ The goal herein is to prove a maximum principle property for the absolute minimi
 $$
 E_\infty(u,U)\leq E_\infty (u+\Phi,U)\qquad\forall \Phi\in W^{k,\infty}_0(U,\R^N)\quad\forall U\subseteq\Om \mbox{ open}.
 $$
-Under very mild assumptions on the supremand $H$, we prove that for an absolute minimiser the essential supremum in \eqref{E infty} is ``attained at the boundary of $U$". In order to give a precise meaning to this expression, we refer to the supremum on $\partial U$ of the essential limsup of $H(\cdot, \mathrm D ^{[k]}u)$, which is defined as
+Under very mild assumptions on the supremand $H$, we prove that for an absolute minimiser the essential supremum in \eqref{E infty} is ``attained at the boundary of $U$". In order to give a precise meaning to this expression, we refer to the supremum on $\partial U$ of the \textit{essential limsup} of $H(\cdot, \mathrm D ^{[k]}u)$, which is defined as
 \begin{align}\label{rep}
 H(x,\mathrm D ^{[k]}u(x))^*:=\lim_{\eps\to 0}\esssup_{B_\eps(x)\cap U}H(\cdot,\mathrm D ^{[k]}u)\qquad\forall x\in \partial U.
 \end{align}
@@ -113,18 +113,23 @@ We say that $u\in W^{k,\infty}(\Om,\R^N)$ satisfies the maximum principle for $E
 \esssup_U H(\cdot, \mathrm D ^{[k]}u)=\sup_{\partial U}H(\cdot,\mathrm D ^{[k]}u)^*\qquad\forall U\subseteq\Om \mbox{ open}.
 \end{align}
 \end{Definition}
+\noindent
+If $u\in C^k(\overline\Om,\R^N)$ and $H\in C(\Om\times\R^\alpha)$, this can be rephrased as
+$$
+\max_{\overline U} H(\cdot, \mathrm D ^{[k]}u)=\max_{\partial U}H(\cdot,\mathrm D ^{[k]}u)^*\qquad\forall U\subseteq\Om \mbox{ open}.
+$$
 We prove that this property is necessarily satisfied by absolute minimisers. Although it is not sufficient: the cone function $u(x)=|x|$ belongs to $W^{1,\infty}(\R^n)$ and clearly satisfies the maximum principle for $E_\infty(u,\Om):=\esssup_\Om|\mathrm Du|$, but it is not an absolute minimiser. However, we will see that the maximum principle is a property that characterises a class of maps which is larger than the one of absolute minimisers, and are the ones that minimise $E_\infty$ with respect to compactly supported variations.
 
-Before stating our main results, we underline that $E_\infty$ in \eqref{E infty} is the general object of study in the $L^\infty$-Calculus of Variations, a field initiated by Aronsson in \cite{A}. His pioneering work on the scalar first order case (namely when $N=k=1$) has been well developed by now, and most challenges have been thoroughly analysed and understood (see \cite{Kbook} for a survey reference). More recently, in \cite{K1}, the second author approached the vectorial case ($N>1$), which turned out to be more involved and intriguing than the scalar one. For this reason, a complete theory is still far from reach. The situation is very similar in the higher order case ($k>1$), recently started in \cite{KM,KP2}.  Without any pretension of being exhaustive, we refer also to \cite{K1,K3,K4,KM1} for a glimpse of the literature on vectorial first order problems and to \cite{CKM,DK,KP1,KM2,KM3} for higher order ones. Furthermore, the fractional order case ($k\notin\N$) has been recently explored in \cite{CM}.  
+Before stating our main results, we underline that $E_\infty$ in \eqref{E infty} is the general object of study in the $L^\infty$-Calculus of Variations, a field initiated by Aronsson in \cite{A}. His pioneering work on the scalar first order case (namely when $N=k=1$) has been well developed by now, and most challenges have been thoroughly analysed and understood (see \cite{Kbook} for a survey reference). More recently,  the vectorial case ($N>1$) and the higher order case ($k>1$) have been approached respectively in \cite{K1} and \cite{KM,KP2}. In these contexts, a complete theory is still far from reach. Without any pretension of being exhaustive, we refer also to \cite{K3,K4,KM1} for a glimpse of the literature on vectorial first order problems and to \cite{CKM,DK,KP1,KM2,KM3} for higher order ones. Furthermore, the fractional order case ($k\notin\N$) has been recently explored in \cite{CM}.  
 
-It is worth to mention that, given boundary data $u_0\in W^{k,\infty}(\Om,\R^N)$, the existence (and/or uniqueness) of absolute minimisers to the Dirichlet problem in $W_{u_0}^{k,\infty}(\Om,\R^N)$ associated to $E_\infty$ in \eqref{E infty} 
+It is worth mentioning that, given boundary data $u_0\in W^{k,\infty}(\Om,\R^N)$, the existence (and/or uniqueness) of absolute minimisers to the Dirichlet problem in $W_{u_0}^{k,\infty}(\Om,\R^N)$ associated to $E_\infty$ in \eqref{E infty} 
  is an open problem already when $k=1$ and $n,N>1$ or when $N=1$ and $n,k>1$. There are some exceptions in the second order case, whenever $H$ has special dependence in the second derivatives of $u$. We refer to \cite{KM, KM3, KP2} for the scalar second order case and to \cite{CKM} for the vectorial one (see also \cite{CM} for the fractional case).
 
 Now we proceed to specify the assumptions on the function $H$. By denoting $X=(X_0,X_1,\ldots,X_k)\in R^N\times \R^{Nn}\times\ldots\R^{Nn^k}=\R^\alpha$, we assume that $H:\Om\times\R^\alpha\to\R$ is Carathéodory and radially non-decreasing w.r.t. $X$, i.e. for almost every $x\in\Om$ and every $X\in\R^\alpha$ the function
 $$
 t\mapsto H(x,tX) \mbox{ is non-decreasing in }\R^+.
 $$
-Notice that radial monotonicity implies that, for almost every $x\in\Om$, $H(x,\cdot)$ has a global minimum at $X=0$. Without loss of generality we can assume that $H(x,0)=0$ a.e. $x\in\Om$, so that $H$ takes values in $\R^+$ and we can write $E_\infty(u,U)=\|H(\cdot, \mathrm D^{[k]}u)\|_{L^\infty(U)}$ for every $U\subseteq\Om$ open.
+Notice that radial monotonicity implies that, for almost every $x\in\Om$, $H(x,\cdot)$ has a global minimum at $X=0$. Without loss of generality we can assume that $H(x,0)=0$ a.e. $x\in\Om$, so that $H$ takes values in $\R^+$. In this case, $E_\infty(u,U)=\|H(\cdot, \mathrm D^{[k]}u)\|_{L^\infty(U)}$ for every $U\subseteq\Om$ open.
 
 We point out that any level convex function with global minimum at the origin is necessarily radially non-decreasing, so that our result applies to the class of level convex functions, which is a common assumption for $H$ in $L^\infty$ variational problems (see e.g. \cite{BJW}).
  Moreover, one can even apply the result to non-continuous supremands: indeed, for a function $g:\R^+\to\R^+$ lower semicontinuous and non-decreasing, set $G=g\circ H$ and $E'_\infty(u,U):=\esssup_U G(\cdot,\mathrm D^{[k]} u)$. It is not difficult to see that $E_\infty$ and $E'_\infty$ share the same minimisers. In addition, if $u\in W^{k,\infty}(\Om,\R^N)$ satisfies the maximum principle for $E_\infty$ in $\Om$, then for every $U\subseteq\Om$ open
@@ -132,7 +137,7 @@ $$
 E'_\infty(u,U)=g\left(\esssup_U H(\cdot, \mathrm D^{[k]}u)\right)=g\left(\esssup_{\partial U}H(\cdot, \mathrm D^{[k]}u)^*\right)=\left(\esssup_{\partial U}G(\cdot, \mathrm D^{[k]}u)^*\right),
 $$ 
 i.e. $u$ satisfies the maximum principle for $E_\infty'$ as well.\\
-The second assumption on $H$ concerns the uniformity w.r.t. $x$ of its modulus continuity: since $H(x,\cdot)$ is continuous in $\R^\alpha$, it is uniformly continuous on every closed ball $\overline{\mathbb B}_R(0)\subset\R^\alpha$. Thus, we require that the modulus of continuity on $B_R(0)$ is independent of $x$. More precisely, we assume
+The second assumption on $H$ concerns the uniformity w.r.t. $x$ of its modulus continuity: since $H(x,\cdot)$ is continuous in $\R^\alpha$, it is uniformly continuous on every closed ball $\overline{\mathbb B}_R(0)\subset\R^\alpha$. Thus, we require that the modulus of continuity on $\overline{\mathbb B}_R(0)$ is independent of $x$. More precisely, we assume
 \begin{equation}\label{uniformity}
 \begin{array}{l}
 \forall R>0 \,\,\exists\, \omega_R\in C(\mathbb{R}^+)\ \text{non-decreasing, with } \omega_R(0)=0: \\
@@ -148,7 +153,9 @@ Let $\Om\subset\R^n$ be a bounded open set and let $H:\Om\times\R^\alpha\to\R^+$
 \end{align}
 where $H(\cdot,\mathrm D ^{[k]}u)^*$ is the essential limsup of $H(\cdot,\mathrm D ^{[k]}u)$, defined in \eqref{rep}.
 \end{Theorem}
-Before stating our second theorem, we give the definition of absolute minimiser w.r.t. compactly supported variations. 
+Another way of interpreting the maximum principle property is by saying that, for every $U\subseteq\Om$, the \textit{attainment set} $U(u)$ must contain the boundary of $U$. The attainment set $U(u)$ is the collection of all points $x\in \overline U$ where $H(x, \mathrm D ^{[k]}u(x))=\esssup_U H(\cdot, \mathrm D ^{[k]}u)$, and it is well defined and non-empty in case $u\in C^k(\Om,\R^N)$ and $H\in C(\Om\times\R^\alpha)$. For a definition of $U(u)$ in the non-smooth setting we refer to \cite{BDP}, where the authors show also a minimality property of $U(u)$ for absolute minimisers in the scalar first order case.\\
+
+Before stating our second result, we give the definition of absolute minimiser w.r.t. compactly supported variations. 
 \begin{Definition}[The class $\mathrm {AM}_c(\Om,\R^N)$]
 We say that $u\in W^{k,\infty}(\Om,\R^N)$ is an absolute minimiser w.r.t. compactly supported variations, and we write $u\in \mathrm {AM}_c(\Om,\R^N)$, if
 $$
@@ -156,16 +163,17 @@ E_\infty(u,U)\leq E_\infty (u+\Phi,U)\qquad\forall \Phi\in W^{k,\infty}_c(\Om,\R
 $$
 \end{Definition}
 
-Our second result is the following.
-\begin{Theorem}\label{thm2}
-Let $\Om\subset\R^n$ be a bounded open set and let $H:\Om\times\R^\alpha\to\R^+$ be a Carathéodory function with $H(x,0)=0$ and $H(x, \cdot)$ radially non-decreasing for a.e. $x\in\Om$. Consider the functional $E_\infty$, defined in \eqref{E infty}.
+As a consequence of Theorem \ref{thm1}, we obtain the following characterisation.
+\begin{Corollary}\label{thm2}
+Let $\Om\subset\R^n$ be a bounded open set and let $H:\Om\times\R^\alpha\to\R^+$ be a Carathéodory function satisfying \eqref{uniformity}, with $H(x,0)=0$ and $H(x, \cdot)$ radially non-decreasing for a.e. $x\in\Om$. Consider the functional $E_\infty$, defined in \eqref{E infty}.
 Then, the following are equivalent for a map $u\in W^{k,\infty}(\Om,\R^N)$:
 \begin{enumerate}
 \item[i)] $u$ satisfies the maximum principle for $E_\infty$ in $\Om$;
 \item[ii)] $u\in \mathrm {AM}_c(\Om,\R^N)$.
 \end{enumerate}
-\end{Theorem}
-The proof of Theorems \ref{thm1} and \ref{thm2} are in Sections ...., after a short preliminary section.
+\end{Corollary}
+The proof of Theorem \ref{thm1} and Corollary \ref{thm2} are in Section \ref{sec:proofs}, preceded by a short preparatory section. Therein we discuss some stronger notions of radial monotonicity which are of interest for us and some properties of the essential limsup, including a fundamental technical result (Lemma \ref{lemma esssup}) that we will use several times in the proofs of our results.\\
+DIRE QUALCOSA SULLE MAPPE P-ARMONICHE
 
 \section{Preparatory tools}\label{prep}
 \subsection{On radial monotonicity}\label{radial mon}
@@ -184,9 +192,9 @@ $$
 \end{enumerate}
 \end{Definition}
 Notice that $i)\Rightarrow ii)\Rightarrow iii)$, and implications do not invert in general.
-The above definition is in complete analogy with the notion of level convexity and its stronger versions. In particular, any  level convex (resp. strictly level convex) function with global minimum at the origin is radially non-decreasing (resp. strictly radially increasing). Of course, a radially non-decreasing function need not to be level convex, since its level sets only need to be star shaped w.r.t. the origin.
+The above definition is in complete analogy with the notion of (level) convexity and its stronger versions. In particular, any  level convex (resp. strictly level convex) function with global minimum at the origin is radially non-decreasing (resp. strictly radially increasing). Of course, a radially non-decreasing function need not to be level convex, since its level subsets only need to be star shaped w.r.t. the origin.
 
-Strongly radially increasing functions can be seen as strict radially increasing functions with a modulus of monotonicity. This class of functions will be particularly important for us, since in the proof of Theorem \ref{thm1} we will approximate radially non-decreasing functions with stronly radially increasing ones in the uniform convergence.
+Strongly radially increasing functions can be seen as strict radially increasing functions with a modulus of monotonicity. This class of functions will be particularly important for us, since in the proof of Theorem \ref{thm1} we will approximate radially non-decreasing functions with strongly radially increasing ones in the uniform convergence.
 
 
 \begin{Example}\label{Ex}
@@ -211,7 +219,8 @@ f^*(x):=\lim_{\eps\to0}\esssup_{B_\eps(x)\cap U}f\qquad\forall x\in U,
 $$
 is the essential limsup of $f$.
 \end{Definition}
-From \cite[Proposition 9]{KSIAM}, we have that $f\leq f^*$ almost everywhere and $f^*$ is upper semicontinuous on $U$. In general, $f\neq f^*$ on a set of positive measure: for instance, consider $f=\mathbbm{1}_{\R\setminus K}$ for a nowhere dense compact set $K$, with $\mathscr L^n(K)>0$. Moreover, again by \cite[Proposition 9]{KSIAM}, the definition of $f^*$ allows us to give a pointwise meaning to the essential supremum, indeed for any Borel set $U\subseteq\R^n$ we have
+Of course, if $U$ is open and $f$ is continuous in $U$, then $f^*=f$. 
+However, in the more general setting of Definition \ref{ess limsup}, we may have $f\neq f^*$ on a set of positive measure: for instance, consider $f=\mathbbm{1}_{\R^n\setminus K}$ for a nowhere dense compact set $K\subset\R^n$, with $\mathscr L^n(K)>0$. In general, from \cite[Proposition 9]{KSIAM}, we have that $f\leq f^*$ almost everywhere and $f^*$ is upper semicontinuous on $U$. Moreover, again by \cite[Proposition 9]{KSIAM}, the definition of $f^*$ allows us to give a pointwise meaning to the essential supremum, indeed for any Borel set $U\subseteq\R^n$ we have
 \begin{align}\label{pointwise sup}
 \sup_U f^*=\esssup_U f.
 \end{align}
@@ -383,7 +392,7 @@ Indeed, from \eqref{def ess} and the continuity of $H$ at $X=0$, we infer that $
 $$
 r\leq| \mathrm D^{[k]}u(x_\delta)|\leq R.
 $$
-Hence, since $c>0$ in $(0,1)\times(0,\infty)$, by continuity we have $$c(\lambda,| \mathrm D^{[k]}u(x_\delta)|)\geq\min_{\rho\in[r,R]}c(\lambda,\rho)=:\sigma>0.$$
+Hence, since $c$ is continuous and strictly positive in $(0,1)\times(0,\infty)$, we have $$c(\lambda,| \mathrm D^{[k]}u(x_\delta)|)\geq\min_{\rho\in[r,R]}c(\lambda,\rho)=:\sigma>0.$$
 Putting together \eqref{def ess}, \eqref{from strong}, and \eqref{c}, we obtain
 $$
 \overline M-\delta\leq M-c(\lambda, |\mathrm D^{[k]}u(x_\delta)|)\leq M-\sigma,
@@ -407,7 +416,7 @@ Assume that $H(x,\cdot)$ is radially non-decreasing for almost every $x\in\Om$. 
 $$
 H_\eps(x,X)=H(x,X)+\eps|X|^2 \qquad\forall X\in\R^\alpha\quad\mbox{a.e. }x\in\Om.
 $$
-Then, $H_\eps$ is strongly radially increasing in $X$, uniformly w.r.t. $x$ (see also Example \ref{Ex}): indeed, it is enough to take $c(t,\rho):=\eps(1-t^2)\rho^2$. Hence, by \eqref{one ineq} and \textit{Step 1}, for every open subset $U\subseteq\Om$, we have
+Then, $H_\eps$ is strongly radially increasing in $X$, uniformly w.r.t. $x$ (see also Example \ref{Ex}): indeed, it is enough to take $c(t,\rho):=\eps(1-t^2)\rho^2$ as a modulus of monotonicity. Hence, by \eqref{one ineq} and \textit{Step 1}, for every open subset $U\subseteq\Om$, we have
 \begin{align}\label{eq H eps}
 \esssup_U H_\eps(\cdot, \mathrm D ^{[k]}u)=\sup_{\partial U}H_\eps(\cdot,\mathrm D ^{[k]}u)^*.
 \end{align}
@@ -437,11 +446,42 @@ $$
 \esssup_U H(\cdot, \mathrm D ^{[k]}u)=\sup_{\partial U}H(\cdot,\mathrm D ^{[k]}u)^*.
 $$
 The proof is completed. \qed
+\\
 
+A straightforward consequence is Corollary \ref{thm2}, whose proof is detailed below.\\
+
+\textit{Proof of Corollary \ref{thm2}:}\\
+Let us show that satisfying the maximum principle implies the membership to the class $ \mathrm {AM}_c(\Om,\R^N)$. Fix $u\in W^{1,\infty}(\Om,\R^N)$, an open set $U\subseteq\Om$ and a map $\Phi\in W^{1,\infty}_c(U,\R^N)$. Let $U'\Subset U$ be an open subset with supp$(\Phi)\Subset U'$. Then we have
+\begin{equation}\label{1st ine}
+\begin{aligned}
+E_\infty(u+\Phi,U)&=\esssup_U H(\cdot, \mathrm D^{[k]}(u+\Phi))\\
+&\geq \esssup_{U\setminus U'}H(\cdot, \mathrm D^{[k]}(u+\Phi))\\
+&=\esssup_{U\setminus U'}H(\cdot, \mathrm D^{[k]}u)
+\end{aligned}
+\end{equation}
+Notice that $(\partial U)^\rho\cap U\subset U\setminus U'$ for a sufficiently small $\rho>0$. Hence
+$$
+\esssup_{U\setminus U'}H(\cdot, \mathrm D^{[k]}u)\geq \esssup_{(\partial U)^\rho\cap U}H(\cdot, \mathrm D^{[k]}u).
+$$
+By passing to the limit as $\rho\to 0$ in the right hand side and invoking Lemma \ref{lemma esssup}, we get
+\begin{equation}\label{2nd ine}
+\esssup_{U\setminus U'}H(\cdot, \mathrm D^{[k]}u)\geq \lim_{\rho\to0}\esssup_{(\partial U)^\rho\cap U}H(\cdot, \mathrm D^{[k]}u)=\sup_{\partial U}H(\cdot, \mathrm D^{[k]}u)^*.
+\end{equation}
+Now assume that $u$ satisfies maximum principle \eqref{MP}, then putting together \eqref{1st ine} and \eqref{2nd ine}, we get
+\begin{align*}
+E_\infty(u+\Phi,U)&\geq\sup_{\partial U}H(\cdot, \mathrm D^{[k]}u)^*\\
+&=\esssup_{U}H(\cdot, \mathrm D^{[k]}u)\\
+&=E_\infty(u,U),
+\end{align*}
+so that $u\in \mathrm{AM}_c(\Om,\R^N)$.\\
+For the reverse implication, one can just replicate the proof of Theorem \ref{thm1}. Indeed, inequality \eqref{one ineq} holds for every $u\in W^{1,\infty}(\Om,\R^N)$. The opposite inequality is obtained exactly with the same reasoning, since the competitor $u_\lambda$ belongs to the class $u+W^{1,\infty}_c(U,\R^N)$ (recall \eqref{u lambda}).
+\qed
 
 
 \section{On the gradient maximum principle for $p$-harmonic maps}
-METTERLA QUESTA SEZIONE??
+METTERLA QUESTA SEZIONE??\\
+-----------------\\
+
 
 
 \textsc{Acknowledgements:} S.C. and N.K. acknowledge partial financial support through the EPSRC grant EP/X017109/1. S.C. acknowledges partial financial support through the EPSRC grant EP/X017206/1. 
@@ -457,11 +497,6 @@ di Alta Matematica (INdAM) of Italy.\\
 \begin{thebibliography}{AA} 
 \addcontentsline{toc}{chapter}{Bibliografia} 
 
-\bibitem{ACM}
- L. Ambrosio, A. Carlotto, A. Massaccesi, {\it Lectures on Elliptic Partial Differential Equations}, Publications of the Scuola Normale Superiore (2019).
-
-\bibitem{AP} N. Ansini, F. Prinari, \emph{On the lower semicontinuity of supremal functional under differential constraints}, ESAIM - Control, Opt. and Calc. Var., \textbf{21} (4), 1053--1075 (2015).
-
 \bibitem{A}
 G. Aronsson, {\it Minimization problems for the functional $\sup_xF(x, f(x), f'(x))$ I, II, III}, Arkiv
 fur Mat. 33 - 53 (1965); 409 - 431 (1966); 509 - 512 (1969).
@@ -470,20 +505,8 @@ fur Mat. 33 - 53 (1965); 409 - 431 (1966); 509 - 512 (1969).
 E.N. Barron, R.R. Jensen, C.Y. Wang, {\it The Euler equation and absolute minimizers of $L^\infty$ functionals}, Arch. Rational
 Mech. Anal. {\bf 157}, 255-283 (2001).
 
-\bibitem{BKR}
-V. I. Bogachev, N. V. Krylov, M. R\"ockner, {\it Elliptic and parabolic equations for measures}, Uspekhi Mat. Nauk {\bf 64}, 5–116 (2009), translation in
-Russian Math. Surveys {\bf 64}, 973–1078 (2009).
-
-\bibitem{Br}
-A. Braides, {\it A handbook of $\Gamma$-convergence},
-Handbook of Differential Equations: Stationary Partial Differential Equations,
-North-Holland,
-{\bf 3}, 101-213 (2006).
-
 \bibitem{BDP}
  C. Brizzi, L. De Pascale, \emph{A property of Absolute Minimizers in $ L^{\infty}$  Calculus of Variations and of solutions of the Aronsson-Euler equation}, Advances in Differential Equations 28 (3/4), 287-310 (2023).
-
-\bibitem{BK} L. Bungert, Y. Korolev, \emph{Eigenvalue problems in $ L^{\infty}$: optimality conditions, duality, and relations with optimal transport}, Communications of the American Mathematical Society 2:345  (2022).
 
 \bibitem{CKM}
 S. Carano, N. Katzourakis, R. Moser, \emph{
@@ -494,35 +517,25 @@ S. Carano, R. Moser, \emph{
 An $L^\infty$-variational problem involving the Fractional Laplacian}, Preprint arXiv https://arxiv.org/abs/2510.14476 (2025).
 
 
-\bibitem{Dac}
-B. Dacorogna, {\it Direct Methods in the Calculus of Variations}, 2nd ed., Appl. Math. Sci. 78, Springer, New York, 2008.
+%\bibitem{Dac}
+%B. Dacorogna, {\it Direct Methods in the Calculus of Variations}, 2nd ed., Appl. Math. Sci. 78, Springer, New York, 2008.
 
-\bibitem{D}
-J. M. Danskin, {\it The theory of max-min with applications}, J. SIAM Appl. Math. {\bf 14}(4), 641-665 (1966).
+%\bibitem{D}
+%J. M. Danskin, {\it The theory of max-min with applications}, J. SIAM Appl. Math. {\bf 14}(4), 641-665 (1966).
 
 \bibitem{DK}
-B. Dutton, N. Katzourakis, {\it On Second-Order $L^\infty$ Variational Problems with Lower-Order Terms}, DDCD......................... (2026).
+B. Dutton, N. Katzourakis. {\it On Second-Order $L^\infty$ Variational Problems with Lower-Order Terms}, Discrete Contin. Dyn. Syst., {\bf 49}, 1-21 (2026).
 
 
-\bibitem{GM}
-M. Giaquinta, L. Martinazzi, {\it An Introduction
-to the Regularity Theory
-for Elliptic Systems,
-Harmonic Maps
-and Minimal Graphs}, Publications of the Scuola Normale Superiore (2018).
-
-\bibitem{FG}
-D. G. de Figueiredo,  J. P. Gossez, {\it Strict Monotonicity of Eigenvalues and Unique Continuation}, Communications in Partial Differential Equations {\bf 17}, 339–346 (1992).
-
-\bibitem{HS}
-R. Hardt, L. Simon, {\it Nodal sets for solutions of elliptic equations}, J. Differential Geom. {\bf 30} 505 - 522 (1989).
+%\bibitem{GM}
+%M. Giaquinta, L. Martinazzi, {\it An Introduction to the Regularity Theory for Elliptic Systems, Harmonic Maps and Minimal Graphs}, Publications of the Scuola Normale Superiore (2018).
 
 \bibitem{K1}
 N. Katzourakis, {\it $L^\infty$ Variational Problems for maps and the Aronsson PDE System}, J. Differential
 Equations {\bf 253}(7), 2123 - 2139 (2012).
 
 \bibitem{KSIAM}
-N. Katzourakis, {\it An $L^\infty$ regularisation strategy to the inverse source identification problem for elliptic equations}, SIAM...................................
+N. Katzourakis, {\it An $L^\infty$ regularisation strategy to the inverse source identification problem for elliptic equations}, SIAM Journal Math, Analysis {\bf 51}(2), 1349-1370 (2019).
 
 %\bibitem{K2}
 %N. Katzourakis. {\it Explicit 2D $\infty$-harmonic maps whose interfaces have junctions
@@ -556,7 +569,7 @@ N. Katzourakis, R. Moser, {\it Minimisers of supremal functionals and mass-minim
 N. Katzourakis, R. Moser, {\it Variational problems in $L^\infty$ involving semilinear second order differential operators}, ESAIM: COCV, {\bf 29}(76) (2023).
 
 \bibitem{KM3}
-N. Katzourakis, R. Moser, {\it Existence, uniqueness and characterisation of local minimisers in higher order Calculus of Variations in $L^\infty$}, ArXiv Preprint, https://arxiv.org/abs/2403.12625 (2024).
+N. Katzourakis, R. Moser. {\it Existence, uniqueness and characterisation of local minimisers in higher order Calculus of Variations in $L^\infty$}, to appear in Analysis \& PDE (2026).
 
 \bibitem{KP1}
 N. Katzourakis, T. Pryer, {\it On the numerical approximation of $p$-Biharmonic and $\infty$-Biharmonic functions},
@@ -567,40 +580,16 @@ Numerical Methods for Partial Differential Equations, {\bf 35}(1), 155-180 (2018
 N. Katzourakis, T. Pryer, {\it 2nd order $L^\infty$ Variational Problems and the $\infty$-Polylaplacian},
 Advances in Calculus of Variations {\bf 13}, 115-140 (2020).
 
-\bibitem{KZ} C. Kreisbeck, E. Zappale, \emph{Lower semicontinuity and relaxation of nonlocal $ L^{\infty}$-functionals}, Calculus of Variations and PDE, \textbf{59} (138), 1--36 (2020).
 
-\bibitem{Ma}
-M. Manetti, {\it Topology}, Springer Cham, DOI 10.1007/978-3-319-16958-3 (2015).
 
 \bibitem{MWZ}
  Q. Miao, C. Wang, Y. Zhou, \emph{Uniqueness of Absolute Minimizers for $ L^{\infty}$-Functionals Involving Hamiltonians $H(x,p)$}, Archive for Rational Mechanics and Analysis \textbf{223} (1), 141--198 (2017).
 
-\bibitem{M}
-R. Moser, 
-{\it Structure and classification results for the $\infty$-elastica problem}, American Journal
-of Mathematics {\bf 144}(5), 1299-1329 (2022).
-
-
-
-\bibitem{MS}
-R. Moser, H. Schwetlick, {\it Minimizers of a weighted maximum of the Gauss curvature}, Annals
-of Global Analysis and Geometry {\bf 41}, 199-207 (2012).
-
 \bibitem{PWZ} F. Peng, C. Wang, Y. Zhou, \emph{Regularity of absolute minimizers for continuous convex Hamiltonians}, Journal of Differential Equations, Volume 274 (2021), 1115-1164.
 
- \bibitem{PZ} F. Prinari, E. Zappale, \emph{A Relaxation Result in the Vectorial Setting and Power Law Approximation for Supremal Functionals}, J Optim. Theory Appl., \textbf{186}, 412--452 (2020).
+% \bibitem{PZ} F. Prinari, E. Zappale, \emph{A Relaxation Result in the Vectorial Setting and Power Law Approximation for Supremal Functionals}, J Optim. Theory Appl., \textbf{186}, 412--452 (2020).
 
-\bibitem{RZ} A. M. Ribeiro, E. Zappale, \emph{Existence of minimisers for nonlevel convex functionals}, SIAM J. Control Opt., \textbf{52} (5), 3341--3370 (2014).
-
-\bibitem{RZ1}
- A. M. Ribeiro, E. Zappale, \emph{Revisited convexity notions for $ L^\infty$ variational problems}, Revista Matem\'atica Complutense, published online, https://doi.org/10.1007/s13163-024-00499-0 (2024).
-
-\bibitem{OR}
-O. A. Oleĭnik, E. V. Radkevič, {\it On the analyticity of solutions of linear partial differential equations}, Math. USSR Sb. {\bf 19}(581) (1973).
-
-\bibitem{W}
-H. Whitney, {\it Analytic Extensions of Differentiable Functions Defined in Closed Sets}, Transactions
-of the American Mathematical Society {\bf 36}(1), 63-89 (1934).
+%\bibitem{RZ} A. M. Ribeiro, E. Zappale, \emph{Existence of minimisers for nonlevel convex functionals}, SIAM J. Control Opt., \textbf{52} (5), 3341--3370 (2014).
 
 
 
@@ -610,19 +599,19 @@ of the American Mathematical Society {\bf 36}(1), 63-89 (1934).
 
 \vspace{3mm}
 \textsc{Simone Carano}\\
-Department of Mathematical Sciences, University of Bath\\
-Bath BA2 7AY, UK\\
-E-mail: sc3705@bath.ac.uk\\
+Department of Mathematics and Statistics, University of Reading\\
+Whiteknights Campus, Pepper Lane, Reading RG6 6AX, UK\\
+E-mail: s.carano@reading.ac.uk\\
 
 \textsc{Nikos Katzourakis}\\
 Department of Mathematics and Statistics, University of Reading\\
 Whiteknights Campus, Pepper Lane, Reading RG6 6AX, UK\\
 E-mail: n.katzourakis@reading.ac.uk\\
 
-\textsc{Roger Moser}\\
-Department of Mathematical Sciences, University of Bath\\
-Bath BA2 7AY, UK\\
-E-mail: r.moser@bath.ac.uk
+%\textsc{Roger Moser}\\
+%Department of Mathematical Sciences, University of Bath\\
+%Bath BA2 7AY, UK\\
+%E-mail: r.moser@bath.ac.uk
 
 
 
