@@ -1,0 +1,349 @@
+\documentclass[a4paper,11pt]{article}
+\setlength{\textheight}{23.30cm}
+\setlength{\textwidth}{16.5cm}
+\setlength{\oddsidemargin}{0.2cm}
+\setlength{\evensidemargin}{0.2cm}
+\setlength{\topmargin}{0cm}
+\setlength{\parindent}{0.4cm}
+
+
+\usepackage{bbm}
+\usepackage{amsfonts}
+\usepackage{graphics,color}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{mathrsfs}
+\usepackage{cite}
+\usepackage{verbatim}
+\usepackage{float}
+\usepackage{graphicx}
+\usepackage{amsthm}
+\usepackage{textcomp}
+\usepackage{subfig}
+\usepackage{esint}
+\usepackage{enumerate}
+\usepackage{hyperref}
+%\usepackage{showkeys}
+
+
+\newcommand{\red}{\color{red}}
+\newcommand{\blue}{\color{blue}}
+\newcommand{\black}{\color{black}}
+
+\numberwithin{equation}{section}
+\mathchardef\emptyset="001F
+
+\newtheorem{Theorem}{Theorem}[section]
+\newtheorem{Definition}[Theorem]{Definition}
+\newtheorem{Proposition}[Theorem]{Proposition}
+\newtheorem{Corollary}[Theorem]{Corollary}
+\newtheorem{Lemma}[Theorem]{Lemma}
+
+
+\newcommand{\nada}[1]{}
+\newcommand{\numberset}{\mathbb}
+\newcommand{\C}{\numberset{C}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\grad}{\nabla}
+\newcommand{\grado}{{\rm deg}}
+\newcommand{\graphofmapvk}{V_k}
+\newcommand{\graphofmapu}{U}
+\newcommand{\homogeneousmap}{\varphi}
+\newcommand{\indice}{j}
+\newcommand{\intervallounitario}{I}
+\newcommand{\latus}{L}
+\newcommand{\lift}{\Phi}
+\newcommand{\M}{\numberset{M}}% la massa
+\newcommand{\mappa}{u}
+\newcommand{\mappabuona}{v}
+\newcommand{\mres}{\mathbin{\vrule height 1.6ex depth 0pt width
+0.13ex\vrule height 0.13ex depth 0pt width 1.3ex}}
+\newcommand{\N}{\numberset{N}} 
+\newcommand{\Om}{\Omega} 
+\newcommand{\R}{\numberset{R}} 
+\newcommand{\Rn}{\numberset{R}^n} 
+\newcommand{\Suno}{{\mathbb S}^1}
+\newcommand{\Z}{\numberset{Z}}
+\newcommand{\rom}{\mathrm}
+
+\DeclareMathOperator*{\esssup}{ess\,sup}
+
+\theoremstyle{definition}
+\newtheorem{Remark}[Theorem]{Remark}
+\newtheorem{Example}[Theorem]{Example}
+
+ \title{Note on Sobolev regularity for $p$-harmonic maps
+}
+\author{
+Simone Carano, Nikos Katzourakis and Roger Moser}
+
+\begin{document}
+\maketitle
+
+\begin{abstract} 
+
+\end{abstract}
+{\bf 2020 MSC:}\\
+{\bf Key words and phrases:} Vectorial Calculus of Variations in $L^\infty$; higher order problems; Absolute Minimisers, Maximum Principle.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Introduction}\label{sec:introduction}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+\begin{Lemma}
+Let $\Om\subset\R^n$ an open set and $p\in[2,\infty)$. Assume that $u:\Om\to\R^N$ is a $p$-harmonic map, i.e. $u\in W^{1,p}_{\mathrm{loc}}(\Om,\R^N)$ satisfying
+$$
+\mathrm{div} (|\rom Du|^{p-2}\rom Du)=0\qquad\mbox{in }\Om,
+$$
+in the sense of distributions. Then, we have
+$$
+|\rom Du|^p\in W^{1,2}_{\mathrm{loc}}(\Om).
+$$
+\end{Lemma}
+\begin{proof}
+We observe
+$$
+\rom D|\rom Du|^p=\rom D(|\rom Du|^\frac p2)^2=2|\rom Du|^\frac p2 \rom D|\rom Du|^\frac p2.
+$$
+Therefore, since $u\in C^{1,\alpha}_\mathrm{loc}(\Om,\R^N)$, it is enough to show that $|\rom Du|^\frac p2\in W^{1,2}_{\mathrm{loc}}(\Om)$.\\
+To this purpose, we can assume $p>2$, since for $p=2$ the result is clearly true.\\
+Fix $U\Subset\Om$ open and $\eps>0$, and consider the minimum problem
+$$
+\min_{W^{1,p}_u(U,\R^N)}E_\eps,
+$$  
+where $W^{1,p}_u(U,\R^N)=u+W^{1,p}_0(U,\R^N)$ and
+$$
+E_\eps(v):=\int_U\left(|\mathrm Dv|^2+\eps^2\right)^{\frac p2}\qquad\forall v\in W^{1,p}(U,\R^N).
+$$
+Since $E_\eps$ is strictly convex, there exists a unique minimiser $u_\eps\in W^{1,p}_u(U,\R^N)$. Moreover, by regularity theory \cite{U}, we have $u_\eps\in C^\infty(U,\R^N)$.\\
+As $\eps\to0$, $(E_\eps)_\eps$ is a sequence of equi-coercive and weakly lower semicontinuous functionals on $W^{1,p}(U,\R^N)$. Further, for every $v\in W^{1,p}(U,\R^N)$, $(E_\eps(v))_\eps$ is monotone decreasing with limit $E(v):=\int_U|Dv|^p$. Therefore, from the theory of $\Gamma$-convergence (see \cite[Section 2.4]{Br}), we have that
+ $E_\eps\stackrel\Gamma\to E$ w.r.t. the weak topology of $W^{1,p}(U,\R^N)$. As a consequence, since $u$ is the unique minimiser of $E$ in $W^{1,p}_u(U,\R^N)$, the full sequence $u_\eps$ converges to $u$ weakly in $W^{1,p}(U,\R^N)$. We have also the convergence of their corresponding norms, since
+\begin{align*}
+E(u)=\lim_\eps E_\eps(u_\eps)&=\lim_\eps\int_U\left(|\mathrm Du_\eps|^2+\eps^2\right)^{\frac p2}\\
+&\geq\limsup_\eps\int_U|\mathrm Du_\eps|^p\\
+&\geq\liminf_\eps\int_U|\mathrm Du_\eps|^p\\
+&\geq\int_U|\mathrm Du|^p=E(u)
+\end{align*}
+hence, the convergence of $u_\eps$ to $u$ is actually strong, namely
+\begin{align}\label{strong conv}
+u_\eps\to u\quad\mbox{in }W^{1,p}(U,\R^N).
+\end{align} 
+Now, we aim at deriving some uniform energy estimates for $u_\eps$.
+ In the following, the symbols $\cdot$ and $ \langle\cdot,\cdot\rangle$ stand for the inner products in $\R^n$ and $\R^N$ respectively, while : stands for the hilbert-Schmidt inner product in $\R^{N\times n}$.\\
+We start by considering the Euler-Lagrange equation corresponding to $E_\eps$:
+$$
+\rom{div}\big(\left(|\rom Du_\eps|^2+\eps^2\right)^{\frac{p-2}2}\rom Du_\eps\big)=0\quad\mbox{in }U.
+$$
+Since $u_\eps\in C^\infty(U,\R^N)$, we can differentiate the previous equation with respect to $x_i$, obtaining
+\begin{align*}
+0&=\partial_i\left[\rom{div}\big(\left(|\rom Du_\eps|^2+\eps^2\right)^{\frac{p-2}2}\rom Du_\eps\big)\right]\\
+&=\rom{div}\left((p-2)\left(|\rom Du_\eps|^2+\eps^2\right)^{\frac{p-4}2}(\rom Du_\eps:\rom D\partial_i u_\eps)\rom Du_\eps+\left(|\rom Du_\eps|^2+\eps^2\right)^{\frac{p-2}2}\rom D\partial_iu_\eps\right).
+\end{align*}
+By taking the inner product with $\partial_i u_\eps$, we have
+\begin{equation}\label{inner}
+\begin{aligned}
+0&=\left\langle\rom{div}\left((p-2)\left(|\rom Du_\eps|^2+\eps^2\right)^{\frac{p-4}2}(\rom Du_\eps:\rom D\partial_i u_\eps)\rom Du_\eps+\left(|\rom Du_\eps|^2+\eps^2\right)^{\frac{p-2}2}\rom D\partial_iu_\eps\right),\partial_iu_\eps\right\rangle\\
+&=\rom{div}\left((p-2)\left(|\rom Du_\eps|^2+\eps^2\right)^{\frac{p-4}2}(\rom Du_\eps:\rom D\partial_i u_\eps)\langle\rom Du_\eps,\partial_iu_\eps\rangle+\left(|\rom Du_\eps|^2+\eps^2\right)^{\frac{p-2}2}\langle\rom D\partial _iu_\eps,\partial_iu_\eps\rangle\right)-\\
+&\quad-(p-2)\left(|\rom Du_\eps|^2+\eps^2\right)^{\frac{p-4}2}(\rom Du_\eps:\rom D\partial_i u_\eps)^2-\left(|\rom Du_\eps|^2+\eps^2\right)^{\frac{p-2}2}|\rom D\partial_iu_\eps|^2
+\end{aligned}
+\end{equation}
+Thus, testing the previous equation with $\eta\in C^\infty_c(U)$, we get
+\begin{equation}\label{test}
+\begin{aligned}
+&\int_U\eta^2\left((p-2)\left(|\rom Du_\eps|^2+\eps^2\right)^{\frac{p-4}2}(\rom Du_\eps:\rom D\partial_i u_\eps)^2+\left(|\rom Du_\eps|^2+\eps^2\right)^{\frac{p-2}2}|\rom D\partial_iu_\eps|^2\right)\\
+=&-2\int_U\eta \rom D\eta\cdot\left((p-2)\left(|\rom Du_\eps|^2+\eps^2\right)^{\frac{p-4}2}(\rom Du_\eps:\rom D\partial_i u_\eps)\langle\rom Du_\eps,\partial_iu_\eps\rangle+\left(|\rom Du_\eps|^2+\eps^2\right)^{\frac{p-2}2}\langle\rom D\partial _iu_\eps,\partial_iu_\eps\rangle\right).
+\end{aligned}
+\end{equation}
+Using the Cauchy-Schwartz inequality, the right hand side is bounded above by
+\begin{align*}
+&\frac12\int_U\eta^2(p-2)\left(|\rom Du_\eps|^2+\eps^2\right)^{\frac{p-4}2}(\rom Du_\eps:\rom D\partial_i u_\eps)^2+2(p-2)\int_U|\rom D\eta|^2\left(|\rom Du_\eps|^2+\eps^2\right)^{\frac{p-4}2}|\rom Du_\eps|^2|\partial_iu_\eps|^2+\\
+&\quad+\frac12\int_U\eta^2\left(|\rom Du_\eps|^2+\eps^2\right)^{\frac{p-2}2}|\rom D\partial_i u_\eps|^2+2\int_U|\rom D\eta|^2\left(|\rom Du_\eps|^2+\eps^2\right)^{\frac{p-2}2}|\partial_iu_\eps|^2,
+\end{align*}
+which in turn, using $|\rom Du_\eps|^2\leq\left(|\rom Du_\eps|^2+\eps^2\right)^{\frac12}$, is bounded by
+\begin{align*}
+&\frac12\int_U\eta^2\left((p-2)\left(|\rom Du_\eps|^2+\eps^2\right)^{\frac{p-4}2}(\rom Du_\eps:\rom D\partial_i u_\eps)^2+\left(|\rom Du_\eps|^2+\eps^2\right)^{\frac{p-2}2}|\rom D\partial_i u_\eps|^2\right)+\\
+&\quad+2(p-1)\int_U|\rom D\eta|^2\left(|\rom Du_\eps|^2+\eps^2\right)^{\frac{p-2}2}|\partial_iu_\eps|^2.
+\end{align*}
+This last quantity provides an estimates from above for the left hand side of \eqref{test}, so that
+\begin{align*}
+&\frac12\int_U\eta^2\left((p-2)\left(|\rom Du_\eps|^2+\eps^2\right)^{\frac{p-4}2}(\rom Du_\eps:\rom D\partial_i u_\eps)^2+\left(|\rom Du_\eps|^2+\eps^2\right)^{\frac{p-2}2}|\rom D\partial_i u_\eps|^2\right)\\
+\leq\,&2(p-1)\int_U|\rom D\eta|^2\left(|\rom Du_\eps|^2+\eps^2\right)^{\frac{p-2}2}|\partial_iu_\eps|^2.
+\end{align*}
+In particular,
+\begin{align*}
+\int_U\eta^2\left(|\rom Du_\eps|^2+\eps^2\right)^{\frac{p-4}2}(\rom Du_\eps:\rom D\partial_i u_\eps)^2
+\leq4\,\frac{p-1}{p-2}\int_U|\rom D\eta|^2\left(|\rom Du_\eps|^2+\eps^2\right)^{\frac{p-2}2}|\partial_iu_\eps|^2.
+\end{align*}
+Now, we observe
+$$
+\partial_i \left(|\rom Du_\eps|^2+\eps^2\right)^{\frac p4}=p\left(|\rom Du_\eps|^2+\eps^2\right)^{\frac{p-4}4}\rom Du_\eps:\rom D\partial_iu_\eps,
+$$
+so that
+$$
+\int_U\eta^2\left(\partial_i \left(|\rom Du_\eps|^2+\eps^2\right)^{\frac p4}\right)^2\leq4p^2\,\frac{p-1}{p-2}\int_U|\rom D\eta|^2\left(|\rom Du_\eps|^2+\eps^2\right)^{\frac{p-2}2}|\partial_iu_\eps|^2.
+$$
+For any open subset $U'\Subset U$, we can choose $\eta\in C^\infty_c(U)$ such that $\eta=1$ on $U'$. Hence, by the H\"older inequality, setting $C(p,U,U'):=4p^2\,\frac{p-1}{p-2}\|\rom D\eta\|^2_{L^\infty(U)}$, we obtain
+\begin{align}\label{deriv est}
+\int_{U'}\left(\partial_i \left(|\rom Du_\eps|^2+\eps^2\right)^{\frac p4}\right)^2\leq C(p,U,U')E_\eps(u_\eps)^\frac{p-2}{p}\|\partial_iu_\eps\|^2_{L^p(U)}.
+\end{align}
+Thanks to \eqref{strong conv}, we have $\left(|\rom Du_\eps|^2+\eps^2\right)^{\frac p4}\to |\rom Du|^{\frac{p}{2}}$ in $L^2(U)$. Furthermore, by recalling that $E_\eps(u_\eps)\to E(u)=\|\rom Du\|^p_{L^p(U)}$ as $\eps\to0$, we can pass to the limit in \eqref{deriv est} and conclude
+$$
+\left\|\partial_i|\rom Du|^\frac p2\right\|^2_{L^2(U')}\leq\liminf_{\eps\to0}\int_{U'}\left(\partial_i \left(|\rom Du_\eps|^2+\eps^2\right)^{\frac p4}\right)^2\leq C(p,U,U')\|\rom Du\|^{p}_{L^p(U)}.
+$$
+Therefore, since $U'$ and $U$ were arbitrary, we have just shown that $|\rom Du|^\frac p2\in W^{1,2}_\mathrm{loc}(\Om)$.\\
+\end{proof}
+
+
+
+%%%%%%%%%%%%%        BIBLIOGRAFIA        %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{thebibliography}{AA} 
+\addcontentsline{toc}{chapter}{Bibliografia} 
+
+\bibitem{A}
+G. Aronsson, {\it Minimization problems for the functional $\sup_xF(x, f(x), f'(x))$ I, II, III}, Arkiv
+fur Mat. 33 - 53 (1965); 409 - 431 (1966); 509 - 512 (1969).
+
+\bibitem{BBDS}
+{A. Balci, L. Behn, L. Diening, J. Storn,} {\it {Examples of \({p}\)-harmonic Maps}}, {SIAM Journal on Mathematical Analysis} {\bf 58}(1), 260-275 (2026).
+
+\bibitem{BJW}
+E.N. Barron, R.R. Jensen, C.Y. Wang, {\it The Euler equation and absolute minimizers of $L^\infty$ functionals}, Arch. Rational
+Mech. Anal. {\bf 157}, 255-283 (2001).
+
+\bibitem{Br}
+A. Braides, {\it A handbook of $\Gamma$-convergence},
+handbook of Differential Equations: Stationary Partial Differential Equations,
+North-holland,
+{\bf 3}, 101-213 (2006).
+
+\bibitem{BDP}
+ C. Brizzi, L. De Pascale, \emph{A property of Absolute Minimizers in $ L^{\infty}$  Calculus of Variations and of solutions of the Aronsson-Euler equation}, Advances in Differential Equations {\bf 28} (3/4), 287-310 (2023).
+
+\bibitem{CKM}
+S. Carano, N. Katzourakis, R. Moser, \emph{
+Existence, uniqueness and characterisation of vector-valued absolute minimisers for a second order $L^\infty$-variational problem}, Preprint arXiv https://arxiv.org/abs/2504.04181 (2025).
+
+\bibitem{CM}
+S. Carano, R. Moser, \emph{
+An $L^\infty$-variational problem involving the Fractional Laplacian}, Preprint arXiv https://arxiv.org/abs/2510.14476 (2025).
+
+
+%\bibitem{Dac}
+%B. Dacorogna, {\it Direct Methods in the Calculus of Variations}, 2nd ed., Appl. Math. Sci. 78, Springer, New York, 2008.
+
+%\bibitem{D}
+%J. M. Danskin, {\it The theory of max-min with applications}, J. SIAM Appl. Math. {\bf 14}(4), 641-665 (1966).
+
+\bibitem{DK}
+B. Dutton, N. Katzourakis, {\it On Second-Order $L^\infty$ Variational Problems with Lower-Order Terms}, Discrete Contin. Dyn. Syst., {\bf 49}, 1-21 (2026).
+
+\bibitem{GT}
+D. Gilbarg, N. Trudinger, {\it Elliptic Partial Differential Equations of Second Order}.
+Classics in Mathematics, reprint of the 1998 edition, Springer.
+
+%\bibitem{GM}
+%M. Giaquinta, L. Martinazzi, {\it An Introduction to the Regularity Theory for Elliptic Systems, harmonic Maps and Minimal Graphs}, Publications of the Scuola Normale Superiore (2018).
+
+\bibitem{K1}
+N. Katzourakis, {\it $L^\infty$ Variational Problems for maps and the Aronsson PDE System}, J. Differential
+Equations {\bf 253}(7), 2123 - 2139 (2012).
+
+\bibitem{KSIAM}
+N. Katzourakis, {\it An $L^\infty$ regularisation strategy to the inverse source identification problem for elliptic equations}, SIAM Journal Math, Analysis {\bf 51}(2), 1349-1370 (2019).
+
+%\bibitem{K2}
+%N. Katzourakis. {\it Explicit 2D $\infty$-harmonic maps whose interfaces have junctions
+%and corners}, C. R. Math. Acad. Sci. Paris {\bf 351}, 677–680 (2013).
+
+\bibitem{Kbook}
+N. Katzourakis, {\it An Introduction to Viscosity Solutions for Fully Nonlinear PDE with Applications
+to Calculus of Variations in $L^\infty$}, Springer Briefs in Mathematics,  DOI 10.1007/978-
+3-319-12829-0 (2015).
+
+\bibitem{K3}
+N. Katzourakis, {\it $\infty$-minimal submanifolds}, Proc. Amer. Math. Soc. {\bf 142}, 2797-2811 (2014).
+
+\bibitem{K4}
+N. Katzourakis, {\it On the structure of $\infty$-harmonic maps}, Comm. Partial Differential
+Equations {\bf 39}, 2091–2124 (2014).
+
+%\bibitem{K5}
+%N. Katzourakis. {\it Nonuniqueness in vector-valued calculus of variations in $L^\infty$ and some linear elliptic systems}, Commun. Pure Appl. Anal. {\bf 14}, 313–327 (2015).
+
+%\bibitem{K6}
+%N. Katzourakis. {\it A characterisation of $\infty$-harmonic and $p$-harmonic maps via affine variations in $L^\infty$}, Electron. J. Differential Equations , {\bf 29} (2017).
+
+\bibitem{KM}
+N. Katzourakis, R. Moser, {\it Existence, uniqueness and structure of second order absolute minimisers}, ARMA {\bf 231}(3), 1615-1634 (2019).
+
+\bibitem{KM1}
+N. Katzourakis, R. Moser, {\it Minimisers of supremal functionals and mass-minimising 1-currents}, Calc. Var.{ \bf 64}(26) (2025).
+
+\bibitem{KM2}
+N. Katzourakis, R. Moser, {\it Variational problems in $L^\infty$ involving semilinear second order differential operators}, ESAIM: COCV, {\bf 29}(76) (2023).
+
+\bibitem{KM3}
+N. Katzourakis, R. Moser. {\it Existence, uniqueness and characterisation of local minimisers in higher order Calculus of Variations in $L^\infty$}, to appear in Analysis \& PDE (2026).
+
+\bibitem{KP1}
+N. Katzourakis, T. Pryer, {\it On the numerical approximation of $p$-Biharmonic and $\infty$-Biharmonic functions},
+Numerical Methods for Partial Differential Equations, {\bf 35}(1), 155-180 (2018).
+
+
+\bibitem{KP2}
+N. Katzourakis, T. Pryer, {\it 2nd order $L^\infty$ Variational Problems and the $\infty$-Polylaplacian},
+Advances in Calculus of Variations {\bf 13}, 115-140 (2020).
+
+
+
+\bibitem{MWZ}
+ Q. Miao, C. Wang, Y. Zhou, \emph{Uniqueness of Absolute Minimizers for $ L^{\infty}$-Functionals Involving hamiltonians $h(x,p)$}, Archive for Rational Mechanics and Analysis \textbf{223} (1), 141--198 (2017).
+
+\bibitem{PWZ} F. Peng, C. Wang, Y. Zhou, \emph{Regularity of absolute minimizers for continuous convex hamiltonians}, Journal of Differential Equations, Volume 274 (2021), 1115-1164.
+
+% \bibitem{PZ} F. Prinari, E. Zappale, \emph{A Relaxation Result in the Vectorial Setting and Power Law Approximation for Supremal Functionals}, J Optim. Theory Appl., \textbf{186}, 412--452 (2020).
+
+%\bibitem{RZ} A. M. Ribeiro, E. Zappale, \emph{Existence of minimisers for nonlevel convex functionals}, SIAM J. Control Opt., \textbf{52} (5), 3341--3370 (2014).
+
+\bibitem{U}
+K. Uhlenbeck, {\it Regularity for a class of non-linear elliptic systems}, Acta Math. {\bf138}, 219--240 (1977).
+
+
+
+\end{thebibliography}
+
+\vspace{3mm}
+\textsc{Simone Carano}\\
+Department of Mathematics and Statistics, University of Reading\\
+Whiteknights Campus, Pepper Lane, Reading RG6 6AX, UK\\
+E-mail: s.carano@reading.ac.uk\\
+
+\textsc{Nikos Katzourakis}\\
+Department of Mathematics and Statistics, University of Reading\\
+Whiteknights Campus, Pepper Lane, Reading RG6 6AX, UK\\
+E-mail: n.katzourakis@reading.ac.uk\\
+
+\textsc{Roger Moser}\\
+Department of Mathematical Sciences, University of Bath\\
+Bath BA2 7AY, UK\\
+E-mail: r.moser@bath.ac.uk
+
+
+
+
+
+\end{document}
+
+
+
+
+
+
+
+
+
+
+

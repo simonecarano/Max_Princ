@@ -1,0 +1,51 @@
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 22.7.30) (preloaded format=pdflatex 2022.8.13)  8 APR 2026 09:07
+entering extended mode
+ restricted \write18 enabled.
+ %&-line parsing enabled.
+**"C:/Users/caran/OneDrive/Desktop/GitHub/L^infty CoV/Max_Princ/MaxPrinc_prepri
+nt.tex"
+
+(C:/Users/caran/OneDrive/Desktop/GitHub/L^infty CoV/Max_Princ/MaxPrinc_preprint
+.tex
+LaTeX2e <2022-06-01> patch level 5
+L3 programming layer <2022-08-05>
+(C:\Users\caran\AppData\Local\Programs\MiKTeX\tex/latex/base\article.cls
+Document Class: article 2021/10/04 v1.4n Standard LaTeX document class
+(C:\Users\caran\AppData\Local\Programs\MiKTeX\tex/latex/base\size11.clo
+File: size11.clo 2021/10/04 v1.4n Standard LaTeX file (size option)
+)
+\c@part=\count185
+\c@section=\count186
+\c@subsection=\count187
+\c@subsubsection=\count188
+\c@paragraph=\count189
+\c@subparagraph=\count190
+\c@figure=\count191
+\c@table=\count192
+\abovecaptionskip=\skip47
+\belowcaptionskip=\skip48
+\bibindent=\dimen138
+)
+! Undefined control sequence.
+<recently read> \setlengt 
+                          
+l.2 \setlengt
+             \rom{H}{\text\rom{H}eig\rom{H}t}{23.30cm}
+? 
+! Emergency stop.
+<recently read> \setlengt 
+                          
+l.2 \setlengt
+             \rom{H}{\text\rom{H}eig\rom{H}t}{23.30cm}
+End of file on the terminal!
+
+ 
+Here is how much of TeX's memory you used:
+ 232 strings out of 477992
+ 3204 string characters out of 2827466
+ 302100 words of memory out of 3000000
+ 19100 multiletter control sequences out of 15000+600000
+ 469559 words of font info for 29 fonts, out of 8000000 for 9000
+ 1141 hyphenation exceptions out of 8191
+ 32i,0n,38p,247b,36s stack positions out of 10000i,1000n,20000p,200000b,80000s
+!  ==> Fatal error occurred, no output PDF file produced!

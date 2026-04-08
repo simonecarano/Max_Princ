@@ -1,0 +1,776 @@
+\documentclass[a4paper,11pt]{article}
+\setlength{\textheight}{23.30cm}
+\setlength{\textwidth}{16.5cm}
+\setlength{\oddsidemargin}{0.2cm}
+\setlength{\evensidemargin}{0.2cm}
+\setlength{\topmargin}{0cm}
+\setlength{\parindent}{0.4cm}
+
+
+\usepackage{bbm}
+\usepackage{amsfonts}
+\usepackage{graphics,color}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{mathrsfs}
+\usepackage{cite}
+\usepackage{verbatim}
+\usepackage{float}
+\usepackage{graphicx}
+\usepackage{amsthm}
+\usepackage{textcomp}
+\usepackage{subfig}
+\usepackage{esint}
+\usepackage{enumerate}
+\usepackage{hyperref}
+%\usepackage{showkeys}
+
+
+\newcommand{\red}{\color{red}}
+\newcommand{\blue}{\color{blue}}
+\newcommand{\black}{\color{black}}
+
+\numberwithin{equation}{section}
+\mathchardef\emptyset="001F
+
+\newtheorem{Theorem}{Theorem}[section]
+\newtheorem{Definition}[Theorem]{Definition}
+\newtheorem{Proposition}[Theorem]{Proposition}
+\newtheorem{Corollary}[Theorem]{Corollary}
+\newtheorem{Lemma}[Theorem]{Lemma}
+
+
+\newcommand{\nada}[1]{}
+\newcommand{\numberset}{\mathbb}
+\newcommand{\C}{\numberset{C}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\grad}{\nabla}
+\newcommand{\grado}{{\rm deg}}
+\newcommand{\graphofmapvk}{V_k}
+\newcommand{\graphofmapu}{U}
+\newcommand{\homogeneousmap}{\varphi}
+\newcommand{\indice}{j}
+\newcommand{\intervallounitario}{I}
+\newcommand{\latus}{L}
+\newcommand{\lift}{\Phi}
+\newcommand{\M}{\numberset{M}}% la massa
+\newcommand{\mappa}{u}
+\newcommand{\mappabuona}{v}
+\newcommand{\mres}{\mathbin{\vrule height 1.6ex depth 0pt width
+0.13ex\vrule height 0.13ex depth 0pt width 1.3ex}}
+\newcommand{\N}{\numberset{N}} 
+\newcommand{\Om}{\Omega} 
+\newcommand{\R}{\numberset{R}} 
+\newcommand{\Rn}{\numberset{R}^n} 
+\newcommand{\Suno}{{\mathbb S}^1}
+\newcommand{\Z}{\numberset{Z}}
+\newcommand{\rom}{\mathrm}
+
+\DeclareMathOperator*{\esssup}{ess\,sup}
+
+\theoremstyle{definition}
+\newtheorem{Remark}[Theorem]{Remark}
+\newtheorem{Example}[Theorem]{Example}
+
+ \title{Maximum Principle for Absolute Minimisers
+}
+\author{
+Simone Carano, Nikos Katzourakis and Roger Moser}
+
+\begin{document}
+\maketitle
+
+\begin{abstract} 
+
+\end{abstract}
+{\bf 2020 MSC:}\\
+{\bf Key words and phrases:} Vectorial Calculus of Variations in $L^\infty$; higher order problems; Absolute Minimisers, Maximum Principle.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Introduction}\label{sec:introduction}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+For $n,N,k\in\N$,
+ let $\Om\subset\R^n$ be an open bounded set and $\rom{H}:\Om\times\R^N\times\R^{Nn}
+\times\ldots\times\R^{Nn^k}\to\R$ be $\mathscr{L}(\Om)\otimes\mathscr{B}(\R^\alpha)$-measurable, where we have identified $\R^\alpha\cong\R^N\times\R^{Nn}\times\ldots\times\R^{Nn^k}$ for $\alpha=\alpha(n,N,k)=N\frac{n^{k+1}-1}{n-1}$. here $\mathscr{L}(\Om)$ is the Lebesgue $\sigma$-algebra of $\Om$ and $\mathscr{B}(\R^\alpha)$ is the Borel $\sigma$-algebra of $\R^\alpha$. Let $U\subseteq\Om$ be an open subset and consider the supremal functional
+\begin{align}\label{E infty}
+E_{\infty}(u, U):=\esssup_{x\in U}\rom{H}\big(x, \mathrm D ^{[k]}u(x)\big),
+\end{align}
+where $u\in W^{k,\infty}(\Om,\R^N)$
+and $\mathrm D^{[k]} u:=(u,\mathrm Du,\ldots, \mathrm D^ku)$ is the jet of order $k$ of $u$. \\
+The goal herein is to prove a maximum principle property for the absolute minimisers of the functional $E_\infty$. We recall that $u\in W^{k,\infty}(\Om,\R^N)$ is an absolute minimiser of $E_\infty$ if 
+$$
+E_\infty(u,U)\leq E_\infty (u+\Phi,U)\qquad\forall \Phi\in W^{k,\infty}_0(U,\R^N)\quad\forall U\subseteq\Om \mbox{ open}.
+$$
+Under very mild assumptions on the supremand $\rom{H}$, we prove that for an absolute minimiser the essential supremum in \eqref{E infty} is ``attained at the boundary of $U$". In order to give a precise meaning to this expression, we refer to the supremum on $\partial U$ of the \textit{essential limsup} of $\rom{H}(\cdot, \mathrm D ^{[k]}u)$, which is defined as
+\begin{align}\label{rep}
+\rom{H}(x,\mathrm D ^{[k]}u(x))^*:=\lim_{\eps\to 0}\esssup_{B_\eps(x)\cap U}\rom{H}(\cdot,\mathrm D ^{[k]}u)\qquad\forall x\in \partial U.
+\end{align}
+Therefore, we give the following definition.
+\begin{Definition}[Maximum principle]
+We say that $u\in W^{k,\infty}(\Om,\R^N)$ satisfies the maximum principle for $E_\infty$ in $\Om$ if
+\begin{align}\label{MP}
+\esssup_U \rom{H}(\cdot, \mathrm D ^{[k]}u)=\sup_{\partial U}\rom{H}(\cdot,\mathrm D ^{[k]}u)^*\qquad\forall U\subseteq\Om \mbox{ open}.
+\end{align}
+\end{Definition}
+\noindent
+If $u\in C^k(\overline\Om,\R^N)$ and $\rom{H}\in C(\Om\times\R^\alpha)$, this can be rephrased as
+$$
+\max_{\overline U} \rom{H}(\cdot, \mathrm D ^{[k]}u)=\max_{\partial U}\rom{H}(\cdot,\mathrm D ^{[k]}u)\qquad\forall U\subseteq\Om \mbox{ open}.
+$$
+We prove that this property is necessarily satisfied by absolute minimisers. Although it is not sufficient: the cone function $u(x)=|x|$ belongs to $W^{1,\infty}(\R^n)$ and clearly satisfies the maximum principle for $E_\infty(u,\Om):=\esssup_\Om|\mathrm Du|$, but it is not an absolute minimiser. However, we will see that the maximum principle is a property that characterises a class of maps which is larger than the one of absolute minimisers, and are the ones that minimise $E_\infty$ with respect to compactly supported variations.
+
+Before stating our main results, we underline that $E_\infty$ in \eqref{E infty} is the general object of study in the $L^\infty$-Calculus of Variations, a field initiated by Aronsson in \cite{A}. his pioneering work on the scalar first order case (namely when $N=k=1$) has been well developed by now, and most challenges have been thoroughly analysed and understood (see \cite{Kbook} for a survey reference). More recently,  the vectorial case ($N>1$) and the higher order case ($k>1$) have been approached respectively in \cite{K1} and \cite{KM,KP2}. In these contexts, a complete theory is still far from reach. Without any pretension of being exhaustive, we refer also to \cite{K3,K4,KM1} for a glimpse of the literature on vectorial first order problems and to \cite{CKM,DK,KP1,KM2,KM3} for higher order ones. Furthermore, the fractional order case ($k\notin\N$) has been recently explored in \cite{CM}.  
+
+It is worth mentioning that, given boundary data $u_0\in W^{k,\infty}(\Om,\R^N)$, the existence (and/or uniqueness) of absolute minimisers to the Dirichlet problem in $W_{u_0}^{k,\infty}(\Om,\R^N)$ associated to $E_\infty$ in \eqref{E infty} 
+ is an open problem already when $k=1$ and $n,N>1$ or when $N=1$ and $n,k>1$. There are some exceptions in the second order case, whenever $h$ has special dependence in the second derivatives of $u$. We refer to \cite{KM, KM3, KP2} for the scalar second order case and to \cite{CKM} for the vectorial one (see also \cite{CM} for the fractional case).
+
+Now we proceed to specify the assumptions on the function $\rom{H}$. By denoting $X=(X_0,X_1,\ldots,X_k)\in R^N\times \R^{Nn}\times\ldots\R^{Nn^k}=\R^\alpha$, we assume that $\rom{H}:\Om\times\R^\alpha\to\R$ is Carathéodory and radially non-decreasing w.r.t. $X$, i.e. for almost every $x\in\Om$ and every $X\in\R^\alpha$ the function
+$$
+t\mapsto \rom{H}(x,tX) \mbox{ is non-decreasing in }\R^+.
+$$
+Notice that radial monotonicity implies that, for almost every $x\in\Om$, $\rom{H}(x,\cdot)$ has a global minimum at $X=0$. Without loss of generality we can assume that $\rom{H}(x,0)=0$ a.e. $x\in\Om$, so that $\rom{H}$ takes values in $\R^+$. In this case, $E_\infty(u,U)=\|\rom{H}(\cdot, \mathrm D^{[k]}u)\|_{L^\infty(U)}$ for every $U\subseteq\Om$ open.
+
+We point out that any level convex function with global minimum at the origin is necessarily radially non-decreasing, so that our result applies to the class of level convex functions, which is a common assumption for $\rom{H}$ in $L^\infty$ variational problems (see e.g. \cite{BJW}).
+ Moreover, one can even apply the result to non-continuous supremands: indeed, for a function $g:\R^+\to\R^+$ lower semicontinuous and non-decreasing, set $G=g\circ h$ and $E'_\infty(u,U):=\esssup_U G(\cdot,\mathrm D^{[k]} u)$. It is not difficult to see that $E_\infty$ and $E'_\infty$ share the same minimisers. In addition, if $u\in W^{k,\infty}(\Om,\R^N)$ satisfies the maximum principle for $E_\infty$ in $\Om$, then for every $U\subseteq\Om$ open
+$$
+E'_\infty(u,U)=g\left(\esssup_U \rom{H}(\cdot, \mathrm D^{[k]}u)\right)=g\left(\esssup_{\partial U}\rom{H}(\cdot, \mathrm D^{[k]}u)^*\right)=\left(\esssup_{\partial U}G(\cdot, \mathrm D^{[k]}u)^*\right),
+$$ 
+i.e. $u$ satisfies the maximum principle for $E_\infty'$ as well.\\
+The second assumption on $\rom{H}$ concerns the uniformity w.r.t. $x$ of its modulus continuity: since $\rom{H}(x,\cdot)$ is continuous in $\R^\alpha$, it is uniformly continuous on every closed ball $\overline{\mathbb B}_R(0)\subset\R^\alpha$. Thus, we require that the modulus of continuity on $\overline{\mathbb B}_R(0)$ is independent of $x$. More precisely, we assume
+\begin{equation}\label{uniformity}
+\begin{array}{l}
+\forall R>0 \,\,\exists\, \omega_R\in C(\mathbb{R}^+)\ \text{non-decreasing, with } \omega_R(0)=0: \\
+\multicolumn{1}{c}{|\rom{H}(x,X)-\rom{H}(x,X')|\leq\omega_R(|X-X'|),\qquad \text{a.e. } x\in\Omega,\quad\forall X\in \overline{\mathbb B}_R(0)}.
+\end{array}
+\end{equation}
+
+Now we can state our main result.
+\begin{Theorem}[Maximum Principle for Absolute Minimisers]\label{thm1}
+Let $\Om\subset\R^n$ be a bounded open set and let $\rom{H}:\Om\times\R^\alpha\to\R^+$ be a Carathéodory function satisfying \eqref{uniformity}, with $\rom{H}(x,0)=0$ and $\rom{H}(x, \cdot)$ radially non-decreasing for a.e. $x\in\Om$. Assume that $u\in W^{k,\infty}(\Om,\R^N)$ is an absolute minimiser for the functional $E_\infty$, defined in \eqref{E infty}. Then $u$ satisfies the maximum principle for $E_\infty$ in $\Om$, namely
+\begin{align}\label{MP}
+\esssup_U \rom{H}(\cdot, \mathrm D ^{[k]}u)=\sup_{\partial U}\rom{H}(\cdot,\mathrm D ^{[k]}u)^*\qquad\forall U\subseteq\Om \mbox{ open}.
+\end{align}
+where $\rom{H}(\cdot,\mathrm D ^{[k]}u)^*$ is the essential limsup of $\rom{H}(\cdot,\mathrm D ^{[k]}u)$, defined in \eqref{rep}.
+\end{Theorem}
+Another way of interpreting the maximum principle property is by saying that, for every $U\subseteq\Om$, the \textit{attainment set} $U(u)$ must contain the boundary of $U$. The attainment set $U(u)$ is the collection of all points $x\in \overline U$ where $\rom{H}(x, \mathrm D ^{[k]}u(x))=\esssup_U \rom{H}(\cdot, \mathrm D ^{[k]}u)$, and it is well defined and non-empty in case $u\in C^k(\Om,\R^N)$ and $\rom{H}\in C(\Om\times\R^\alpha)$. For a definition of $U(u)$ in the non-smooth setting we refer to \cite{BDP}, where the authors show also a minimality property of $U(u)$ for absolute minimisers in the scalar first order case.\\
+
+Before stating our second result, we give the definition of absolute minimiser w.r.t. compactly supported variations. 
+\begin{Definition}[The class $\mathrm {AM}_c(\Om,\R^N)$]
+We say that $u\in W^{k,\infty}(\Om,\R^N)$ is an absolute minimiser w.r.t. compactly supported variations, and we write $u\in \mathrm {AM}_c(\Om,\R^N)$, if
+$$
+E_\infty(u,U)\leq E_\infty (u+\Phi,U)\qquad\forall \Phi\in W^{k,\infty}_c(\Om,\R^N)\quad\forall U\subseteq\Om\mbox{ open}.
+$$
+\end{Definition}
+
+As a consequence of Theorem \ref{thm1}, we obtain the following characterisation.
+\begin{Corollary}\label{thm2}
+Let $\Om\subset\R^n$ be a bounded open set and let $\rom{H}:\Om\times\R^\alpha\to\R^+$ be a Carathéodory function satisfying \eqref{uniformity}, with $\rom{H}(x,0)=0$ and $\rom{H}(x, \cdot)$ radially non-decreasing for a.e. $x\in\Om$. Consider the functional $E_\infty$, defined in \eqref{E infty}.
+Then, the following are equivalent for a map $u\in W^{k,\infty}(\Om,\R^N)$:
+\begin{enumerate}
+\item[i)] $u$ satisfies the maximum principle for $E_\infty$ in $\Om$;
+\item[ii)] $u\in \mathrm {AM}_c(\Om,\R^N)$.
+\end{enumerate}
+\end{Corollary}
+The proof of Theorem \ref{thm1} and Corollary \ref{thm2} are in Section \ref{sec:proofs}, preceded by a short preparatory section. Therein we discuss some stronger notions of radial monotonicity which are of interest for us and some properties of the essential limsup, including a fundamental technical result (Lemma \ref{lemma esssup}) that we will use several times in the proofs of our results.\\
+DIRE QUALCOSA SULLE MAPPE P-ARMONIChE
+
+\section{Preparatory tools}\label{prep}
+\subsection{On radial monotonicity}\label{radial mon}
+In this first preliminary section, we recall some notions of radial monotonicity for function on $\R^\alpha$, together with some relevant examples.
+
+\begin{Definition}
+\indent
+A function $h:\R^\alpha\to\R$ is said to be
+\begin{enumerate}
+\item[i)] radially non-decreasing if for every $X\in\R^\alpha$ the function $t\mapsto h(tX)$ is non-decreasing in $\R^+$;
+\item[ii)] strictly radially increasing if for every $X\in\R^\alpha$ the function $t\mapsto h(tX)$ is strictly increasing in $\R^+$;
+\item[iii)] strongly radially increasing if there exists a continuous function $c:[0,1]\times\R^+\to\R^+$, with $c(1,\cdot)=c(\cdot,0)=0$ and $c>0$ in $(0,1)\times(0,\infty)$, such that
+$$
+h(tX)\leq h(X)-c(t,|X|)\qquad\forall t\in[0,1]\quad\forall X\in\R^\alpha.
+$$ 
+\end{enumerate}
+\end{Definition}
+Notice that $i)\Rightarrow ii)\Rightarrow iii)$, and implications do not invert in general.
+The above definition is in complete analogy with the notion of (level) convexity and its stronger versions. In particular, any  level convex (resp. strictly level convex) function with global minimum at the origin is radially non-decreasing (resp. strictly radially increasing). Of course, a radially non-decreasing function need not to be level convex, since its level subsets only need to be star shaped w.r.t. the origin.
+
+Strongly radially increasing functions can be seen as strict radially increasing functions with a modulus of monotonicity. This class of functions will be particularly important for us, since in the proof of Theorem \ref{thm1} we will approximate radially non-decreasing functions with strongly radially increasing ones in the uniform convergence.
+
+
+\begin{Example}\label{Ex}
+Relevant examples of strongly radially increasing functions are:
+\begin{itemize}
+\item Any strongly convex function with global minimum at the origin;
+\item The cone function associated to a (smooth) open set $S\subset\R^\alpha$ star shaper w.r.t. the origin with $\nu_{S}(X)\cdot X>0$ for every $X\in\partial S$, where $\nu_S$ is the outward normal vector to $\partial S$.
+\item Functions of the form $h_{\lambda,\beta}(X)=h(X)+\lambda|X|^\beta$, with $\lambda,\beta>0$ and $h$ radially non-decreasing. 
+\end{itemize}
+\end{Example}
+
+
+
+
+\subsection{Properties of the essential limsup}
+In this second preliminary section, we give the definition of essential limsup, together with some properties.
+
+\begin{Definition}[Essential limsup]\label{ess limsup}
+Let $U\subseteq\R^n$ be a Borel set and $f\in L^\infty(U)$. We say that the function $f^*\in L^\infty(U)$, defined as
+$$
+f^*(x):=\lim_{\eps\to0}\esssup_{B_\eps(x)\cap U}f\qquad\forall x\in U,
+$$
+is the essential limsup of $f$.
+\end{Definition}
+Of course, if $U$ is open and $f$ is continuous in $U$, then $f^*=f$. 
+however, in the more general setting of Definition \ref{ess limsup}, we may have $f\neq f^*$ on a set of positive measure: for instance, consider $f=\mathbbm{1}_{\R^n\setminus K}$ for a nowhere dense compact set $K\subset\R^n$, with $\mathscr L^n(K)>0$. In general, from \cite[Proposition 9]{KSIAM}, we have that $f\leq f^*$ almost everywhere and $f^*$ is upper semicontinuous on $U$. Moreover, again by \cite[Proposition 9]{KSIAM}, the definition of $f^*$ allows us to give a pointwise meaning to the essential supremum, indeed for any Borel set $U\subseteq\R^n$ we have
+\begin{align}\label{pointwise sup}
+\sup_U f^*=\esssup_U f.
+\end{align}
+For a set $E\subset\R^n$ and $\rho>0$, we denote by $E^\rho$ the open $\rho$-neighbourhood of $E$, namely $$E^\rho:=\{x\in\R^n: \mathrm{dist}(x,\partial E)<\rho\}.$$
+The following lemma is in order.
+
+\begin{Lemma}\label{lemma esssup}
+Let $U\subset\R^n$ be on open bounded set. Then for any $K\subseteq\partial U$ compact subset, we have
+$$
+\sup_K f^*=\lim_{\rho\to0} \esssup_{K^\rho\cap U}f.
+$$
+\end{Lemma}
+\begin{proof}
+We start with noticing that for every $x\in K$ there exists $\rho>0$ such that $B_\rho(x)\cap U\subset K^\rho\cap U$, so that
+$$
+\esssup_{B_\rho(x)\cap U}f\leq \esssup_{K^\rho\cap U}f.
+$$
+By passing to the limit as $\rho\to0$ in both sides and taking the supremum on $K$ in the left hand side, we obtain
+$$
+\sup_K f^*\leq\lim_{\rho\to0} \esssup_{K^\rho\cap U}f.
+$$
+It remains to prove the opposite inequality. By definition \eqref{ess limsup}, for any fixed $x\in K$ and $\sigma>0$, there exists $\rho_{x,\sigma}>0$ such that 
+\begin{align}\label{def of lim}
+f^*(x)\geq\esssup_{B_{\rho_{x,\sigma}}(x)\cap U}f-\sigma.
+\end{align}
+\begin{comment}
+Let $(x_j)_{j\in\N}\subset K$ be a dense sequence and set
+$$
+U_\sigma:=\bigcup_{j\in\N}\left(B_{\rho_{{x_j},\sigma}}(x_j)\cap U\right).
+$$
+Notice that $K\subset \partial U_\sigma$. Indeed, for every $x\in K$, let $(x_{j_k})\subset(x_j)$ be a subsequence such that $x_{j_k}\to x$. Since $x_{j_k}\in U_\sigma$ for every $k$, we have $x\in \bar{U}_\sigma$. But $K\cap U_\sigma=\varnothing$, so $K\subset \partial U_\sigma$.\\
+\end{comment}
+The family of balls $\{B_{\rho_{x,\sigma}}(x); \,x\in K\}$ is an open covering of $K$. Thus, we can extract a finite subcovering $\{B_{\rho_{x_i,\sigma}}(x_i); \,x_i\in K\} _{i=1,\ldots,m}$.
+For seek of brevity, let us denote $B_{i,\sigma}=B_{\rho_{x_i,\sigma}}(x_i)$.\\
+We claim that there exists $\rho_\sigma>0$ such that $K^{\rho_\sigma}\subset \bigcup_{i=1}^m B_{i,\sigma}$.\\
+By contradiction, suppose that for every $j\in\N$ there exists $y_j\in K^{1/j}\setminus\bigcup_{i=1}^m B_{i,\sigma}$. This is equivalent to say that 
+\begin{equation}\label{contr}
+\forall j\in\N\quad\exists y_j\in\R^n:\left\{
+\begin{aligned}
+ &y_j\notin B_{i,\sigma}\quad\forall i=1,\ldots,m,\\
+&\mathrm{dist}(y_j,K)\leq 1/j.
+\end{aligned}
+\right.
+\end{equation}
+ Let $\bar y_j\in K$ be a point realising $d(y_j,K)$. Since $K$ is compact, there exists a subsequence $(\bar y_{j_k})\subset(\bar y_j)$ such that $\bar y_{j_k}\to \bar x$ as $k\to\infty$, for some $\bar x\in K$. Moreover, since $\mathrm{dist}(y_{j_k},\bar y_{j_k})\leq1/{j_k}$, we have also that $y_{j_k}\to \bar x$ as $k\to\infty$. But being $\{B_{i,\sigma}\}_{i=1,\ldots,m}$ a covering of $K$, we must have that eventually $y_{j_k}\in B_{i,\sigma}$ for some $i\in\{1,\ldots,m\}$, which contradicts \eqref{contr}.\\
+Now, define $U_\sigma=\bigcup_{i=1}^m (B_{i,\sigma}\cap U)$ and notice that ${K^\rho\cap U}\subset U_\sigma$. Thus, using also \eqref{def of lim}, we have
+\begin{align*}
+\lim_{\rho\to0}\esssup_{K^\rho\cap U}f&\leq\esssup_{K^{\rho_\sigma}\cap U}f\\
+&\leq \esssup_{U_\sigma}f\\
+&\leq\max_{i=1,\ldots,m}\esssup_{B_{i,\sigma}\cap U}f\\
+&\leq\max_{i=1,\ldots,m} f^*(x_i)+\sigma\\
+&\leq\sup_K f^*+\sigma.
+\end{align*}
+By letting $\sigma\to0$, we conclude the proof.
+\end{proof}
+
+
+
+
+
+\section{Proof of the main results}\label{sec:proofs}
+This section is devoted to the proof of Theorems \ref{thm1} and Corollary \ref{thm2}. The proof of the latter is basically a consequence of the argument in the proof of the former. Indeed, the key idea in the proof of Theorem \ref{thm1} is to find, for every $U\subseteq\Om$, a suitable competitor in $u_\lambda\in W^{k,\infty}_u(U,\R^N)$ to compare with the absolute minimiser $u$. Actually, it turns out that $u_\lambda\in u+W^{k,\infty}_c(U,\R^N)$, and this will be the crucial observation in the proof of Corollary \ref{thm2}.\\
+We start with proving Theorem \ref{thm1}: the key argument is based on the case $\rom{H}(x,\cdot)$ strongly radially increasing on $\R^\alpha$, uniformly w.r.t $x\in \Omega$. The result in the general case, i.e. when $\rom{H}(x,\cdot)$ is radially non-decreasing, is recovered by an approximation argument.\\
+
+\textit{Proof of Theorem \ref{thm1}}:\\
+Fix $U\subseteq\Om$ an open subset. First, notice that for every $x\in\partial U$ and every $\rho>0$, we clearly have
+$$
+\esssup_{B_\rho(x)\cap U}\rom{H}(\cdot,\mathrm D^{[k]}u)\leq \esssup_{ U}\rom{H}(\cdot,\mathrm D^{[k]}u).
+$$ 
+From definition \ref{ess limsup}, by passing to the limit as $\rho\to0$ and then to the supremum over all $x\in\partial U$ in the left hand side, we obtain
+\begin{align}\label{one ineq}
+\sup_{\partial U}\rom{H}(\cdot,\mathrm D ^{[k]}u)^*\leq\esssup_U \rom{H}(\cdot, \mathrm D ^{[k]}u).
+\end{align}
+Let us prove the opposite inequality. We divide the proof in two steps: First, we treat the case when $\rom{H}(x,\cdot)$ is strongly radially increasing, uniformly in $x$. Then, we will deal with the general case.\\
+
+\noindent
+\textit{Step 1:} $\rom{H}(x,\cdot)$ strongly radially increasing on $\R^\alpha$, uniformly w.r.t $x\in \Omega$.\\ 
+Assume that there exists a continuous function $c:[0,1]\times\R^+\to\R^+$, with $c(1,\cdot)=c(\cdot,0)=0$ and $c>0$ in $(0,1)\times(0,\infty)$, such that
+\begin{align}\label{strong mon}
+\rom{H}(x,tX)\leq \rom{H}(x,X)-c(t,|X|)\qquad\forall t\in[0,1]\quad\forall X\in\R^\alpha\quad\mbox{a.e. }x\in \Om.
+\end{align}
+We start by setting 
+\begin{align}\label{M}
+M:=\esssup_U \rom{H}(\cdot, \mathrm D ^{[k]}u).
+\end{align}
+If $M=0$, there is nothing to prove, so we can assume that $M>0$.
+For seek of contradiction, assume that \eqref{one ineq} holds strict. Then, by applying Lemma \ref{lemma esssup} to $K=\partial U$, one can find $\delta>0$ such that
+$$
+\lim_{\rho\to0}\esssup_{U^\rho\cap U}\rom{H}(\cdot, \mathrm D ^{[k]}u)+2\delta\leq M.
+$$
+In particular, there exists $\eps>0$ such that
+\begin{align}\label{from contr}
+\esssup_{U^{\eps}\cap U}\rom{H}(\cdot, \mathrm D ^{[k]}u)+\delta\leq M.
+\end{align}
+By possibly reducing $\eps$ in size, we can choose a function $\varphi_\eps\in C^\infty(\R^n)$, with $0\leq\varphi_\eps\leq1$, such that $\varphi_\eps=0$ in $U\setminus U^\eps$ and $\varphi_\eps=1$ in $U^{\eps/2}$. Now, for $\lambda\in(0,1)$, set
+$$
+u_\lambda:=\lambda u + (1-\lambda)\varphi_\eps u.
+$$
+Notice that $u_\lambda\in W^{k,\infty}{(U,\R^N)}$. Moreover, $u_\lambda=u$ on $U^{\eps/2}\cap U$, so that 
+\begin{align}\label{u lambda}
+u_\lambda\in u+W^{k,\infty}_c(U,\R^N)\subset W_u^{1,\infty}(U,\R^N).
+\end{align}
+Let us compute $\mathrm D^{[k]} u_\lambda$.  For every $h=1,\ldots, k$, we have
+\begin{align}\label{deriv product}
+\mathrm D^hu_\lambda=\lambda \mathrm D^h u+(1-\lambda)\mathrm D^h(\varphi_\eps u).
+\end{align}
+By the Leibniz formula,
+\begin{align*}
+\partial ^h_{i_1,\ldots,i_h}(\varphi_\eps u)=\sum_{j=0}^h \binom{h}{j}(\partial^{h-j}_{i_{j+1},\ldots, i_h} \varphi_\eps)(\partial^{j}_{i_{1},\ldots, i_j} u).
+\end{align*}
+In particular, for every $h=0,\ldots, k$, we can estimate
+$$
+|\mathrm D^h(\varphi_\eps u)|\leq 2^h\|\varphi_\eps\|_{W^{h,\infty}(U)}\|u\|_{W^{h,\infty}(U,\R^N)}\qquad \mbox{in }U, 
+$$
+which gives
+\begin{align}\label{crude est}
+|\mathrm D^{[k]}(\varphi_\eps u)|\leq 2^{k+1}\|\varphi_\eps\|_{W^{k,\infty}(U)}\|u\|_{W^{k,\infty}(U,\R^N)}\qquad \mbox{in }U.
+\end{align}
+Putting together \eqref{deriv product} and \eqref{crude est}, we obtain
+\begin{align}\label{fund est}
+|\mathrm D^{[k]}u_\lambda-\lambda \mathrm D^{[k]}u|\leq(1-\lambda)2^{k+1}\|\varphi_\eps\|_{W^{k,\infty}(U)}\|u\|_{W^{k,\infty}(U,\R^N)}\qquad\mbox{in }U.
+\end{align}
+In particular, if we set 
+$$C_1=C_1(\eps,k,\lambda)=(1-\lambda)2^{k+1}\|\varphi_\eps\|_{W^{k,\infty}(U)}+\lambda,$$
+then
+$$
+|\mathrm D^{[k]}u_\lambda|\leq C_1\|u\|_{W^{k,\infty}(U,\R^N)}\qquad\mbox{in }U.
+$$
+Now, we recall assumption \eqref{uniformity} and apply it to $$R:=C_1\|u\|_{W^{k,\infty}(U,\R^N)}, \qquad\mathrm D^{[k]}u_\lambda(x),\,\lambda\mathrm D^{[k]}u(x)\in \overline{\mathbb B}_R(0)\quad\mbox{for a.e.   }x\in U,$$
+obtaining the existence of a continuous function $\omega=\omega_R:\R^+\to\R^+$, non-decreasing, with $\omega(0)=0$, such that
+\begin{align*}
+|\rom{H}(x,\mathrm D^{[k]}u_\lambda(x))-\rom{H}(x,\lambda\mathrm D^{[k]}u(x))|\leq \omega(|\mathrm D^{[k]}u_\lambda(x)-\lambda\mathrm D^{[k]}u(x)|)\qquad\mbox{ a.e. }x\in U.
+\end{align*} 
+From \eqref{fund est} and the monotonicity of $\omega$, setting
+$$
+C_2=C_2(\eps,k)=2^{k+1}\|\varphi_\eps\|_{W^{k,\infty}(U)}\|u\|_{W^{k,\infty}(U,\R^N)},
+$$
+we get
+\begin{align*}
+|\rom{H}(\cdot,\mathrm D^{[k]}u_\lambda)-\rom{H}(\cdot,\lambda\mathrm D^{[k]}u)|\leq \omega\left((1-\lambda)C_2\right)\qquad\mbox{ a.e. in } U.
+\end{align*}
+By restricting the previous estimate to $U^\eps\cap U$ and passing to the essential supremum on this set, we have
+\begin{align*}
+\esssup_{U^\eps\cap U}\rom{H}(\cdot, \mathrm D^{[k]}u_\lambda)&\leq\esssup_{U^\eps\cap U}\rom{H}(\cdot, \lambda\mathrm D^{[k]}u)+ \omega\left((1-\lambda)C_2\right)\\
+&\leq M-\delta +\omega\left((1-\lambda)C_2\right),
+\end{align*}
+where in the last inequality we have applied \eqref{from contr}. Now, for $\lambda$ sufficiently close to $1$, by continuity of $\omega$, we have $\omega\left((1-\lambda)C_2\right)\leq\delta/2$, giving
+\begin{align}\label{first key}
+\esssup_{U^\eps\cap U}\rom{H}(\cdot, \mathrm D^{[k]}u_\lambda)\leq M-\frac{\delta}{2}<M.
+\end{align}
+On the other hand, let us prove that
+\begin{align}\label{second key}
+\esssup_{U\setminus U^\eps}\rom{H}(\cdot, \mathrm D^{[k]}u_\lambda)<M.
+\end{align}
+To this purpose, notice that, since $\varphi_\eps=0$ in $U\setminus U^\eps$, we have $u_\lambda=\lambda u$ in $U\setminus U^\eps$. Thus, set $$\overline M:=\esssup_U \rom{H}(\cdot, \lambda \mathrm D^{[k]}u)$$ and aim at proving $\overline M<M$. Without loss of generality, we can assume $\overline M>0$. So, by definition of essential supremum, for every $\delta\in (\overline M/2,\overline M)$, there exists $x_\delta\in U$ such that
+\begin{align}\label{def ess}
+ \rom{H}(x_\delta,\lambda \mathrm{D}^{[k]}u(x_\delta))\geq\overline M-\delta.
+\end{align}
+On the other hand, by recalling assumption \eqref{strong mon} and \eqref{M}, we have
+\begin{align}
+ \rom{H}(x_\delta,\lambda \mathrm{D}^{[k]}u(x_\delta))&\leq \rom{H}(x_\delta, \mathrm{D}^{[k]}u(x_\delta))-c(\lambda, |\mathrm D^{[k]}u(x_\delta)|)\nonumber\\
+&\leq M-c(\lambda, |\mathrm D^{[k]}u(x_\delta)|).\label{from strong}
+\end{align}
+Now we claim that there exists $\sigma>0$ independent of $\delta$ such that
+\begin{align}\label{c}
+c(\lambda,|\mathrm D^{[k]}u(x_\delta)|)\geq\sigma.
+\end{align}
+Indeed, from \eqref{def ess} and the continuity of $\rom{H}$ at $X=0$, we infer that $|\mathrm D^{[k]}u(x_\delta)|$ is bounded away from $0$. Moreover, since $u\in W^{k,\infty}(\Om,\R^N)$, we have that $|\mathrm D^{[k]}u(x_\delta)|$ is also bounded from above. In other words, there exist two constants $R\geq r>0$, independent of $\delta$, such that
+$$
+r\leq| \mathrm D^{[k]}u(x_\delta)|\leq R.
+$$
+hence, since $c$ is continuous and strictly positive in $(0,1)\times(0,\infty)$, we have $$c(\lambda,| \mathrm D^{[k]}u(x_\delta)|)\geq\min_{\rho\in[r,R]}c(\lambda,\rho)=:\sigma>0.$$
+Putting together \eqref{def ess}, \eqref{from strong}, and \eqref{c}, we obtain
+$$
+\overline M-\delta\leq M-c(\lambda, |\mathrm D^{[k]}u(x_\delta)|)\leq M-\sigma,
+$$
+for $\sigma>0$ independent of $\delta$. We conclude that $\overline M\leq M-\sigma<M$, by letting $\delta\to 0$.\\
+As a consequence, we deduce \eqref{second key}, indeed
+\begin{align*}
+\esssup_{U\setminus U^\eps}\rom{H}(\cdot, \mathrm D^{[k]}u_\lambda)&=\esssup_{U\setminus U^\eps}\rom{H}(\cdot, \lambda\mathrm D^{[k]}u)\\
+&\leq \esssup_{U}\rom{H}(\cdot, \lambda\mathrm D^{[k]}u)\\
+&=\overline M<M
+\end{align*}
+Finally, by recalling \eqref{M}, and the inequalities \eqref{first key} and \eqref{second key}, we obtain
+$$
+\esssup_{U}\rom{H}(\cdot, \mathrm D^{[k]}u_\lambda)\leq \max\left\{\esssup_{U^\eps\cap U}\rom{H}(\cdot, \mathrm D^{[k]}u_\lambda), \esssup_{U\setminus U^\eps}\rom{H}(\cdot, \mathrm D^{[k]}u_\lambda)\right\}<M.
+$$
+This inequality and \eqref{u lambda} contradict the absolute minimality of $u$.\\
+
+\noindent
+\textit{Step 2:} General case.\\
+Assume that $\rom{H}(x,\cdot)$ is radially non-decreasing for almost every $x\in\Om$. For $\eps>0$, consider the function $\rom{H}_\eps:\Om\times\R^\alpha\to\R^+$ defined as
+$$
+\rom{H}_\eps(x,X)=\rom{H}(x,X)+\eps|X|^2 \qquad\forall X\in\R^\alpha\quad\mbox{a.e. }x\in\Om.
+$$
+Then, $\rom{H}_\eps$ is strongly radially increasing in $X$, uniformly w.r.t. $x$ (see also Example \ref{Ex}): indeed, it is enough to take $c(t,\rho):=\eps(1-t^2)\rho^2$ as a modulus of monotonicity. hence, by \eqref{one ineq} and \textit{Step 1}, for every open subset $U\subseteq\Om$, we have
+\begin{align}\label{eq h eps}
+\esssup_U \rom{H}_\eps(\cdot, \mathrm D ^{[k]}u)=\sup_{\partial U}\rom{H}_\eps(\cdot,\mathrm D ^{[k]}u)^*.
+\end{align}
+Moreover, for every compact subset $K\subset\R^\alpha$, $\rom{H}_\eps\to \rom{H}$ uniformly in $\Om\times K$ as $\eps\to 0$. Therefore, recalling Lemma \eqref{lemma esssup}, we have
+\begin{align*}
+\sup_{\partial U}\rom{H}_\eps(\cdot,\mathrm D ^{[k]}u)^*&=\lim_{\rho\to0}\esssup_{(\partial U)^\rho\cap U}\rom{H}_\eps(\cdot, \mathrm D ^{[k]}u)\\
+&\leq \inf_{\rho>0}\esssup_{(\partial U)^\rho\cap U}\rom{H}_\eps(\cdot, \mathrm D ^{[k]}u).
+\end{align*}
+In particular, for every $\rho>0$,
+$$
+\sup_{\partial U}\rom{H}_\eps(\cdot,\mathrm D ^{[k]}u)^*\leq \esssup_{(\partial U)^\rho\cap U}\rom{H}_\eps(\cdot, \mathrm D ^{[k]}u).
+$$
+Passing to the limit in both sides as $\eps\to 0$, by uniform convergence of $\rom{H}_\eps$ to $\rom{H}$, we get
+$$
+\lim_{\eps\to0}\sup_{\partial U}\rom{H}_\eps(\cdot,\mathrm D ^{[k]}u)^*\leq\esssup_{(\partial U)^\rho\cap U}\rom{H}(\cdot, \mathrm D ^{[k]}u)\qquad\forall \rho>0.
+$$
+Sending $\rho\to0$ in the right hand side, using again Lemma \eqref{lemma esssup}, we obtain
+\begin{align}\label{eq1}
+\lim_{\eps\to0}\sup_{\partial U}\rom{H}_\eps(\cdot,\mathrm D ^{[k]}u)^*\leq\sup_{\partial U}\rom{H}(\cdot,\mathrm D ^{[k]}u)^*.
+\end{align}
+On the other hand, by recalling \eqref{one ineq} and the uniform convergence of $\rom{H}_\eps$ to $\rom{H}$, we can write
+\begin{align}\label{eq2}
+\sup_{\partial U}\rom{H}(\cdot,\mathrm D ^{[k]}u)^*\leq\esssup_U \rom{H}(\cdot, \mathrm D ^{[k]}u)=\lim_{\eps\to0}\esssup_U \rom{H}_\eps(\cdot, \mathrm D ^{[k]}u).
+\end{align}
+Putting together \eqref{eq1} and \eqref{eq2}, identity \eqref{eq h eps} allows to conclude
+$$
+\esssup_U \rom{H}(\cdot, \mathrm D ^{[k]}u)=\sup_{\partial U}\rom{H}(\cdot,\mathrm D ^{[k]}u)^*.
+$$
+The proof is completed. \qed
+\\
+
+A straightforward consequence is Corollary \ref{thm2}, whose proof is detailed below.\\
+
+\textit{Proof of Corollary \ref{thm2}:}\\
+Let us show that satisfying the maximum principle implies the membership to the class $ \mathrm {AM}_c(\Om,\R^N)$. Fix $u\in W^{1,\infty}(\Om,\R^N)$, an open set $U\subseteq\Om$ and a map $\Phi\in W^{1,\infty}_c(U,\R^N)$. Let $U'\Subset U$ be an open subset with supp$(\Phi)\Subset U'$. Then we have
+\begin{equation}\label{1st ine}
+\begin{aligned}
+E_\infty(u+\Phi,U)&=\esssup_U \rom{H}(\cdot, \mathrm D^{[k]}(u+\Phi))\\
+&\geq \esssup_{U\setminus U'}\rom{H}(\cdot, \mathrm D^{[k]}(u+\Phi))\\
+&=\esssup_{U\setminus U'}\rom{H}(\cdot, \mathrm D^{[k]}u)
+\end{aligned}
+\end{equation}
+Notice that $(\partial U)^\rho\cap U\subset U\setminus U'$ for a sufficiently small $\rho>0$. hence
+$$
+\esssup_{U\setminus U'}\rom{H}(\cdot, \mathrm D^{[k]}u)\geq \esssup_{(\partial U)^\rho\cap U}\rom{H}(\cdot, \mathrm D^{[k]}u).
+$$
+By passing to the limit as $\rho\to 0$ in the right hand side and invoking Lemma \ref{lemma esssup}, we get
+\begin{equation}\label{2nd ine}
+\esssup_{U\setminus U'}\rom{H}(\cdot, \mathrm D^{[k]}u)\geq \lim_{\rho\to0}\esssup_{(\partial U)^\rho\cap U}\rom{H}(\cdot, \mathrm D^{[k]}u)=\sup_{\partial U}\rom{H}(\cdot, \mathrm D^{[k]}u)^*.
+\end{equation}
+Now assume that $u$ satisfies maximum principle \eqref{MP}, then putting together \eqref{1st ine} and \eqref{2nd ine}, we get
+\begin{align*}
+E_\infty(u+\Phi,U)&\geq\sup_{\partial U}\rom{H}(\cdot, \mathrm D^{[k]}u)^*\\
+&=\esssup_{U}\rom{H}(\cdot, \mathrm D^{[k]}u)\\
+&=E_\infty(u,U),
+\end{align*}
+so that $u\in \mathrm{AM}_c(\Om,\R^N)$.\\
+For the reverse implication, one can just replicate the proof of Theorem \ref{thm1}. Indeed, inequality \eqref{one ineq} holds for every $u\in W^{1,\infty}(\Om,\R^N)$. The opposite inequality is obtained exactly with the same reasoning, since the competitor $u_\lambda$ belongs to the class $u+W^{1,\infty}_c(U,\R^N)$ (recall \eqref{u lambda}).
+\qed
+
+
+\section{On the gradient maximum principle for $p$-harmonic maps}
+In this section, we prove a gradient maximum principle for $p$-harmonic maps. To our best knowledge, a result of this kind is not present in the literature, at least in the vectorial case. For the scalar one, a gradient maximum principle for quasilinear elliptic equations can be found in \cite[Chapter 15]{GT}. We refer also to \cite[Appendix B]{PWZ} regarding gradient maximum and minimum principles for $p$-harmonic potentials on convex rings in the plane. In the case of general $p$-harmonic maps, however, one can only hope for a gradient maximum principle to hold, since a minimum principle does not hold in general, as existing examples show (see \cite{BBDS}).\\
+We show the following result.
+\begin{Theorem}\label{thm p}
+Let $\Om\subset\R^n$ an open set and $p\in[2,\infty)$. Assume that $u:\Om\to\R^N$ is a $p$-harmonic map, i.e. $u\in W^{1,p}_{\mathrm{loc}}(\Om,\R^N)$ satisfying
+$$
+\mathrm{div} (|\rom Du|^{p-2}\rom Du)=0\qquad\mbox{in }\Om,
+$$
+in the sense of distributions. Then, for every open set $U\Subset \Om$, we have
+$$
+\max_{\overline U}|Du|=\max_{\partial U}|Du|.
+$$
+\end{Theorem}
+
+\begin{Remark}
+We observe that the above maxima are well defined since $u\in C^{1,\alpha}_{\mathrm{loc}}(\Om,\R^N)$, from regularity theory for $p$-harmonic maps \cite{U}.\\
+Moreover, we underline that Theorem \ref{thm1}, in the particular case when $E_\infty(u,U)=\esssup_U|Du|$, cannot be deduced from Theorem \ref{thm p} by passing to the limit as $p\to \infty$. Indeed, it is not known if vector valued absolute minimisers of $E_\infty$ can be approximated by $p$-harmonic maps (and this is one of the reasons why existence of absolute minimisers is still open in this case). Adding to the challenge, estimates in the proof of Theorem \ref{thm p} blow up as $p\to\infty$.
+\end{Remark}
+
+We need the following technical result. ACTUALLY WE DO NOT! $u$ is smooth outside singular set, so $|Du|^p$ is. SO maybe prove that $u\in C^\infty$ instead...
+
+\begin{Lemma}
+Let $\Om\subset\R^n$ an open set and $p\in[2,\infty)$. Assume that $u:\Om\to\R^N$ is a $p$-harmonic map, i.e. $u\in W^{1,p}_{\mathrm{loc}}(\Om,\R^N)$ satisfying
+$$
+\mathrm{div} (|\rom Du|^{p-2}\rom Du)=0\qquad\mbox{in }\Om,
+$$
+in the sense of distributions. Then, we have
+$$
+|\rom Du|^p\in W^{1,2}_{\mathrm{loc}}(\Om).
+$$
+\end{Lemma}
+\begin{proof}
+We observe
+$$
+\rom D|\rom Du|^p=\rom D(|\rom Du|^\frac p2)^2=2|\rom Du|^\frac p2 \rom D|\rom Du|^\frac p2.
+$$
+Therefore, since $u\in C^{1,\alpha}_\mathrm{loc}(\Om,\R^N)$, it is enough to show that $|\rom Du|^\frac p2\in W^{1,2}_{\mathrm{loc}}(\Om)$.\\
+To this purpose, we can assume $p>2$, since for $p=2$ the result is clearly true.\\
+Fix $U\Subset\Om$ open and $\eps>0$, and consider the minimum problem
+$$
+\min_{W^{1,p}_u(U,\R^N)}E_\eps,
+$$  
+where $W^{1,p}_u(U,\R^N)=u+W^{1,p}_0(U,\R^N)$ and
+$$
+E_\eps(v):=\int_U\left(|\mathrm Dv|^2+\eps^2\right)^{\frac p2}\qquad\forall v\in W^{1,p}(U,\R^N).
+$$
+Since $E_\eps$ is strictly convex, there exists a unique minimiser $u_\eps\in W^{1,p}_u(U,\R^N)$. Moreover, by regularity theory \cite{U}, we have $u_\eps\in C^\infty(U,\R^N)$.\\
+As $\eps\to0$, $(E_\eps)_\eps$ is a sequence of equi-coercive and weakly lower semicontinuous functionals on $W^{1,p}(U,\R^N)$. Further, for every $v\in W^{1,p}(U,\R^N)$, $(E_\eps(v))_\eps$ is monotone decreasing with limit $E(v):=\int_U|Dv|^p$. Therefore, from the theory of $\Gamma$-convergence (see \cite[Section 2.4]{Br}), we have that
+ $E_\eps\stackrel\Gamma\to E$ w.r.t. the weak topology of $W^{1,p}(U,\R^N)$. As a consequence, since $u$ is the unique minimiser of $E$ in $W^{1,p}_u(U,\R^N)$, the full sequence $u_\eps$ converges to $u$ weakly in $W^{1,p}(U,\R^N)$. We have also the convergence of their corresponding norms, since
+\begin{align*}
+E(u)=\lim_\eps E_\eps(u_\eps)&=\lim_\eps\int_U\left(|\mathrm Du_\eps|^2+\eps^2\right)^{\frac p2}\\
+&\geq\limsup_\eps\int_U|\mathrm Du_\eps|^p\\
+&\geq\liminf_\eps\int_U|\mathrm Du_\eps|^p\\
+&\geq\int_U|\mathrm Du|^p=E(u)
+\end{align*}
+hence, the convergence of $u_\eps$ to $u$ is actually strong, namely
+\begin{align}\label{strong conv}
+u_\eps\to u\quad\mbox{in }W^{1,p}(U,\R^N).
+\end{align} 
+Now, we aim at deriving some uniform energy estimates for $u_\eps$.
+ In the following, the symbols $\cdot$ and $ \langle\cdot,\cdot\rangle$ stand for the inner products in $\R^n$ and $\R^N$ respectively, while : stands for the hilbert-Schmidt inner product in $\R^{N\times n}$.\\
+We start by considering the Euler-Lagrange equation corresponding to $E_\eps$:
+$$
+\rom{div}\big(\left(|\rom Du_\eps|^2+\eps^2\right)^{\frac{p-2}2}\rom Du_\eps\big)=0\quad\mbox{in }U.
+$$
+Since $u_\eps\in C^\infty(U,\R^N)$, we can differentiate the previous equation with respect to $x_i$, obtaining
+\begin{align*}
+0&=\partial_i\left[\rom{div}\big(\left(|\rom Du_\eps|^2+\eps^2\right)^{\frac{p-2}2}\rom Du_\eps\big)\right]\\
+&=\rom{div}\left((p-2)\left(|\rom Du_\eps|^2+\eps^2\right)^{\frac{p-4}2}(\rom Du_\eps:\rom D\partial_i u_\eps)\rom Du_\eps+\left(|\rom Du_\eps|^2+\eps^2\right)^{\frac{p-2}2}\rom D\partial_iu_\eps\right).
+\end{align*}
+By taking the inner product with $\partial_i u_\eps$, we have
+\begin{equation}\label{inner}
+\begin{aligned}
+0&=\left\langle\rom{div}\left((p-2)\left(|\rom Du_\eps|^2+\eps^2\right)^{\frac{p-4}2}(\rom Du_\eps:\rom D\partial_i u_\eps)\rom Du_\eps+\left(|\rom Du_\eps|^2+\eps^2\right)^{\frac{p-2}2}\rom D\partial_iu_\eps\right),\partial_iu_\eps\right\rangle\\
+&=\rom{div}\left((p-2)\left(|\rom Du_\eps|^2+\eps^2\right)^{\frac{p-4}2}(\rom Du_\eps:\rom D\partial_i u_\eps)\langle\rom Du_\eps,\partial_iu_\eps\rangle+\left(|\rom Du_\eps|^2+\eps^2\right)^{\frac{p-2}2}\langle\rom D\partial _iu_\eps,\partial_iu_\eps\rangle\right)-\\
+&\quad-(p-2)\left(|\rom Du_\eps|^2+\eps^2\right)^{\frac{p-4}2}(\rom Du_\eps:\rom D\partial_i u_\eps)^2-\left(|\rom Du_\eps|^2+\eps^2\right)^{\frac{p-2}2}|\rom D\partial_iu_\eps|^2
+\end{aligned}
+\end{equation}
+Thus, testing the previous equation with $\eta\in C^\infty_c(U)$, we get
+\begin{equation}\label{test}
+\begin{aligned}
+&\int_U\eta^2\left((p-2)\left(|\rom Du_\eps|^2+\eps^2\right)^{\frac{p-4}2}(\rom Du_\eps:\rom D\partial_i u_\eps)^2+\left(|\rom Du_\eps|^2+\eps^2\right)^{\frac{p-2}2}|\rom D\partial_iu_\eps|^2\right)\\
+=&-2\int_U\eta \rom D\eta\cdot\left((p-2)\left(|\rom Du_\eps|^2+\eps^2\right)^{\frac{p-4}2}(\rom Du_\eps:\rom D\partial_i u_\eps)\langle\rom Du_\eps,\partial_iu_\eps\rangle+\left(|\rom Du_\eps|^2+\eps^2\right)^{\frac{p-2}2}\langle\rom D\partial _iu_\eps,\partial_iu_\eps\rangle\right).
+\end{aligned}
+\end{equation}
+Using the Cauchy-Schwartz inequality, the right hand side is bounded above by
+\begin{align*}
+&\frac12\int_U\eta^2(p-2)\left(|\rom Du_\eps|^2+\eps^2\right)^{\frac{p-4}2}(\rom Du_\eps:\rom D\partial_i u_\eps)^2+2(p-2)\int_U|\rom D\eta|^2\left(|\rom Du_\eps|^2+\eps^2\right)^{\frac{p-4}2}|\rom Du_\eps|^2|\partial_iu_\eps|^2+\\
+&\quad+\frac12\int_U\eta^2\left(|\rom Du_\eps|^2+\eps^2\right)^{\frac{p-2}2}|\rom D\partial_i u_\eps|^2+2\int_U|\rom D\eta|^2\left(|\rom Du_\eps|^2+\eps^2\right)^{\frac{p-2}2}|\partial_iu_\eps|^2,
+\end{align*}
+which in turn, using $|\rom Du_\eps|^2\leq\left(|\rom Du_\eps|^2+\eps^2\right)^{\frac12}$, is bounded by
+\begin{align*}
+&\frac12\int_U\eta^2\left((p-2)\left(|\rom Du_\eps|^2+\eps^2\right)^{\frac{p-4}2}(\rom Du_\eps:\rom D\partial_i u_\eps)^2+\left(|\rom Du_\eps|^2+\eps^2\right)^{\frac{p-2}2}|\rom D\partial_i u_\eps|^2\right)+\\
+&\quad+2(p-1)\int_U|\rom D\eta|^2\left(|\rom Du_\eps|^2+\eps^2\right)^{\frac{p-2}2}|\partial_iu_\eps|^2.
+\end{align*}
+This last quantity provides an estimates from above for the left hand side of \eqref{test}, so that
+\begin{align*}
+&\frac12\int_U\eta^2\left((p-2)\left(|\rom Du_\eps|^2+\eps^2\right)^{\frac{p-4}2}(\rom Du_\eps:\rom D\partial_i u_\eps)^2+\left(|\rom Du_\eps|^2+\eps^2\right)^{\frac{p-2}2}|\rom D\partial_i u_\eps|^2\right)\\
+\leq\,&2(p-1)\int_U|\rom D\eta|^2\left(|\rom Du_\eps|^2+\eps^2\right)^{\frac{p-2}2}|\partial_iu_\eps|^2.
+\end{align*}
+In particular,
+\begin{align*}
+\int_U\eta^2\left(|\rom Du_\eps|^2+\eps^2\right)^{\frac{p-4}2}(\rom Du_\eps:\rom D\partial_i u_\eps)^2
+\leq4\,\frac{p-1}{p-2}\int_U|\rom D\eta|^2\left(|\rom Du_\eps|^2+\eps^2\right)^{\frac{p-2}2}|\partial_iu_\eps|^2.
+\end{align*}
+Now, we observe
+$$
+\partial_i \left(|\rom Du_\eps|^2+\eps^2\right)^{\frac p4}=p\left(|\rom Du_\eps|^2+\eps^2\right)^{\frac{p-4}4}\rom Du_\eps:\rom D\partial_iu_\eps,
+$$
+so that
+$$
+\int_U\eta^2\left(\partial_i \left(|\rom Du_\eps|^2+\eps^2\right)^{\frac p4}\right)^2\leq4p^2\,\frac{p-1}{p-2}\int_U|\rom D\eta|^2\left(|\rom Du_\eps|^2+\eps^2\right)^{\frac{p-2}2}|\partial_iu_\eps|^2.
+$$
+For any open subset $U'\Subset U$, we can choose $\eta\in C^\infty_c(U)$ such that $\eta=1$ on $U'$. Hence, by the H\"older inequality, setting $C(p,U,U'):=4p^2\,\frac{p-1}{p-2}\|\rom D\eta\|^2_{L^\infty(U)}$, we obtain
+\begin{align}\label{deriv est}
+\int_{U'}\left(\partial_i \left(|\rom Du_\eps|^2+\eps^2\right)^{\frac p4}\right)^2\leq C(p,U,U')E_\eps(u_\eps)^\frac{p-2}{p}\|\partial_iu_\eps\|^2_{L^p(U)}.
+\end{align}
+Thanks to \eqref{strong conv}, we have $\left(|\rom Du_\eps|^2+\eps^2\right)^{\frac p4}\to |\rom Du|^{\frac{p}{2}}$ in $L^2(U)$. Furthermore, by recalling that $E_\eps(u_\eps)\to E(u)=\|\rom Du\|^p_{L^p(U)}$ as $\eps\to0$, we can pass to the limit in \eqref{deriv est} and conclude
+$$
+\left\|\partial_i|\rom Du|^\frac p2\right\|^2_{L^2(U')}\leq\liminf_{\eps\to0}\int_{U'}\left(\partial_i \left(|\rom Du_\eps|^2+\eps^2\right)^{\frac p4}\right)^2\leq C(p,U,U')\|\rom Du\|^{p}_{L^p(U)}.
+$$
+Therefore, since $U'$ and $U$ were arbitrary, we have just shown that $|\rom Du|^\frac p2\in W^{1,2}_\mathrm{loc}(\Om)$.\\
+\end{proof}
+\textit{Proof of Theorem \ref{thm p}:}\\
+First, we observe that if $p=2$, the result is straightforward: every harmonic map $u:\Om\to\R^N$ is smooth and satisfies $\Delta|\rom Du|^2\geq0$ on $\Om$.
+So, we can assume $p>2$ in the following. \\
+We divide the proof in two steps: firstly, we prove the gradient maximum principle outside the closed set $\mathscr{C}:=\{x\in\Om:\mathrm Du(x)=0\}$; second, we show the argument for a generic open set $U\Subset\Om$.\\
+\textit{Step 1:} assume $U\Subset\Om\setminus\mathscr{C}$.\\
+
+Now, we aim at deriving an elliptic differential inequality for the function
+$$
+f:=\frac1p{|\rom Du|^p}.
+$$
+Recall that the regularity theory of $p$-harmonic maps (see \cite{U}) ensures $u\in C^{1,\alpha}_\rom{loc}(\Om,\R^N)$. Then, we have $|\rom Du|^\frac p2\in W^{1,2}_\mathrm{loc}(\Om)\cap L^\infty_\rom{loc}(\Om)$, which implies that $f\in W^{1,2}_\rom{loc}(\Om)$ as well.
+
+
+
+\textsc{Acknowledgements:} S.C. and N.K. acknowledge partial financial support through the EPSRC grant EP/X017109/1. S.C. acknowledges partial financial support through the EPSRC grant EP/X017206/1. 
+S.C. is a member of Gruppo Nazionale per
+l’Analisi Matematica, la Probabilità e le loro Applicazioni (GNAMPA) of the Istituto Nazionale
+di Alta Matematica (INdAM) of Italy.\\
+
+\textsc{Data availability}: Our manuscript has no associated data.\\
+
+\textsc{Conflict of interest}: The authors have no Conflict of interest to declare for this article.
+
+%%%%%%%%%%%%%        BIBLIOGRAFIA        %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{thebibliography}{AA} 
+\addcontentsline{toc}{chapter}{Bibliografia} 
+
+\bibitem{A}
+G. Aronsson, {\it Minimization problems for the functional $\sup_xF(x, f(x), f'(x))$ I, II, III}, Arkiv
+fur Mat. 33 - 53 (1965); 409 - 431 (1966); 509 - 512 (1969).
+
+\bibitem{BBDS}
+{A. Balci, L. Behn, L. Diening, J. Storn,} {\it {Examples of \({p}\)-harmonic Maps}}, {SIAM Journal on Mathematical Analysis} {\bf 58}(1), 260-275 (2026).
+
+\bibitem{BJW}
+E.N. Barron, R.R. Jensen, C.Y. Wang, {\it The Euler equation and absolute minimizers of $L^\infty$ functionals}, Arch. Rational
+Mech. Anal. {\bf 157}, 255-283 (2001).
+
+\bibitem{Br}
+A. Braides, {\it A handbook of $\Gamma$-convergence},
+Handbook of Differential Equations: Stationary Partial Differential Equations,
+North-Holland,
+{\bf 3}, 101-213 (2006).
+
+\bibitem{BDP}
+ C. Brizzi, L. De Pascale, \emph{A property of Absolute Minimizers in $ L^{\infty}$  Calculus of Variations and of solutions of the Aronsson-Euler equation}, Advances in Differential Equations {\bf 28} (3/4), 287-310 (2023).
+
+\bibitem{CKM}
+S. Carano, N. Katzourakis, R. Moser, \emph{
+Existence, uniqueness and characterisation of vector-valued absolute minimisers for a second order $L^\infty$-variational problem}, Preprint arXiv https://arxiv.org/abs/2504.04181 (2025).
+
+\bibitem{CM}
+S. Carano, R. Moser, \emph{
+An $L^\infty$-variational problem involving the Fractional Laplacian}, Preprint arXiv https://arxiv.org/abs/2510.14476 (2025).
+
+
+%\bibitem{Dac}
+%B. Dacorogna, {\it Direct Methods in the Calculus of Variations}, 2nd ed., Appl. Math. Sci. 78, Springer, New York, 2008.
+
+%\bibitem{D}
+%J. M. Danskin, {\it The theory of max-min with applications}, J. SIAM Appl. Math. {\bf 14}(4), 641-665 (1966).
+
+\bibitem{DK}
+B. Dutton, N. Katzourakis, {\it On Second-Order $L^\infty$ Variational Problems with Lower-Order Terms}, Discrete Contin. Dyn. Syst., {\bf 49}, 1-21 (2026).
+
+\bibitem{GT}
+D. Gilbarg, N. Trudinger, {\it Elliptic Partial Differential Equations of Second Order}.
+Classics in Mathematics, reprint of the 1998 edition, Springer.
+
+%\bibitem{GM}
+%M. Giaquinta, L. Martinazzi, {\it An Introduction to the Regularity Theory for Elliptic Systems, harmonic Maps and Minimal Graphs}, Publications of the Scuola Normale Superiore (2018).
+
+\bibitem{K1}
+N. Katzourakis, {\it $L^\infty$ Variational Problems for maps and the Aronsson PDE System}, J. Differential
+Equations {\bf 253}(7), 2123 - 2139 (2012).
+
+\bibitem{KSIAM}
+N. Katzourakis, {\it An $L^\infty$ regularisation strategy to the inverse source identification problem for elliptic equations}, SIAM Journal Math, Analysis {\bf 51}(2), 1349-1370 (2019).
+
+%\bibitem{K2}
+%N. Katzourakis. {\it Explicit 2D $\infty$-harmonic maps whose interfaces have junctions
+%and corners}, C. R. Math. Acad. Sci. Paris {\bf 351}, 677–680 (2013).
+
+\bibitem{Kbook}
+N. Katzourakis, {\it An Introduction to Viscosity Solutions for Fully Nonlinear PDE with Applications
+to Calculus of Variations in $L^\infty$}, Springer Briefs in Mathematics,  DOI 10.1007/978-
+3-319-12829-0 (2015).
+
+\bibitem{K3}
+N. Katzourakis, {\it $\infty$-minimal submanifolds}, Proc. Amer. Math. Soc. {\bf 142}, 2797-2811 (2014).
+
+\bibitem{K4}
+N. Katzourakis, {\it On the structure of $\infty$-harmonic maps}, Comm. Partial Differential
+Equations {\bf 39}, 2091–2124 (2014).
+
+%\bibitem{K5}
+%N. Katzourakis. {\it Nonuniqueness in vector-valued calculus of variations in $L^\infty$ and some linear elliptic systems}, Commun. Pure Appl. Anal. {\bf 14}, 313–327 (2015).
+
+%\bibitem{K6}
+%N. Katzourakis. {\it A characterisation of $\infty$-harmonic and $p$-harmonic maps via affine variations in $L^\infty$}, Electron. J. Differential Equations , {\bf 29} (2017).
+
+\bibitem{KM}
+N. Katzourakis, R. Moser, {\it Existence, uniqueness and structure of second order absolute minimisers}, ARMA {\bf 231}(3), 1615-1634 (2019).
+
+\bibitem{KM1}
+N. Katzourakis, R. Moser, {\it Minimisers of supremal functionals and mass-minimising 1-currents}, Calc. Var.{ \bf 64}(26) (2025).
+
+\bibitem{KM2}
+N. Katzourakis, R. Moser, {\it Variational problems in $L^\infty$ involving semilinear second order differential operators}, ESAIM: COCV, {\bf 29}(76) (2023).
+
+\bibitem{KM3}
+N. Katzourakis, R. Moser. {\it Existence, uniqueness and characterisation of local minimisers in higher order Calculus of Variations in $L^\infty$}, to appear in Analysis \& PDE (2026).
+
+\bibitem{KP1}
+N. Katzourakis, T. Pryer, {\it On the numerical approximation of $p$-Biharmonic and $\infty$-Biharmonic functions},
+Numerical Methods for Partial Differential Equations, {\bf 35}(1), 155-180 (2018).
+
+
+\bibitem{KP2}
+N. Katzourakis, T. Pryer, {\it 2nd order $L^\infty$ Variational Problems and the $\infty$-Polylaplacian},
+Advances in Calculus of Variations {\bf 13}, 115-140 (2020).
+
+
+
+\bibitem{MWZ}
+ Q. Miao, C. Wang, Y. Zhou, \emph{Uniqueness of Absolute Minimizers for $ L^{\infty}$-Functionals Involving hamiltonians $h(x,p)$}, Archive for Rational Mechanics and Analysis \textbf{223} (1), 141--198 (2017).
+
+\bibitem{PWZ} F. Peng, C. Wang, Y. Zhou, \emph{Regularity of absolute minimizers for continuous convex hamiltonians}, Journal of Differential Equations, Volume 274 (2021), 1115-1164.
+
+% \bibitem{PZ} F. Prinari, E. Zappale, \emph{A Relaxation Result in the Vectorial Setting and Power Law Approximation for Supremal Functionals}, J Optim. Theory Appl., \textbf{186}, 412--452 (2020).
+
+%\bibitem{RZ} A. M. Ribeiro, E. Zappale, \emph{Existence of minimisers for nonlevel convex functionals}, SIAM J. Control Opt., \textbf{52} (5), 3341--3370 (2014).
+
+\bibitem{U}
+K. Uhlenbeck, {\it Regularity for a class of non-linear elliptic systems}, Acta Math. {\bf138}, 219--240 (1977).
+
+
+
+\end{thebibliography}
+
+\vspace{3mm}
+\textsc{Simone Carano}\\
+Department of Mathematics and Statistics, University of Reading\\
+Whiteknights Campus, Pepper Lane, Reading RG6 6AX, UK\\
+E-mail: s.carano@reading.ac.uk\\
+
+\textsc{Nikos Katzourakis}\\
+Department of Mathematics and Statistics, University of Reading\\
+Whiteknights Campus, Pepper Lane, Reading RG6 6AX, UK\\
+E-mail: n.katzourakis@reading.ac.uk\\
+
+\textsc{Roger Moser}\\
+Department of Mathematical Sciences, University of Bath\\
+Bath BA2 7AY, UK\\
+E-mail: r.moser@bath.ac.uk
+
+
+
+
+
+\end{document}
+
+
+
+
+
+
+
+
+
+
+
