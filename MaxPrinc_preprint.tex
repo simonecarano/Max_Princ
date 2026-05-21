@@ -72,7 +72,7 @@
 \newtheorem{Remark}[Theorem]{Remark}
 \newtheorem{Example}[Theorem]{Example}
 
- \title{Maximum Principle for Absolute Minimisers
+ \title{Energy Maximum Principle for Absolute Minimisers
 }
 \author{
 Simone Carano, Nikos Katzourakis and Roger Moser}
@@ -108,8 +108,8 @@ Under very mild assumptions on the supremand $\rom{H}$, we prove that for an abs
 \rom{H}(x,\mathrm D ^{[k]}u(x))^*:=\lim_{\eps\to 0}\esssup_{B_\eps(x)\cap U}\rom{H}(\cdot,\mathrm D ^{[k]}u)\qquad\forall x\in \partial U.
 \end{align}
 Therefore, we give the following definition.
-\begin{Definition}[Maximum principle]
-We say that $u\in W^{k,\infty}(\Om,\R^N)$ satisfies the maximum principle for $E_\infty$ in $\Om$ if
+\begin{Definition}[Energy maximum principle]
+We say that $u\in W^{k,\infty}(\Om,\R^N)$ satisfies the energy maximum principle for $E_\infty$ in $\Om$ if
 \begin{align}\label{MP}
 \esssup_U \rom{H}(\cdot, \mathrm D ^{[k]}u)=\sup_{\partial U}\rom{H}(\cdot,\mathrm D ^{[k]}u)^*\qquad\forall U\subseteq\Om \mbox{ open}.
 \end{align}
@@ -119,12 +119,12 @@ If $u\in C^k(\overline\Om,\R^N)$ and $\rom{H}\in C(\Om\times\R^\alpha)$, this ca
 $$
 \max_{\overline U} \rom{H}(\cdot, \mathrm D ^{[k]}u)=\max_{\partial U}\rom{H}(\cdot,\mathrm D ^{[k]}u)\qquad\forall U\subseteq\Om \mbox{ open}.
 $$
-We prove that this property is necessarily satisfied by absolute minimisers. Although it is not sufficient: the cone function $u(x)=|x|$ belongs to $W^{1,\infty}(\R^n)$ and clearly satisfies the maximum principle for $E_\infty(u,\Om):=\esssup_\Om|\mathrm Du|$, but it is not an absolute minimiser. However, we will see that the maximum principle is a property that characterises a class of maps which is larger than the one of absolute minimisers, and are the ones that minimise $E_\infty$ with respect to compactly supported variations.
+We prove that this property is necessarily satisfied by absolute minimisers. Although it is not sufficient: the cone function $u(x)=|x|$ belongs to $W^{1,\infty}(\R^n)$ and clearly satisfies the energy (or, equivalently, gradient) maximum principle for $E_\infty(u,\Om):=\esssup_\Om|\mathrm Du|$, but it is not an absolute minimiser. However, we will see that the energy maximum principle is a property that characterises a class of maps which is larger than the one of absolute minimisers, and are the ones that minimise $E_\infty(\cdot,U)$ with respect to compactly supported variations in $U$, for every $U\subseteq\Om$.
 
 Before stating our main results, we underline that $E_\infty$ in \eqref{E infty} is the general object of study in the $L^\infty$-Calculus of Variations, a field initiated by Aronsson in \cite{A}. his pioneering work on the scalar first order case (namely when $N=k=1$) has been well developed by now, and most challenges have been thoroughly analysed and understood (see \cite{Kbook} for a survey reference). More recently,  the vectorial case ($N>1$) and the higher order case ($k>1$) have been approached respectively in \cite{K1} and \cite{KM,KP2}. In these contexts, a complete theory is still far from reach. Without any pretension of being exhaustive, we refer also to \cite{K3,K4,KM1} for a glimpse of the literature on vectorial first order problems and to \cite{CKM,DK,KP1,KM2,KM3} for higher order ones. Furthermore, the fractional order case ($k\notin\N$) has been recently explored in \cite{CM}.  
 
 It is worth mentioning that, given boundary data $u_0\in W^{k,\infty}(\Om,\R^N)$, the existence (and/or uniqueness) of absolute minimisers to the Dirichlet problem in $W_{u_0}^{k,\infty}(\Om,\R^N)$ associated to $E_\infty$ in \eqref{E infty} 
- is an open problem already when $k=1$ and $n,N>1$ or when $N=1$ and $n,k>1$. There are some exceptions in the second order case, whenever $h$ has special dependence in the second derivatives of $u$. We refer to \cite{KM, KM3, KP2} for the scalar second order case and to \cite{CKM} for the vectorial one (see also \cite{CM} for the fractional case).
+ is an open problem already when $k=1$ and $n,N>1$ or when $N=1$ and $n,k>1$. There are some exceptions in the second order case, whenever $\rom H$ has special dependence in the second derivatives of $u$: relevant works are \cite{KM, KM3, KP2} for the scalar second order case and \cite{CKM} for the vectorial one; surprisingly, similar results hold true also in the fractional case \cite{CM}.
 
 Now we proceed to specify the assumptions on the function $\rom{H}$. By denoting $X=(X_0,X_1,\ldots,X_k)\in R^N\times \R^{Nn}\times\ldots\R^{Nn^k}=\R^\alpha$, we assume that $\rom{H}:\Om\times\R^\alpha\to\R$ is Carathéodory and radially non-decreasing w.r.t. $X$, i.e. for almost every $x\in\Om$ and every $X\in\R^\alpha$ the function
 $$
@@ -133,12 +133,12 @@ $$
 Notice that radial monotonicity implies that, for almost every $x\in\Om$, $\rom{H}(x,\cdot)$ has a global minimum at $X=0$. Without loss of generality we can assume that $\rom{H}(x,0)=0$ a.e. $x\in\Om$, so that $\rom{H}$ takes values in $\R^+$. In this case, $E_\infty(u,U)=\|\rom{H}(\cdot, \mathrm D^{[k]}u)\|_{L^\infty(U)}$ for every $U\subseteq\Om$ open.
 
 We point out that any level convex function with global minimum at the origin is necessarily radially non-decreasing, so that our result applies to the class of level convex functions, which is a common assumption for $\rom{H}$ in $L^\infty$ variational problems (see e.g. \cite{BJW}).
- Moreover, one can even apply the result to non-continuous supremands: indeed, for a function $g:\R^+\to\R^+$ lower semicontinuous and non-decreasing, set $G=g\circ h$ and $E'_\infty(u,U):=\esssup_U G(\cdot,\mathrm D^{[k]} u)$. It is not difficult to see that $E_\infty$ and $E'_\infty$ share the same minimisers. In addition, if $u\in W^{k,\infty}(\Om,\R^N)$ satisfies the maximum principle for $E_\infty$ in $\Om$, then for every $U\subseteq\Om$ open
+ Moreover, one can even apply the result to non-continuous supremands: indeed, for a function $g:\R^+\to\R^+$ lower semicontinuous and non-decreasing, set $G=g\circ h$ and $E'_\infty(u,U):=\esssup_U G(\cdot,\mathrm D^{[k]} u)$. It is not difficult to see that $E_\infty$ and $E'_\infty$ share the same minimisers. In addition, if $u\in W^{k,\infty}(\Om,\R^N)$ satisfies the energy maximum principle for $E_\infty$ in $\Om$, then for every $U\subseteq\Om$ open
 $$
 E'_\infty(u,U)=g\left(\esssup_U \rom{H}(\cdot, \mathrm D^{[k]}u)\right)=g\left(\esssup_{\partial U}\rom{H}(\cdot, \mathrm D^{[k]}u)^*\right)=\left(\esssup_{\partial U}G(\cdot, \mathrm D^{[k]}u)^*\right),
 $$ 
-i.e. $u$ satisfies the maximum principle for $E_\infty'$ as well.\\
-The second assumption on $\rom{H}$ concerns the uniformity w.r.t. $x$ of its modulus continuity: since $\rom{H}(x,\cdot)$ is continuous in $\R^\alpha$, it is uniformly continuous on every closed ball $\overline{\mathbb B}_R(0)\subset\R^\alpha$. Thus, we require that the modulus of continuity on $\overline{\mathbb B}_R(0)$ is independent of $x$. More precisely, we assume
+i.e. $u$ satisfies the energy maximum principle for $E_\infty'$ as well.\\
+The second assumption on $\rom{H}$ concerns the uniformity w.r.t. $x$ of its modulus of continuity: since $\rom{H}(x,\cdot)$ is continuous in $\R^\alpha$, it is uniformly continuous on every closed ball $\overline{\mathbb B}_R(0)\subset\R^\alpha$. Thus, we require that the modulus of continuity on $\overline{\mathbb B}_R(0)$ is independent of $x$. More precisely, we assume
 \begin{equation}\label{uniformity}
 \begin{array}{l}
 \forall R>0 \,\,\exists\, \omega_R\in C(\mathbb{R}^+)\ \text{non-decreasing, with } \omega_R(0)=0: \\
@@ -147,14 +147,14 @@ The second assumption on $\rom{H}$ concerns the uniformity w.r.t. $x$ of its mod
 \end{equation}
 
 Now we can state our main result.
-\begin{Theorem}[Maximum Principle for Absolute Minimisers]\label{thm1}
-Let $\Om\subset\R^n$ be a bounded open set and let $\rom{H}:\Om\times\R^\alpha\to\R^+$ be a Carathéodory function satisfying \eqref{uniformity}, with $\rom{H}(x,0)=0$ and $\rom{H}(x, \cdot)$ radially non-decreasing for a.e. $x\in\Om$. Assume that $u\in W^{k,\infty}(\Om,\R^N)$ is an absolute minimiser for the functional $E_\infty$, defined in \eqref{E infty}. Then $u$ satisfies the maximum principle for $E_\infty$ in $\Om$, namely
+\begin{Theorem}[Energy maximum principle for absolute minimisers]\label{thm1}
+Let $\Om\subset\R^n$ be a bounded open set and let $\rom{H}:\Om\times\R^\alpha\to\R^+$ be a Carathéodory function satisfying \eqref{uniformity}, with $\rom{H}(x,0)=0$ and $\rom{H}(x, \cdot)$ radially non-decreasing for a.e. $x\in\Om$. Assume that $u\in W^{k,\infty}(\Om,\R^N)$ is an absolute minimiser for the functional $E_\infty$, defined in \eqref{E infty}. Then $u$ satisfies the energy maximum principle for $E_\infty$ in $\Om$, namely
 \begin{align}\label{MP}
 \esssup_U \rom{H}(\cdot, \mathrm D ^{[k]}u)=\sup_{\partial U}\rom{H}(\cdot,\mathrm D ^{[k]}u)^*\qquad\forall U\subseteq\Om \mbox{ open}.
 \end{align}
 where $\rom{H}(\cdot,\mathrm D ^{[k]}u)^*$ is the essential limsup of $\rom{H}(\cdot,\mathrm D ^{[k]}u)$, defined in \eqref{rep}.
 \end{Theorem}
-Another way of interpreting the maximum principle property is by saying that, for every $U\subseteq\Om$, the \textit{attainment set} $U(u)$ must contain the boundary of $U$. The attainment set $U(u)$ is the collection of all points $x\in \overline U$ where $\rom{H}(x, \mathrm D ^{[k]}u(x))=\esssup_U \rom{H}(\cdot, \mathrm D ^{[k]}u)$, and it is well defined and non-empty in case $u\in C^k(\Om,\R^N)$ and $\rom{H}\in C(\Om\times\R^\alpha)$. For a definition of $U(u)$ in the non-smooth setting we refer to \cite{BDP}, where the authors show also a minimality property of $U(u)$ for absolute minimisers in the scalar first order case.\\
+Another way of interpreting the energy maximum principle property is by saying that, for every $U\subseteq\Om$, the \textit{attainment set} $U(u)$ must contain the boundary of $U$. The attainment set $U(u)$ is the collection of all points $x\in \overline U$ where $\rom{H}(x, \mathrm D ^{[k]}u(x))=\esssup_U \rom{H}(\cdot, \mathrm D ^{[k]}u)$, and it is well defined and non-empty in case $u\in C^k(\Om,\R^N)$ and $\rom{H}\in C(\Om\times\R^\alpha)$. For a definition of $U(u)$ in the non-smooth setting we refer to \cite{BDP}, where the authors show also a minimality property of $U(u)$ for absolute minimisers in the scalar first order case.\\
 
 Before stating our second result, we give the definition of absolute minimiser w.r.t. compactly supported variations. 
 \begin{Definition}[The class $\mathrm {AM}_c(\Om,\R^N)$]
@@ -169,12 +169,13 @@ As a consequence of Theorem \ref{thm1}, we obtain the following characterisation
 Let $\Om\subset\R^n$ be a bounded open set and let $\rom{H}:\Om\times\R^\alpha\to\R^+$ be a Carathéodory function satisfying \eqref{uniformity}, with $\rom{H}(x,0)=0$ and $\rom{H}(x, \cdot)$ radially non-decreasing for a.e. $x\in\Om$. Consider the functional $E_\infty$, defined in \eqref{E infty}.
 Then, the following are equivalent for a map $u\in W^{k,\infty}(\Om,\R^N)$:
 \begin{enumerate}
-\item[i)] $u$ satisfies the maximum principle for $E_\infty$ in $\Om$;
+\item[i)] $u$ satisfies the energy maximum principle for $E_\infty$ in $\Om$;
 \item[ii)] $u\in \mathrm {AM}_c(\Om,\R^N)$.
 \end{enumerate}
 \end{Corollary}
-The proof of Theorem \ref{thm1} and Corollary \ref{thm2} are in Section \ref{sec:proofs}, preceded by a short preparatory section. Therein we discuss some stronger notions of radial monotonicity which are of interest for us and some properties of the essential limsup, including a fundamental technical result (Lemma \ref{lemma esssup}) that we will use several times in the proofs of our results.\\
-DIRE QUALCOSA SULLE MAPPE P-ARMONIChE
+The proof of Theorem \ref{thm1} and Corollary \ref{thm2} are in Section \ref{sec:proofs}, preceeded by a short preparatory section. Therein we discuss the different notions of radial monotonicity which are of interest for us and some properties of the essential limsup. 
+
+Finally, in Section \ref{sec grad}, we give a proof of a gradient maximum principle for $p$-harmonic maps. The methods used therein are genuinely different from the ones in the previous sections, and are based on the theory of elliptic PDEs. For the scalar case, results of this kind are already present in the literature, e.g. in \cite[Chapter 9]{GT}. We refer also to \cite[Appendix B]{PZZ} for a proof of gradient maximum and minimum principles for the class of $p$-harmonic potentials on convex rings in the plane. However, to the best of our knowledge, the validity of a gradient maximum principle for vector-valued $p$-harmonic maps appears to be new.
 
 \section{Preparatory tools}\label{prep}
 \subsection{On radial monotonicity}\label{radial mon}
@@ -221,11 +222,11 @@ $$
 is the essential limsup of $f$.
 \end{Definition}
 Of course, if $U$ is open and $f$ is continuous in $U$, then $f^*=f$. 
-however, in the more general setting of Definition \ref{ess limsup}, we may have $f\neq f^*$ on a set of positive measure: for instance, consider $f=\mathbbm{1}_{\R^n\setminus K}$ for a nowhere dense compact set $K\subset\R^n$, with $\mathscr L^n(K)>0$. In general, from \cite[Proposition 9]{KSIAM}, we have that $f\leq f^*$ almost everywhere and $f^*$ is upper semicontinuous on $U$. Moreover, again by \cite[Proposition 9]{KSIAM}, the definition of $f^*$ allows us to give a pointwise meaning to the essential supremum, indeed for any Borel set $U\subseteq\R^n$ we have
+However, in the more general setting of Definition \ref{ess limsup}, we may have $f\neq f^*$ on a set of positive measure: for instance, consider $f=\mathbbm{1}_{\R^n\setminus K}$ for a nowhere dense compact set $K\subset\R^n$, with $\mathscr L^n(K)>0$. In general, from \cite[Proposition 9]{KSIAM}, we have that $f\leq f^*$ almost everywhere and $f^*$ is upper semicontinuous on $U$. Moreover, again by \cite[Proposition 9]{KSIAM}, the definition of $f^*$ allows us to give a pointwise meaning to the essential supremum, indeed for any Borel set $U\subseteq\R^n$ we have
 \begin{align}\label{pointwise sup}
 \sup_U f^*=\esssup_U f.
 \end{align}
-For a set $E\subset\R^n$ and $\rho>0$, we denote by $E^\rho$ the open $\rho$-neighbourhood of $E$, namely $$E^\rho:=\{x\in\R^n: \mathrm{dist}(x,\partial E)<\rho\}.$$
+For a set $E\subset\R^n$ and $\rho>0$, we denote by $E^\rho$ the open $\rho$-neighbourhood of $E$, namely $$E^\rho:=\{x\in\R^n: \mathrm{dist}(x, E)<\rho\}.$$
 The following lemma is in order.
 
 \begin{Lemma}\label{lemma esssup}
@@ -267,7 +268,7 @@ By contradiction, suppose that for every $j\in\N$ there exists $y_j\in K^{1/j}\s
 \right.
 \end{equation}
  Let $\bar y_j\in K$ be a point realising $d(y_j,K)$. Since $K$ is compact, there exists a subsequence $(\bar y_{j_k})\subset(\bar y_j)$ such that $\bar y_{j_k}\to \bar x$ as $k\to\infty$, for some $\bar x\in K$. Moreover, since $\mathrm{dist}(y_{j_k},\bar y_{j_k})\leq1/{j_k}$, we have also that $y_{j_k}\to \bar x$ as $k\to\infty$. But being $\{B_{i,\sigma}\}_{i=1,\ldots,m}$ a covering of $K$, we must have that eventually $y_{j_k}\in B_{i,\sigma}$ for some $i\in\{1,\ldots,m\}$, which contradicts \eqref{contr}.\\
-Now, define $U_\sigma=\bigcup_{i=1}^m (B_{i,\sigma}\cap U)$ and notice that ${K^\rho\cap U}\subset U_\sigma$. Thus, using also \eqref{def of lim}, we have
+Now, define $U_\sigma=\bigcup_{i=1}^m (B_{i,\sigma}\cap U)$ and notice that ${K^{\rho_\sigma}\cap U}\subset U_\sigma$. Thus, using also \eqref{def of lim}, we have
 \begin{align*}
 \lim_{\rho\to0}\esssup_{K^\rho\cap U}f&\leq\esssup_{K^{\rho_\sigma}\cap U}f\\
 &\leq \esssup_{U_\sigma}f\\
@@ -310,17 +311,17 @@ M:=\esssup_U \rom{H}(\cdot, \mathrm D ^{[k]}u).
 If $M=0$, there is nothing to prove, so we can assume that $M>0$.
 For seek of contradiction, assume that \eqref{one ineq} holds strict. Then, by applying Lemma \ref{lemma esssup} to $K=\partial U$, one can find $\delta>0$ such that
 $$
-\lim_{\rho\to0}\esssup_{U^\rho\cap U}\rom{H}(\cdot, \mathrm D ^{[k]}u)+2\delta\leq M.
+\lim_{\rho\to0}\esssup_{(\partial U)^\rho\cap U}\rom{H}(\cdot, \mathrm D ^{[k]}u)+2\delta\leq M.
 $$
 In particular, there exists $\eps>0$ such that
 \begin{align}\label{from contr}
-\esssup_{U^{\eps}\cap U}\rom{H}(\cdot, \mathrm D ^{[k]}u)+\delta\leq M.
+\esssup_{(\partial U)^{\eps}\cap U}\rom{H}(\cdot, \mathrm D ^{[k]}u)+\delta\leq M.
 \end{align}
-By possibly reducing $\eps$ in size, we can choose a function $\varphi_\eps\in C^\infty(\R^n)$, with $0\leq\varphi_\eps\leq1$, such that $\varphi_\eps=0$ in $U\setminus U^\eps$ and $\varphi_\eps=1$ in $U^{\eps/2}$. Now, for $\lambda\in(0,1)$, set
+By possibly reducing $\eps$ in size, we can choose a function $\varphi_\eps\in C^\infty(\R^n)$, with $0\leq\varphi_\eps\leq1$, such that $\varphi_\eps=0$ in $U\setminus (\partial U)^\eps$ and $\varphi_\eps=1$ in $(\partial U)^{\eps/2}$. Now, for $\lambda\in(0,1)$, set
 $$
 u_\lambda:=\lambda u + (1-\lambda)\varphi_\eps u.
 $$
-Notice that $u_\lambda\in W^{k,\infty}{(U,\R^N)}$. Moreover, $u_\lambda=u$ on $U^{\eps/2}\cap U$, so that 
+Notice that $u_\lambda\in W^{k,\infty}{(U,\R^N)}$. Moreover, $u_\lambda=u$ on $(\partial U)^{\eps/2}\cap U$, so that 
 \begin{align}\label{u lambda}
 u_\lambda\in u+W^{k,\infty}_c(U,\R^N)\subset W_u^{1,\infty}(U,\R^N).
 \end{align}
@@ -363,20 +364,20 @@ we get
 \begin{align*}
 |\rom{H}(\cdot,\mathrm D^{[k]}u_\lambda)-\rom{H}(\cdot,\lambda\mathrm D^{[k]}u)|\leq \omega\left((1-\lambda)C_2\right)\qquad\mbox{ a.e. in } U.
 \end{align*}
-By restricting the previous estimate to $U^\eps\cap U$ and passing to the essential supremum on this set, we have
+By restricting the previous estimate to $(\partial U)^\eps\cap U$ and passing to the essential supremum on this set, we have
 \begin{align*}
-\esssup_{U^\eps\cap U}\rom{H}(\cdot, \mathrm D^{[k]}u_\lambda)&\leq\esssup_{U^\eps\cap U}\rom{H}(\cdot, \lambda\mathrm D^{[k]}u)+ \omega\left((1-\lambda)C_2\right)\\
+\esssup_{(\partial U)^\eps\cap U}\rom{H}(\cdot, \mathrm D^{[k]}u_\lambda)&\leq\esssup_{(\partial U)^\eps\cap U}\rom{H}(\cdot, \lambda\mathrm D^{[k]}u)+ \omega\left((1-\lambda)C_2\right)\\
 &\leq M-\delta +\omega\left((1-\lambda)C_2\right),
 \end{align*}
 where in the last inequality we have applied \eqref{from contr}. Now, for $\lambda$ sufficiently close to $1$, by continuity of $\omega$, we have $\omega\left((1-\lambda)C_2\right)\leq\delta/2$, giving
 \begin{align}\label{first key}
-\esssup_{U^\eps\cap U}\rom{H}(\cdot, \mathrm D^{[k]}u_\lambda)\leq M-\frac{\delta}{2}<M.
+\esssup_{(\partial U)^\eps\cap U}\rom{H}(\cdot, \mathrm D^{[k]}u_\lambda)\leq M-\frac{\delta}{2}<M.
 \end{align}
 On the other hand, let us prove that
 \begin{align}\label{second key}
-\esssup_{U\setminus U^\eps}\rom{H}(\cdot, \mathrm D^{[k]}u_\lambda)<M.
+\esssup_{U\setminus (\partial U)^\eps}\rom{H}(\cdot, \mathrm D^{[k]}u_\lambda)<M.
 \end{align}
-To this purpose, notice that, since $\varphi_\eps=0$ in $U\setminus U^\eps$, we have $u_\lambda=\lambda u$ in $U\setminus U^\eps$. Thus, set $$\overline M:=\esssup_U \rom{H}(\cdot, \lambda \mathrm D^{[k]}u)$$ and aim at proving $\overline M<M$. Without loss of generality, we can assume $\overline M>0$. So, by definition of essential supremum, for every $\delta\in (\overline M/2,\overline M)$, there exists $x_\delta\in U$ such that
+To this purpose, notice that, since $\varphi_\eps=0$ in $U\setminus (\partial U)^\eps$, we have $u_\lambda=\lambda u$ in $U\setminus (\partial U)^\eps$. Thus, set $$\overline M:=\esssup_U \rom{H}(\cdot, \lambda \mathrm D^{[k]}u)$$ and aim at proving $\overline M<M$. Without loss of generality, we can assume $\overline M>0$. So, by definition of essential supremum, for every $\delta\in (0,\overline M/2)$, there exists $x_\delta\in U$ such that
 \begin{align}\label{def ess}
  \rom{H}(x_\delta,\lambda \mathrm{D}^{[k]}u(x_\delta))\geq\overline M-\delta.
 \end{align}
@@ -393,7 +394,7 @@ Indeed, from \eqref{def ess} and the continuity of $\rom{H}$ at $X=0$, we infer 
 $$
 r\leq| \mathrm D^{[k]}u(x_\delta)|\leq R.
 $$
-hence, since $c$ is continuous and strictly positive in $(0,1)\times(0,\infty)$, we have $$c(\lambda,| \mathrm D^{[k]}u(x_\delta)|)\geq\min_{\rho\in[r,R]}c(\lambda,\rho)=:\sigma>0.$$
+Hence, since $c$ is continuous and strictly positive in $(0,1)\times(0,\infty)$, we have $$c(\lambda,| \mathrm D^{[k]}u(x_\delta)|)\geq\min_{\rho\in[r,R]}c(\lambda,\rho)=:\sigma>0.$$
 Putting together \eqref{def ess}, \eqref{from strong}, and \eqref{c}, we obtain
 $$
 \overline M-\delta\leq M-c(\lambda, |\mathrm D^{[k]}u(x_\delta)|)\leq M-\sigma,
@@ -401,13 +402,13 @@ $$
 for $\sigma>0$ independent of $\delta$. We conclude that $\overline M\leq M-\sigma<M$, by letting $\delta\to 0$.\\
 As a consequence, we deduce \eqref{second key}, indeed
 \begin{align*}
-\esssup_{U\setminus U^\eps}\rom{H}(\cdot, \mathrm D^{[k]}u_\lambda)&=\esssup_{U\setminus U^\eps}\rom{H}(\cdot, \lambda\mathrm D^{[k]}u)\\
+\esssup_{U\setminus (\partial U)^\eps}\rom{H}(\cdot, \mathrm D^{[k]}u_\lambda)&=\esssup_{U\setminus (\partial U)^\eps}\rom{H}(\cdot, \lambda\mathrm D^{[k]}u)\\
 &\leq \esssup_{U}\rom{H}(\cdot, \lambda\mathrm D^{[k]}u)\\
 &=\overline M<M
 \end{align*}
 Finally, by recalling \eqref{M}, and the inequalities \eqref{first key} and \eqref{second key}, we obtain
 $$
-\esssup_{U}\rom{H}(\cdot, \mathrm D^{[k]}u_\lambda)\leq \max\left\{\esssup_{U^\eps\cap U}\rom{H}(\cdot, \mathrm D^{[k]}u_\lambda), \esssup_{U\setminus U^\eps}\rom{H}(\cdot, \mathrm D^{[k]}u_\lambda)\right\}<M.
+\esssup_{U}\rom{H}(\cdot, \mathrm D^{[k]}u_\lambda)\leq \max\left\{\esssup_{(\partial U)^\eps\cap U}\rom{H}(\cdot, \mathrm D^{[k]}u_\lambda), \esssup_{U\setminus (\partial U)^\eps}\rom{H}(\cdot, \mathrm D^{[k]}u_\lambda)\right\}<M.
 $$
 This inequality and \eqref{u lambda} contradict the absolute minimality of $u$.\\
 
@@ -417,14 +418,14 @@ Assume that $\rom{H}(x,\cdot)$ is radially non-decreasing for almost every $x\in
 $$
 \rom{H}_\eps(x,X)=\rom{H}(x,X)+\eps|X|^2 \qquad\forall X\in\R^\alpha\quad\mbox{a.e. }x\in\Om.
 $$
-Then, $\rom{H}_\eps$ is strongly radially increasing in $X$, uniformly w.r.t. $x$ (see also Example \ref{Ex}): indeed, it is enough to take $c(t,\rho):=\eps(1-t^2)\rho^2$ as a modulus of monotonicity. hence, by \eqref{one ineq} and \textit{Step 1}, for every open subset $U\subseteq\Om$, we have
+Then, $\rom{H}_\eps$ is strongly radially increasing in $X$, uniformly w.r.t. $x$ (see also Example \ref{Ex}): indeed, it is enough to take $c(t,\rho):=\eps(1-t^2)\rho^2$ as a modulus of monotonicity. Hence, by \eqref{one ineq} and \textit{Step 1}, for every open subset $U\subseteq\Om$, we have
 \begin{align}\label{eq h eps}
 \esssup_U \rom{H}_\eps(\cdot, \mathrm D ^{[k]}u)=\sup_{\partial U}\rom{H}_\eps(\cdot,\mathrm D ^{[k]}u)^*.
 \end{align}
 Moreover, for every compact subset $K\subset\R^\alpha$, $\rom{H}_\eps\to \rom{H}$ uniformly in $\Om\times K$ as $\eps\to 0$. Therefore, recalling Lemma \eqref{lemma esssup}, we have
 \begin{align*}
 \sup_{\partial U}\rom{H}_\eps(\cdot,\mathrm D ^{[k]}u)^*&=\lim_{\rho\to0}\esssup_{(\partial U)^\rho\cap U}\rom{H}_\eps(\cdot, \mathrm D ^{[k]}u)\\
-&\leq \inf_{\rho>0}\esssup_{(\partial U)^\rho\cap U}\rom{H}_\eps(\cdot, \mathrm D ^{[k]}u).
+&= \inf_{\rho>0}\esssup_{(\partial U)^\rho\cap U}\rom{H}_\eps(\cdot, \mathrm D ^{[k]}u).
 \end{align*}
 In particular, for every $\rho>0$,
 $$
@@ -452,7 +453,7 @@ The proof is completed. \qed
 A straightforward consequence is Corollary \ref{thm2}, whose proof is detailed below.\\
 
 \textit{Proof of Corollary \ref{thm2}:}\\
-Let us show that satisfying the maximum principle implies the membership to the class $ \mathrm {AM}_c(\Om,\R^N)$. Fix $u\in W^{1,\infty}(\Om,\R^N)$, an open set $U\subseteq\Om$ and a map $\Phi\in W^{1,\infty}_c(U,\R^N)$. Let $U'\Subset U$ be an open subset with supp$(\Phi)\Subset U'$. Then we have
+Let us show that satisfying the energy maximum principle implies the membership to the class $ \mathrm {AM}_c(\Om,\R^N)$. Fix $u\in W^{1,\infty}(\Om,\R^N)$, an open set $U\subseteq\Om$ and a map $\Phi\in W^{1,\infty}_c(U,\R^N)$. Let $U'\Subset U$ be an open subset with supp$(\Phi)\Subset U'$. Then we have
 \begin{equation}\label{1st ine}
 \begin{aligned}
 E_\infty(u+\Phi,U)&=\esssup_U \rom{H}(\cdot, \mathrm D^{[k]}(u+\Phi))\\
@@ -468,7 +469,7 @@ By passing to the limit as $\rho\to 0$ in the right hand side and invoking Lemma
 \begin{equation}\label{2nd ine}
 \esssup_{U\setminus U'}\rom{H}(\cdot, \mathrm D^{[k]}u)\geq \lim_{\rho\to0}\esssup_{(\partial U)^\rho\cap U}\rom{H}(\cdot, \mathrm D^{[k]}u)=\sup_{\partial U}\rom{H}(\cdot, \mathrm D^{[k]}u)^*.
 \end{equation}
-Now assume that $u$ satisfies maximum principle \eqref{MP}, then putting together \eqref{1st ine} and \eqref{2nd ine}, we get
+Thus, if $u$ satisfies the energy maximum principle in \eqref{MP}, by putting together \eqref{1st ine} and \eqref{2nd ine}, we get
 \begin{align*}
 E_\infty(u+\Phi,U)&\geq\sup_{\partial U}\rom{H}(\cdot, \mathrm D^{[k]}u)^*\\
 &=\esssup_{U}\rom{H}(\cdot, \mathrm D^{[k]}u)\\
@@ -479,29 +480,32 @@ For the reverse implication, one can just replicate the proof of Theorem \ref{th
 \qed
 
 
-\section{On the gradient maximum principle for $p$-harmonic maps}
-In this section, we prove a gradient maximum principle for $p$-harmonic maps. To our best knowledge, a result of this kind is not present in the literature, at least in the vectorial case. For the scalar one, a gradient maximum principle for quasilinear elliptic equations can be found in \cite[Chapter 15]{GT}. We refer also to \cite[Appendix B]{PWZ} regarding gradient maximum and minimum principles for $p$-harmonic potentials on convex rings in the plane. In the case of general $p$-harmonic maps, however, one can only hope for a gradient maximum principle to hold, since a minimum principle does not hold in general, as existing examples show (see \cite{BBDS}).\\
+\section{On the gradient maximum principle for $p$-harmonic maps}\label{sec grad}
+In this section, we prove a gradient maximum principle for $p$-harmonic maps. To our best knowledge, a result of this kind is not present in the literature, at least in the vectorial case. For the scalar one, a gradient maximum principle for quasilinear elliptic equations can be found in \cite[Chapter 15]{GT}. We refer also to \cite[Appendix B]{PZZ} regarding gradient maximum and minimum principles for $p$-harmonic potentials on convex rings in the plane. In the case of general $p$-harmonic maps, however, one can only expect a gradient maximum principle to hold, since a minimum principle is not true in general, as existing examples show (see \cite{BBDS}).\\
 We show the following result.
 \begin{Theorem}\label{thm p}
 Let $\Om\subset\R^n$ an open set and $p\in[2,\infty)$. Assume that $u:\Om\to\R^N$ is a $p$-harmonic map, i.e. $u\in W^{1,p}_{\mathrm{loc}}(\Om,\R^N)$ satisfying
-$$
+\begin{align}\label{p eq}
 \mathrm{div} (|\rom Du|^{p-2}\rom Du)=0\qquad\mbox{in }\Om,
-$$
+\end{align}
 in the sense of distributions. Then, for every open set $U\Subset \Om$, we have
-$$
-\max_{\overline U}|Du|=\max_{\partial U}|Du|.
-$$
+\begin{align}\label{GMP}
+\max_{\overline U}|\rom Du|=\max_{\partial U}|\rom Du|.
+\end{align}
 \end{Theorem}
 
 \begin{Remark}
 We observe that the above maxima are well defined since $u\in C^{1,\alpha}_{\mathrm{loc}}(\Om,\R^N)$, from regularity theory for $p$-harmonic maps \cite{U}.\\
-Moreover, we underline that Theorem \ref{thm1}, in the particular case when $E_\infty(u,U)=\esssup_U|Du|$, cannot be deduced from Theorem \ref{thm p} by passing to the limit as $p\to \infty$. Indeed, it is not known if vector valued absolute minimisers of $E_\infty$ can be approximated by $p$-harmonic maps (and this is one of the reasons why existence of absolute minimisers is still open in this case). Adding to the challenge, estimates in the proof of Theorem \ref{thm p} blow up as $p\to\infty$.
+Moreover, we underline that Theorem \ref{thm1}, in the particular case when $E_\infty(u,U)=\esssup_U|\rom Du|$, cannot be deduced from Theorem \ref{thm p} by passing to the limit as $p\to \infty$. Indeed, it is not known if vector valued absolute minimisers of $E_\infty$ can be approximated locally uniformly by $p$-harmonic maps. More in general, the lack of good approximation results for absolute minimisers via $p$-harmonic maps is one of the reasons why existence of absolute minimisers is still open in the vectorial case. 
 \end{Remark}
 
+%%%%%%% COMMENT %%%%%%%%%%%%%%%%%%%
+
+\begin{comment}
 We need the following technical result. ACTUALLY WE DO NOT! $u$ is smooth outside singular set, so $|Du|^p$ is. SO maybe prove that $u\in C^\infty$ instead...
 
 \begin{Lemma}
-Let $\Om\subset\R^n$ an open set and $p\in[2,\infty)$. Assume that $u:\Om\to\R^N$ is a $p$-harmonic map, i.e. $u\in W^{1,p}_{\mathrm{loc}}(\Om,\R^N)$ satisfying
+Let $\Om\subset\R^n$ be an open set and $p\in[2,\infty)$. Assume that $u:\Om\to\R^N$ is a $p$-harmonic map, i.e. $u\in W^{1,p}_{\mathrm{loc}}(\Om,\R^N)$ satisfying
 $$
 \mathrm{div} (|\rom Du|^{p-2}\rom Du)=0\qquad\mbox{in }\Om,
 $$
@@ -602,21 +606,169 @@ $$
 $$
 Therefore, since $U'$ and $U$ were arbitrary, we have just shown that $|\rom Du|^\frac p2\in W^{1,2}_\mathrm{loc}(\Om)$.\\
 \end{proof}
+\end{comment}
+
+%%%%%    END COMMENT  %%%%%%%%%%%%%%%
+
+The content of the following lemma is well known, but we report its proof for seek of completeness.
+
+\begin{Lemma}\label{smoothness}
+Let $\Om\subset\R^n$ be an open set and $u:\Om\to\R^N$ be a $p$-harmonic map, $p\in[2,\infty)$. Set $\mathscr{C}:=\{x\in\Om:\mathrm Du(x)=0\}$. Then $u\in C^\infty(\Omega\setminus\mathscr C)$.
+\end{Lemma}
+\begin{proof}
+Define $F:\R^{N\times n}\to \R^{N\times n}$ as $F(X):=|X|^{p-2}X$. Then, we have
+$$
+\rom DF(X)=(p-2)|X|^{p-4}X\otimes X+|X|^{p-2}I,
+$$
+where $I$ is the identity map in $(\R^{N\times n})^{\otimes 2}$.
+Using the following identity
+$$
+(X\otimes X)Y:Z=(X:Y)(X:Z)\qquad\forall X,Y,Z\in \R^{N\times n},
+$$ 
+we have that
+$$
+\rom DF(X) Y:Z=Y:\rom DF(X)Z\qquad\forall X,Y,Z\in \R^{N\times n},
+$$
+i.e. $\rom DF(X)$ is a symmetric $4$-tensor.
+Moreover, for every $X,Y\in \R^{N\times n}$, we have
+$$
+|X|^{p-2}|Y|^2\leq \rom DF(X)Y:Y=(p-2)|X|^{p-4}(X:Y)^2+|X|^{p-2}|Y|^2\leq(p-1)|X|^{p-2}|Y|^2.
+$$
+In particular, if we assume $0<\lambda\leq|X|\leq\Lambda$, then
+\begin{align}\label{ellip}
+\lambda^{p-2}|Y|^2\leq \rom DF(X)Y:Y\leq(p-1)\Lambda^{p-2}|Y|^2,
+\end{align}
+so that, $DF(X)$ is elliptic in the Legendre sense (see \cite{GM}).\\
+Now, fix $U\Subset\Omega\setminus\mathscr C$ and observe that $u$ solves 
+$$
+\mathrm{div}(F(\rom Du))=0 \qquad\mbox{in }U.
+$$
+For every fixed $U'\Subset U$ and $i\in\N$, the difference quotient of a function $f:U\to \R$
+$$
+\rom D_h^if(x):=\frac{f(x+he_i)-f(x)}{h}
+$$
+is well defined on $U'$, for every $h\in \R$ with $0<|h|<{\rm dist}(U',\partial U)$. \\
+By applying the difference quotient to the differential system solved by $u$, we have
+$$
+\mathrm{div}(\rom D_h^i(F(\rom Du)))=0 \qquad\mbox{in }U'.
+$$
+For $x\in U'$, we write
+\begin{align*}
+\rom D_h^i(F(\rom Du))&=\frac{1}{h}\int_0^1\frac{d}{dt} \left[F\left(\rom Du(x)+th\rom D_h^i\rom Du(x)\right)\right]dt\\
+&=\left(\int_0^1\rom DF\left(\rom Du(x)+th\rom D_h^i\rom Du(x)\right)dt\right) \rom D_h^i \rom Du(x).
+\end{align*}
+Observe that
+$$
+\mathbb A(x):=\int_0^1\rom DF\left(\rom Du(x)+th\rom D_h^i\rom Du(x)\right)dt
+$$
+is a symmetric $4$-tensor field on $U'$. Let us prove that it is Legendre elliptic: first notice that there exists $\lambda>0$ such that $|\rom Du|\geq\lambda$ in $U'$. In addition, since $u\in C^{1,\alpha}(U)$, for $|h|$ sufficiently small we have
+$$
+|\rom Du(x+he_i)-\rom Du(x)|\leq\frac{\lambda}{2}\qquad\forall x\in U'.
+$$
+Thus, for $t\in[0,1]$, we estimate
+$$
+|\rom Du(x)+th\rom D_h^i\rom Du(x)|=|\rom Du(x)+t(\rom Du(x+he_i)-\rom Du(x))|\geq\lambda-t\frac{\lambda}2\geq\frac{\lambda}2\qquad\forall x\in U'.
+$$
+On the other hand, 
+$$
+|\rom Du(x)+th\rom D_h^i\rom Du(x)|\leq 3\|\rom Du\|_{L^\infty(U)}\qquad\forall x\in U'.
+$$
+From \eqref{ellip}, we deduce the Legendre ellipticity of $\mathbb A$ in $U'$ (with ellipticity constants independent of $h$).\\
+Therefore, we have proved that $w:=\rom D_h^i \rom Du$ solves the linear elliptic system
+$$
+{\rm div}(\mathbb Aw)=0\qquad\mbox{in } U'.
+$$
+By Schauder estimates \cite[Thm. 5.19]{GM}, since $\mathbb A$ has $\alpha$-H\"older coefficients, we have $w\in C^{1,\alpha}(U')$. From the properties of the difference quotient, we infer $\rom D u\in C^{2,\alpha}(U')$. By a bootstrap argument and arbitrariness of $U'$, we conclude $u\in C^\infty(\Om\setminus\mathscr C)$.
+\end{proof}
+
+Now, we are ready to prove Theorem \ref{thm p}.\\
+
 \textit{Proof of Theorem \ref{thm p}:}\\
 First, we observe that if $p=2$, the result is straightforward: every harmonic map $u:\Om\to\R^N$ is smooth and satisfies $\Delta|\rom Du|^2\geq0$ on $\Om$.
 So, we can assume $p>2$ in the following. \\
-We divide the proof in two steps: firstly, we prove the gradient maximum principle outside the closed set $\mathscr{C}:=\{x\in\Om:\mathrm Du(x)=0\}$; second, we show the argument for a generic open set $U\Subset\Om$.\\
+We divide the proof in two steps: firstly, we prove the gradient maximum principle outside the closed set $\mathscr{C}=\{x\in\Om:\mathrm Du(x)=0\}$; second, we show the argument for a generic open set $U\Subset\Om$.\\
+Of course, we can assume that $\Om\setminus\mathscr C\neq \varnothing$, otherwise $u$ is constant on $\Om$.\\
+
+\noindent
 \textit{Step 1:} assume $U\Subset\Om\setminus\mathscr{C}$.\\
-
-Now, we aim at deriving an elliptic differential inequality for the function
+ In the following, the symbols $\cdot$ and $ \langle\cdot,\cdot\rangle$ stand for the inner products in $\R^n$ and $\R^N$ respectively, while : stands for the Hilbert-Schmidt inner product in $\R^{N\times n}$.\\
+By Lemma \ref{smoothness}, we have $u\in C^\infty(\overline U,\R^N)$. So, we can differentiate \eqref{p eq} with respect to $x_i$, obtaining
+\begin{align*}
+0&=\partial_i\left[\rom{div}\big(|\rom Du|^{{p-2}}\rom Du\big)\right]=\rom{div}\left((p-2)|\rom Du|^{{p-4}}(\rom Du:\rom D\partial_i u)\rom Du+|\rom Du|^{{p-2}}\rom D\partial_iu\right)\qquad\mbox{in }U.
+\end{align*}
+By taking the inner product with $\partial_i u$, we have
+\begin{equation}\label{inner}
+\begin{aligned}
+0&=\left\langle\rom{div}\left((p-2)|\rom Du|^{p-4}(\rom Du:\rom D\partial_i u)\rom Du+|\rom Du|^{{p-2}}\rom D\partial_i u\right),\partial_i u\right\rangle\\
+&=\rom{div}\left((p-2)|\rom Du|^{p-4}(\rom Du:\rom D\partial_i u)\langle\rom Du,\partial_iu\rangle+|\rom Du|^{p-2}\langle\rom D\partial _iu,\partial_iu\rangle\right)-\\
+&\quad-(p-2)|\rom Du|^{p-4}(\rom Du:\rom D\partial_i u)^2-|\rom Du|^{p-2}|\rom D\partial_iu|^2, \qquad\mbox{in }U.
+\end{aligned}
+\end{equation}
+From \eqref{inner}, we deduce
+\begin{equation}\label{inner2}
+\begin{aligned}
+\rom{div}\left((p-2)|\rom Du|^{p-4}(\rom Du:\rom D\partial_i u)\langle\rom Du,\partial_iu\rangle+|\rom Du|^{p-2}\langle\rom D\partial _iu,\partial_iu\rangle\right)\geq0, \qquad\mbox{in }U.
+\end{aligned}
+\end{equation}
+By taking the sum over $i=1,\ldots,n$ in \eqref{inner2} and observing that
 $$
-f:=\frac1p{|\rom Du|^p}.
+\sum_{i=1}^n(\rom Du:\rom D\partial_i u)\langle\rom Du,\partial_iu\rangle=\left(\rom Du^\rom T\rom Du\right)\cdot\langle\rom D^2u, \rom Du\rangle,
 $$
-Recall that the regularity theory of $p$-harmonic maps (see \cite{U}) ensures $u\in C^{1,\alpha}_\rom{loc}(\Om,\R^N)$. Then, we have $|\rom Du|^\frac p2\in W^{1,2}_\mathrm{loc}(\Om)\cap L^\infty_\rom{loc}(\Om)$, which implies that $f\in W^{1,2}_\rom{loc}(\Om)$ as well.
+we obtain
+\begin{equation}\label{inner3}
+\begin{aligned}
+\rom{div}\left((p-2)|\rom Du|^{p-4}\left(\rom Du^\rom T\rom Du\right)\cdot\langle\rom D^2u, \rom Du\rangle+|\rom Du|^{p-2}\langle\rom D^2u,\rom Du\rangle\right)\geq0, \qquad\mbox{in }U.
+\end{aligned}
+\end{equation}
+Now, we define 
+$$
+f:=\frac1p{|\rom Du|^p}, \qquad \rom A:= I+(p-2)\frac{\rom Du^\rom T\rom Du}{|\rom Du|^2},
+$$
+where $I$ is the identity matrix of $\R^{n\times n}$. Thus, 
+$$
+\rom Df=|\rom Du|^{p-2}\langle\rom D^2u, \rom Du\rangle,
+$$
+so that we can rewrite \eqref{inner3} as
+\begin{equation}\label{inner4}
+\begin{aligned}
+\rom{div}(\rom A\rom Df)\geq0, \qquad\mbox{in }U.
+\end{aligned}
+\end{equation}
+Since $u\in C^\infty(\overline U,\R^N)$, the function $f$ is a classical subsolution to a linear elliptic partial differential inequality in divergence form, with smooth and bounded coefficients. By the maximum principle for elliptic PDEs, we have
+$$
+\max_{\overline U}f=\max_{\partial U}f,
+$$
+yielding \eqref{GMP}.\\
 
+\noindent
+\textit{Step 2}: general case.\\
+Let $U\Subset\Om$ be an open subset. Then, without loss of generality, we can assume that $U\not\subset\mathscr C$. Indeed, if $U\subset\mathscr C$, then also $\overline U\subset\mathscr C$, so that \eqref{GMP} trivially holds. Therefore, since $U\setminus \mathscr C$ is a non-empty open subset of $\Om$, there exists $\eps>0$ such that $U_\eps:=U\setminus\overline{\mathscr C^\eps}$ is a non-empty open subset of $\Om$, where ${\mathscr C^\eps}$ is the open $\eps$-neighbourhood of ${\mathscr C}$. Thanks to \textit{Step 1}, since $U_\eps\Subset\R^n\setminus \mathscr C$, we have
+\begin{align}\label{GMP eps}
+\max_{\overline U_\eps}|Du|=\max_{\partial U_\eps}|Du|.
+\end{align}
+Now, set $M:=\max_{\overline U}|\rom Du|>0$. By possibly reducing $\eps$ in size, the continuity of $\rom Du$ ensures
+\begin{align}\label{eps small}
+\max_{\overline{\mathscr C^\eps}}|\rom Du|< M.
+\end{align}
+Hence
+$$
+M=\sup_{U}|\rom Du|=\max\left\{\sup_{U_\eps}|\rom Du|,\max_{\overline{\mathscr C^\eps}}|\rom Du| \right\}=\sup_{U_\eps}|\rom Du|= \max_{ \overline{U}_\eps}|\rom Du|.
+$$
+In particular, from \eqref{GMP eps} we have
+$$
+\max_{\partial U_\eps}|Du|=M.
+$$
+On the other hand, we can write
+$$
+\partial U_\eps=(\partial U\setminus\overline{\mathscr C^\eps})\cup (U\cap \partial{\mathscr C^\eps}),
+$$
+so that, using \eqref{eps small}, 
+$$
+M=\sup_{\partial U_\eps}|Du|=\max\left\{\sup_{\partial U\setminus\overline{\mathscr C^\eps}}|\rom Du|, \sup_{U\cap \partial{\mathscr C^\eps}}|\rom Du|\right\}\leq\max\left\{\max_{\partial U}|\rom Du|, \max_{ \overline{\mathscr C^\eps}}|\rom Du|\right\}=\max_{\partial U}|\rom Du|,
+$$
+which ensures the validity of \eqref{GMP} .\qed\\
 
-
-\textsc{Acknowledgements:} S.C. and N.K. acknowledge partial financial support through the EPSRC grant EP/X017109/1. S.C. acknowledges partial financial support through the EPSRC grant EP/X017206/1. 
+\textsc{Acknowledgements:} S.C and R.M. acknowledge partial financial support through the EPSRC grant EP/X017206/1. S.C and N.K. acknowledge partial financial support through the EPSRC grant EP/X017109/1. 
 S.C. is a member of Gruppo Nazionale per
 l’Analisi Matematica, la Probabilità e le loro Applicazioni (GNAMPA) of the Istituto Nazionale
 di Alta Matematica (INdAM) of Italy.\\
@@ -674,6 +826,11 @@ Classics in Mathematics, reprint of the 1998 edition, Springer.
 %\bibitem{GM}
 %M. Giaquinta, L. Martinazzi, {\it An Introduction to the Regularity Theory for Elliptic Systems, harmonic Maps and Minimal Graphs}, Publications of the Scuola Normale Superiore (2018).
 
+
+\bibitem{GM}
+M. Giaquinta, L. Martinazzi, {\it An Introduction to the Regularity Theory for Elliptic Systems,
+Harmonic Maps and Minimal Graphs}, Publications of the Scuola Normale Superiore (2018).
+
 \bibitem{K1}
 N. Katzourakis, {\it $L^\infty$ Variational Problems for maps and the Aronsson PDE System}, J. Differential
 Equations {\bf 253}(7), 2123 - 2139 (2012).
@@ -726,10 +883,14 @@ Advances in Calculus of Variations {\bf 13}, 115-140 (2020).
 
 
 
-\bibitem{MWZ}
- Q. Miao, C. Wang, Y. Zhou, \emph{Uniqueness of Absolute Minimizers for $ L^{\infty}$-Functionals Involving hamiltonians $h(x,p)$}, Archive for Rational Mechanics and Analysis \textbf{223} (1), 141--198 (2017).
+%\bibitem{MWZ} Q. Miao, C. Wang, Y. Zhou, \emph{Uniqueness of Absolute Minimizers for $ L^{\infty}$-Functionals Involving hamiltonians $h(x,p)$}, Archive for Rational Mechanics and Analysis \textbf{223} (1), 141--198 (2017).
 
-\bibitem{PWZ} F. Peng, C. Wang, Y. Zhou, \emph{Regularity of absolute minimizers for continuous convex hamiltonians}, Journal of Differential Equations, Volume 274 (2021), 1115-1164.
+%\bibitem{PWZ} F. Peng, C. Wang, Y. Zhou, \emph{Regularity of absolute minimizers for continuous convex hamiltonians}, Journal of Differential Equations, Volume 274 (2021), 1115-1164.
+
+\bibitem{PZZ}
+F. Peng, Y. R. Zhang, Y. Zhou, \emph{Regularity from $p$-harmonic potentials to $\infty$-harmonic potentials in convex rings}, Proc. London Math. Soc.
+\textbf{130}(6), e70062 (2025).
+
 
 % \bibitem{PZ} F. Prinari, E. Zappale, \emph{A Relaxation Result in the Vectorial Setting and Power Law Approximation for Supremal Functionals}, J Optim. Theory Appl., \textbf{186}, 412--452 (2020).
 
