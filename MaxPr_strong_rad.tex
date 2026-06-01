@@ -81,7 +81,7 @@ Simone Carano, Nikos Katzourakis and Roger Moser}
 \maketitle
 
 \begin{abstract} 
-
+We show that absolute minimisers of $L^\infty$ variational problems satisfy an energy maximum principle. This property is only necessary for absolute minimisers, while it characterises a suitable weaker notion of absolute minimality involving compactly supported variations. Further, with different methods, we prove a gradient maximum principle for $p$-harmonic maps.
 \end{abstract}
 {\bf 2020 MSC:}\\
 {\bf Key words and phrases:} Vectorial Calculus of Variations in $L^\infty$; higher order problems; Absolute Minimisers, Maximum Principle.
@@ -103,7 +103,7 @@ The goal herein is to prove a maximum principle property for the absolute minimi
 $$
 E_\infty(u,U)\leq E_\infty (u+\Phi,U)\qquad\forall \Phi\in W^{k,\infty}_0(U,\R^N)\quad\forall U\subseteq\Om \mbox{ open}.
 $$
-Under very mild assumptions on the supremand $\rom{H}$, we prove that for an absolute minimiser the essential supremum in \eqref{E infty} is ``attained at the boundary of $U$". In order to give a precise meaning to this expression, we refer to the supremum on $\partial U$ of the \textit{essential limsup} of $\rom{H}(\cdot, \mathrm D ^{[k]}u)$, which is defined as
+Under relatively mild assumptions on the supremand $\rom{H}$, we prove that for an absolute minimiser the essential supremum in \eqref{E infty} is ``attained at the boundary of $U$". In order to give a precise meaning to this expression, we refer to the supremum on $\partial U$ of the \textit{essential limsup} of $\rom{H}(\cdot, \mathrm D ^{[k]}u)$, which is defined as
 \begin{align}\label{rep}
 \rom{H}(x,\mathrm D ^{[k]}u(x))^*:=\lim_{\eps\to 0}\esssup_{B_\eps(x)\cap U}\rom{H}(\cdot,\mathrm D ^{[k]}u)\qquad\forall x\in \partial U.
 \end{align}
@@ -126,14 +126,14 @@ Before stating our main results, we underline that $E_\infty$ in \eqref{E infty}
 It is worth mentioning that, given boundary data $u_0\in W^{k,\infty}(\Om,\R^N)$, the existence (and/or uniqueness) of absolute minimisers to the Dirichlet problem in $W_{u_0}^{k,\infty}(\Om,\R^N)$ associated to $E_\infty$ in \eqref{E infty} 
  is an open problem already when $k=1$ and $n,N>1$ or when $N=1$ and $n,k>1$. There are some exceptions in the second order case, whenever $\rom H$ has special dependence in the second derivatives of $u$: relevant works are \cite{KM, KM3, KP2} for the scalar second order case and \cite{CKM} for the vectorial one; surprisingly, similar results hold true also in the fractional case \cite{CM}.
 
-Now we proceed to specify the assumptions on the function $\rom{H}$. By denoting $X=(X_0,X_1,\ldots,X_k)\in R^N\times \R^{Nn}\times\ldots\R^{Nn^k}=\R^\alpha$, we assume that $\rom{H}:\Om\times\R^\alpha\to\R$ is Carathéodory and radially non-decreasing w.r.t. $X$, i.e. for almost every $x\in\Om$ and every $X\in\R^\alpha$ the function
-$$
-t\mapsto \rom{H}(x,tX) \mbox{ is non-decreasing in }\R^+.
-$$
-Notice that radial monotonicity implies that, for almost every $x\in\Om$, $\rom{H}(x,\cdot)$ has a global minimum at $X=0$. Without loss of generality we can assume that $\rom{H}(x,0)=0$ a.e. $x\in\Om$, so that $\rom{H}$ takes values in $\R^+$. In this case, $E_\infty(u,U)=\|\rom{H}(\cdot, \mathrm D^{[k]}u)\|_{L^\infty(U)}$ for every $U\subseteq\Om$ open.
+Now we proceed to specify the assumptions on the function $\rom{H}$. By denoting $X=(X_0,X_1,\ldots,X_k)\in R^N\times \R^{Nn}\times\ldots\R^{Nn^k}=\R^\alpha$, we assume that $\rom{H}:\Om\times\R^\alpha\to\R$ is Carathéodory and \textit{strongly radially increasing} on $\R^\alpha$, uniformly w.r.t $x\in \Omega$. In symbols, we assume that there exists a continuous function $c:[0,1]\times\R^+\to\R^+$, with $c(1,\cdot)=c(\cdot,0)=0$ and $c>0$ in $(0,1)\times(0,\infty)$, such that
+\begin{align}\label{strong mon}
+\rom{H}(x,tX)\leq \rom{H}(x,X)-c(t,|X|)\qquad\forall t\in[0,1]\quad\forall X\in\R^\alpha\quad\mbox{a.e. }x\in \Om.
+\end{align}
+In other words, $H(x,\cdot)$ is a strictly radially increasing function with a modulus of monotonicity independent of $x$.
+Notice that the radial monotonicity implies that, for almost every $x\in\Om$, $\rom{H}(x,\cdot)$ has a global minimum at $X=0$. Without loss of generality we can assume that $\rom{H}(x,0)=0$ a.e. $x\in\Om$, so that $\rom{H}$ takes values in $\R^+$. In this case, $E_\infty(u,U)=\|\rom{H}(\cdot, \mathrm D^{[k]}u)\|_{L^\infty(U)}$ for every $U\subseteq\Om$ open.
 
-We point out that any level convex function with global minimum at the origin is necessarily radially non-decreasing, so that our result applies to the class of level convex functions, which is a common assumption for $\rom{H}$ in $L^\infty$ variational problems (see e.g. \cite{BJW}).
- Moreover, one can even apply the result to non-continuous supremands: indeed, for a function $g:\R^+\to\R^+$ lower semicontinuous and non-decreasing, set $G=g\circ h$ and $E'_\infty(u,U):=\esssup_U G(\cdot,\mathrm D^{[k]} u)$. It is not difficult to see that $E_\infty$ and $E'_\infty$ share the same minimisers. In addition, if $u\in W^{k,\infty}(\Om,\R^N)$ satisfies the energy maximum principle for $E_\infty$ in $\Om$, then for every $U\subseteq\Om$ open
+The strong radial monotonicity assumption may seem restrictive at first, however, the validity of our result extends to a wider class of supremands, even non-continuous ones: indeed, for a function $g:\R^+\to\R^+$ lower semicontinuous and non-decreasing, set $G=g\circ H$ and $E'_\infty(u,U):=\esssup_U G(\cdot,\mathrm D^{[k]} u)$. It is not difficult to see that $E_\infty$ and $E'_\infty$ share the same minimisers. In addition, if $u\in W^{k,\infty}(\Om,\R^N)$ satisfies the energy maximum principle for $E_\infty$ in $\Om$, then for every $U\subseteq\Om$ open
 $$
 E'_\infty(u,U)=g\left(\esssup_U \rom{H}(\cdot, \mathrm D^{[k]}u)\right)=g\left(\esssup_{\partial U}\rom{H}(\cdot, \mathrm D^{[k]}u)^*\right)=\left(\esssup_{\partial U}G(\cdot, \mathrm D^{[k]}u)^*\right),
 $$ 
@@ -148,7 +148,7 @@ The second assumption on $\rom{H}$ concerns the uniformity w.r.t. $x$ of its mod
 
 Now we can state our main result.
 \begin{Theorem}[Energy maximum principle for absolute minimisers]\label{thm1}
-Let $\Om\subset\R^n$ be a bounded open set and let $\rom{H}:\Om\times\R^\alpha\to\R^+$ be a Carathéodory function satisfying \eqref{uniformity}, with $\rom{H}(x,0)=0$ and $\rom{H}(x, \cdot)$ radially non-decreasing for a.e. $x\in\Om$. Assume that $u\in W^{k,\infty}(\Om,\R^N)$ is an absolute minimiser for the functional $E_\infty$, defined in \eqref{E infty}. Then $u$ satisfies the energy maximum principle for $E_\infty$ in $\Om$, namely
+Let $\Om\subset\R^n$ be a bounded open set and let $\rom{H}:\Om\times\R^\alpha\to\R^+$ be a Carathéodory function satisfying \eqref{strong mon} and \eqref{uniformity}, with $\rom{H}(x,0)=0$. Assume that $u\in W^{k,\infty}(\Om,\R^N)$ is an absolute minimiser for the functional $E_\infty$, defined in \eqref{E infty}. Then $u$ satisfies the energy maximum principle for $E_\infty$ in $\Om$, namely
 \begin{align}\label{MP}
 \esssup_U \rom{H}(\cdot, \mathrm D ^{[k]}u)=\sup_{\partial U}\rom{H}(\cdot,\mathrm D ^{[k]}u)^*\qquad\forall U\subseteq\Om \mbox{ open}.
 \end{align}
@@ -166,7 +166,7 @@ $$
 
 As a consequence of Theorem \ref{thm1}, we obtain the following characterisation.
 \begin{Corollary}\label{thm2}
-Let $\Om\subset\R^n$ be a bounded open set and let $\rom{H}:\Om\times\R^\alpha\to\R^+$ be a Carathéodory function satisfying \eqref{uniformity}, with $\rom{H}(x,0)=0$ and $\rom{H}(x, \cdot)$ radially non-decreasing for a.e. $x\in\Om$. Consider the functional $E_\infty$, defined in \eqref{E infty}.
+Let $\Om\subset\R^n$ be a bounded open set and let $\rom{H}:\Om\times\R^\alpha\to\R^+$ be a Carathéodory function satisfying \eqref{strong mon} and \eqref{uniformity}, with $\rom{H}(x,0)=0$. Consider the functional $E_\infty$, defined in \eqref{E infty}.
 Then, the following are equivalent for a map $u\in W^{k,\infty}(\Om,\R^N)$:
 \begin{enumerate}
 \item[i)] $u$ satisfies the energy maximum principle for $E_\infty$ in $\Om$;
@@ -194,9 +194,9 @@ $$
 \end{enumerate}
 \end{Definition}
 Notice that $i)\Rightarrow ii)\Rightarrow iii)$, and implications do not invert in general.
-The above definition is in complete analogy with the notion of (level) convexity and its stronger versions. In particular, any  level convex (resp. strictly level convex) function with global minimum at the origin is radially non-decreasing (resp. strictly radially increasing). Of course, a radially non-decreasing function need not to be level convex, since its level subsets only need to be star shaped w.r.t. the origin.
+The above definition is in complete analogy with the notion of (level) convexity and its stronger versions (see e.g. \cite{BJW}). In particular, any level convex (resp. strictly level convex) function with global minimum at the origin is radially non-decreasing (resp. strictly radially increasing). Of course, a radially non-decreasing function need not to be level convex, since its level subsets only need to be star shaped w.r.t. the origin.
 
-Strongly radially increasing functions can be seen as strict radially increasing functions with a modulus of monotonicity. This class of functions will be particularly important for us, since in the proof of Theorem \ref{thm1} we will approximate radially non-decreasing functions with strongly radially increasing ones in the uniform convergence.
+Strongly radially increasing functions can be seen as strict radially increasing functions with a modulus of monotonicity.
 
 
 \begin{Example}\label{Ex}
@@ -297,14 +297,7 @@ From definition \ref{ess limsup}, by passing to the limit as $\rho\to0$ and then
 \begin{align}\label{one ineq}
 \sup_{\partial U}\rom{H}(\cdot,\mathrm D ^{[k]}u)^*\leq\esssup_U \rom{H}(\cdot, \mathrm D ^{[k]}u).
 \end{align}
-Let us prove the opposite inequality. We divide the proof in two steps: First, we treat the case when $\rom{H}(x,\cdot)$ is strongly radially increasing, uniformly in $x$. Then, we will deal with the general case.\\
-
-\noindent
-\textit{Step 1:} $\rom{H}(x,\cdot)$ strongly radially increasing on $\R^\alpha$, uniformly w.r.t $x\in \Omega$.\\ 
-Assume that there exists a continuous function $c:[0,1]\times\R^+\to\R^+$, with $c(1,\cdot)=c(\cdot,0)=0$ and $c>0$ in $(0,1)\times(0,\infty)$, such that
-\begin{align}\label{strong mon}
-\rom{H}(x,tX)\leq \rom{H}(x,X)-c(t,|X|)\qquad\forall t\in[0,1]\quad\forall X\in\R^\alpha\quad\mbox{a.e. }x\in \Om.
-\end{align}
+Let us prove the opposite inequality. To this purpose we need to use assumptions \eqref{strong mon} and \eqref{uniformity}.\\
 We start by setting 
 \begin{align}\label{M}
 M:=\esssup_U \rom{H}(\cdot, \mathrm D ^{[k]}u).
@@ -412,44 +405,8 @@ $$
 \esssup_{U}\rom{H}(\cdot, \mathrm D^{[k]}u_\lambda)\leq \max\left\{\esssup_{(\partial U)^\eps\cap U}\rom{H}(\cdot, \mathrm D^{[k]}u_\lambda), \esssup_{U\setminus (\partial U)^\eps}\rom{H}(\cdot, \mathrm D^{[k]}u_\lambda)\right\}<M.
 $$
 This inequality and \eqref{u lambda} contradict the absolute minimality of $u$.\\
-
-\noindent
-\textit{Step 2:} General case.\\
-Assume that $\rom{H}(x,\cdot)$ is radially non-decreasing for almost every $x\in\Om$. For $\eps>0$, consider the function $\rom{H}_\eps:\Om\times\R^\alpha\to\R^+$ defined as
-$$
-\rom{H}_\eps(x,X)=\rom{H}(x,X)+\eps|X|^2 \qquad\forall X\in\R^\alpha\quad\mbox{a.e. }x\in\Om.
-$$
-Then, $\rom{H}_\eps$ is strongly radially increasing in $X$, uniformly w.r.t. $x$ (see also Example \ref{Ex}): indeed, it is enough to take $c(t,\rho):=\eps(1-t^2)\rho^2$ as a modulus of monotonicity. Hence, by \eqref{one ineq} and \textit{Step 1}, for every open subset $U\subseteq\Om$, we have
-{\red{MISTAKE: we don't know if u is a minimiser of $\esssup H_\eps$! }}
-\begin{align}\label{eq h eps}
-\esssup_U \rom{H}_\eps(\cdot, \mathrm D ^{[k]}u)=\sup_{\partial U}\rom{H}_\eps(\cdot,\mathrm D ^{[k]}u)^*.
-\end{align}
-Moreover, for every compact subset $K\subset\R^\alpha$, $\rom{H}_\eps\to \rom{H}$ uniformly in $\Om\times K$ as $\eps\to 0$. Therefore, recalling Lemma \eqref{lemma esssup}, we have
-\begin{align*}
-\sup_{\partial U}\rom{H}_\eps(\cdot,\mathrm D ^{[k]}u)^*&=\lim_{\rho\to0}\esssup_{(\partial U)^\rho\cap U}\rom{H}_\eps(\cdot, \mathrm D ^{[k]}u)\\
-&= \inf_{\rho>0}\esssup_{(\partial U)^\rho\cap U}\rom{H}_\eps(\cdot, \mathrm D ^{[k]}u).
-\end{align*}
-In particular, for every $\rho>0$,
-$$
-\sup_{\partial U}\rom{H}_\eps(\cdot,\mathrm D ^{[k]}u)^*\leq \esssup_{(\partial U)^\rho\cap U}\rom{H}_\eps(\cdot, \mathrm D ^{[k]}u).
-$$
-Passing to the limit in both sides as $\eps\to 0$, by uniform convergence of $\rom{H}_\eps$ to $\rom{H}$, we get
-$$
-\lim_{\eps\to0}\sup_{\partial U}\rom{H}_\eps(\cdot,\mathrm D ^{[k]}u)^*\leq\esssup_{(\partial U)^\rho\cap U}\rom{H}(\cdot, \mathrm D ^{[k]}u)\qquad\forall \rho>0.
-$$
-Sending $\rho\to0$ in the right hand side, using again Lemma \eqref{lemma esssup}, we obtain
-\begin{align}\label{eq1}
-\lim_{\eps\to0}\sup_{\partial U}\rom{H}_\eps(\cdot,\mathrm D ^{[k]}u)^*\leq\sup_{\partial U}\rom{H}(\cdot,\mathrm D ^{[k]}u)^*.
-\end{align}
-On the other hand, by recalling \eqref{one ineq} and the uniform convergence of $\rom{H}_\eps$ to $\rom{H}$, we can write
-\begin{align}\label{eq2}
-\sup_{\partial U}\rom{H}(\cdot,\mathrm D ^{[k]}u)^*\leq\esssup_U \rom{H}(\cdot, \mathrm D ^{[k]}u)=\lim_{\eps\to0}\esssup_U \rom{H}_\eps(\cdot, \mathrm D ^{[k]}u).
-\end{align}
-Putting together \eqref{eq1} and \eqref{eq2}, identity \eqref{eq h eps} allows to conclude
-$$
-\esssup_U \rom{H}(\cdot, \mathrm D ^{[k]}u)=\sup_{\partial U}\rom{H}(\cdot,\mathrm D ^{[k]}u)^*.
-$$
-The proof is completed. \qed
+The proof is complete.
+ \qed
 \\
 
 A straightforward consequence is Corollary \ref{thm2}, whose proof is detailed below.\\
