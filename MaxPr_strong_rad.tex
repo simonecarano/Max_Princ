@@ -72,7 +72,7 @@
 \newtheorem{Remark}[Theorem]{Remark}
 \newtheorem{Example}[Theorem]{Example}
 
- \title{Energy Maximum Principle for Absolute Minimisers
+ \title{Energy maximum principle for vectorial higher order absolute minimisers
 }
 \author{
 Simone Carano, Nikos Katzourakis and Roger Moser}
@@ -81,7 +81,7 @@ Simone Carano, Nikos Katzourakis and Roger Moser}
 \maketitle
 
 \begin{abstract} 
-We show that absolute minimisers of $L^\infty$ variational problems satisfy an energy maximum principle. This property is only necessary for absolute minimisers, while it characterises a suitable weaker notion of absolute minimality involving compactly supported variations. Further, with different methods, we prove a gradient maximum principle for $p$-harmonic maps.
+We show that vectorial absolute minimisers of higher order $L^\infty$ variational problems satisfy an energy maximum principle. This property is only necessary for absolute minimisers, while it characterises a suitable weaker notion of absolute minimality involving compactly supported variations. Further, with different methods, we prove a gradient maximum principle for $p$-harmonic maps.
 \end{abstract}
 {\bf 2020 MSC:}\\
 {\bf Key words and phrases:} Vectorial Calculus of Variations in $L^\infty$; higher order problems; Absolute Minimisers, Maximum Principle.
@@ -124,7 +124,7 @@ We prove that this property is necessarily satisfied by absolute minimisers. Alt
 Before stating our main results, we underline that $E_\infty$ in \eqref{E infty} is the general object of study in the $L^\infty$-Calculus of Variations, a field initiated by Aronsson in \cite{A}. his pioneering work on the scalar first order case (namely when $N=k=1$) has been well developed by now, and most challenges have been thoroughly analysed and understood (see \cite{Kbook} for a survey reference). More recently,  the vectorial case ($N>1$) and the higher order case ($k>1$) have been approached respectively in \cite{K1} and \cite{KM,KP2}. In these contexts, a complete theory is still far from reach. Without any pretension of being exhaustive, we refer also to \cite{K3,K4,KM1} for a glimpse of the literature on vectorial first order problems and to \cite{CKM,DK,KP1,KM2,KM3} for higher order ones. Furthermore, the fractional order case ($k\notin\N$) has been recently explored in \cite{CM}.  
 
 It is worth mentioning that, given boundary data $u_0\in W^{k,\infty}(\Om,\R^N)$, the existence (and/or uniqueness) of absolute minimisers to the Dirichlet problem in $W_{u_0}^{k,\infty}(\Om,\R^N)$ associated to $E_\infty$ in \eqref{E infty} 
- is an open problem already when $k=1$ and $n,N>1$ or when $N=1$ and $n,k>1$. There are some exceptions in the second order case, whenever $\rom H$ has special dependence in the second derivatives of $u$: relevant works are \cite{KM, KM3, KP2} for the scalar second order case and \cite{CKM} for the vectorial one; surprisingly, similar results hold true also in the fractional case \cite{CM}.
+ is an open problem already when $k=1$ and $n,N>1$ or when $N=1$ and $n,k>1$. There are some exceptions in the second order case, whenever $\rom H$ has special dependence in the second derivatives of $u$: relevant works are \cite{KM, KM3, KP2, CKM}; surprisingly, similar results hold true also in the fractional case \cite{CM}.
 
 Now we proceed to specify the assumptions on the function $\rom{H}$. By denoting $X=(X_0,X_1,\ldots,X_k)\in R^N\times \R^{Nn}\times\ldots\R^{Nn^k}=\R^\alpha$, we assume that $\rom{H}:\Om\times\R^\alpha\to\R$ is Carathéodory and \textit{strongly radially increasing} on $\R^\alpha$, uniformly w.r.t $x\in \Omega$. In symbols, we assume that there exists a continuous function $c:[0,1]\times\R^+\to\R^+$, with $c(1,\cdot)=c(\cdot,0)=0$ and $c>0$ in $(0,1)\times(0,\infty)$, such that
 \begin{align}\label{strong mon}
@@ -204,7 +204,7 @@ Relevant examples of strongly radially increasing functions are:
 \begin{itemize}
 \item Any strongly convex function with global minimum at the origin;
 \item Any convex $C^1$-function $h$ with $h(0)=0<h(X)$ for all $X\neq0$. Indeed, by \cite[Thm 2.52]{Dac}, we have $\rom Dh(X)\cdot X\geq h(X)$ for all $X\in \R^\alpha$, i.e. the radial speed of $h$ has a modulus of positivity given by $h$ itself. By integrating this inequality, one can see that $h$ satisfies Definition \ref{def rad} iii);
-\item The cone function associated to a (smooth) open set $S\subset\R^\alpha$ star shaper w.r.t. the origin with $\nu_{S}(X)\cdot X>0$ for every $X\in\partial S$, where $\nu_S$ is the outward normal vector to $\partial S$.
+\item The cone function associated to a (smooth) open set $S\subset\R^\alpha$ star shaped w.r.t. the origin with $\nu_{S}(X)\cdot X>0$ for every $X\in\partial S$, where $\nu_S$ is the outward normal vector to $\partial S$.
 \item Functions of the form $h_{\lambda,\beta}(X)=h(X)+\lambda|X|^\beta$, with $\lambda,\beta>0$ and $h$ radially non-decreasing. 
 \end{itemize}
 \end{Example}
@@ -241,11 +241,11 @@ We start with noticing that for every $x\in K$ there exists $\rho>0$ such that $
 $$
 \esssup_{B_\rho(x)\cap U}f\leq \esssup_{K^\rho\cap U}f.
 $$
-By passing to the limit as $\rho\to0$ in both sides and taking the supremum on $K$ in the left hand side, we obtain
+By passing to the limit as $\rho\to0$ in both sides and taking the supremum over $x\in K$ in the left hand side, we obtain
 $$
 \sup_K f^*\leq\lim_{\rho\to0} \esssup_{K^\rho\cap U}f.
 $$
-It remains to prove the opposite inequality. By definition \eqref{ess limsup}, for any fixed $x\in K$ and $\sigma>0$, there exists $\rho_{x,\sigma}>0$ such that 
+It remains to prove the opposite inequality. By definition \ref{ess limsup}, for any fixed $x\in K$ and $\sigma>0$, there exists $\rho_{x,\sigma}>0$ such that 
 \begin{align}\label{def of lim}
 f^*(x)\geq\esssup_{B_{\rho_{x,\sigma}}(x)\cap U}f-\sigma.
 \end{align}
@@ -569,7 +569,7 @@ Therefore, since $U'$ and $U$ were arbitrary, we have just shown that $|\rom Du|
 
 %%%%%    END COMMENT  %%%%%%%%%%%%%%%
 
-The content of the following lemma is well known, but we report its proof for sake of completeness.
+The content of the following lemma is probably well known, but we present its proof for sake of completeness.
 
 \begin{Lemma}\label{smoothness}
 Let $\Om\subset\R^n$ be an open set and $u:\Om\to\R^N$ be a $p$-harmonic map, $p\in[2,\infty)$. Set $\mathscr{C}:=\{x\in\Om:\mathrm Du(x)=0\}$. Then $u\in C^\infty(\Omega\setminus\mathscr C)$.
@@ -651,7 +651,7 @@ Of course, we can assume that $\Om\setminus\mathscr C\neq \varnothing$, otherwis
 \noindent
 \textit{Step 1:} assume $U\Subset\Om\setminus\mathscr{C}$.\\
  In the following, the symbols $\cdot$ and $ \langle\cdot,\cdot\rangle$ stand for the inner products in $\R^n$ and $\R^N$ respectively, while : stands for the Hilbert-Schmidt inner product in $\R^{N\times n}$.\\
-By Lemma \ref{smoothness}, we have $u\in C^\infty(\overline U,\R^N)$. So, we can differentiate \eqref{p eq} with respect to $x_i$, obtaining
+By Lemma \ref{smoothness}, we have $u\in C^\infty(\overline U,\R^N)$\footnote{By this notation, we mean that $u\in C^\infty(U',\R^N)$ for some $U\Subset U'\Subset \Om\setminus\mathscr C$.}. So, we can differentiate \eqref{p eq} with respect to $x_i$, obtaining
 \begin{align*}
 0&=\partial_i\left[\rom{div}\big(|\rom Du|^{{p-2}}\rom Du\big)\right]=\rom{div}\left((p-2)|\rom Du|^{{p-4}}(\rom Du:\rom D\partial_i u)\rom Du+|\rom Du|^{{p-2}}\rom D\partial_iu\right)\qquad\mbox{in }U.
 \end{align*}
@@ -751,22 +751,18 @@ fur Mat. 33 - 53 (1965); 409 - 431 (1966); 509 - 512 (1969).
 E.N. Barron, R.R. Jensen, C.Y. Wang, {\it The Euler equation and absolute minimizers of $L^\infty$ functionals}, Arch. Rational
 Mech. Anal. {\bf 157}, 255-283 (2001).
 
-\bibitem{Br}
-A. Braides, {\it A handbook of $\Gamma$-convergence},
-Handbook of Differential Equations: Stationary Partial Differential Equations,
-North-Holland,
-{\bf 3}, 101-213 (2006).
+%\bibitem{Br} A. Braides, {\it A handbook of $\Gamma$-convergence}, Handbook of Differential Equations: Stationary Partial Differential Equations, North-Holland, {\bf 3}, 101-213 (2006).
 
 \bibitem{BDP}
  C. Brizzi, L. De Pascale, \emph{A property of Absolute Minimizers in $ L^{\infty}$  Calculus of Variations and of solutions of the Aronsson-Euler equation}, Advances in Differential Equations {\bf 28} (3/4), 287-310 (2023).
 
 \bibitem{CKM}
 S. Carano, N. Katzourakis, R. Moser, \emph{
-Existence, uniqueness and characterisation of vector-valued absolute minimisers for a second order $L^\infty$-variational problem}, Preprint arXiv https://arxiv.org/abs/2504.04181 (2025).
+Existence, uniqueness and characterisation of vector-valued absolute minimisers for a second order $L^\infty$-variational problem}, Preprint arXiv https://arxiv.org/abs/2504.04181v3 (2025). To appear on Adv. Calc. Var. (2026).
 
 \bibitem{CM}
 S. Carano, R. Moser, \emph{
-An $L^\infty$-variational problem involving the Fractional Laplacian}, Preprint arXiv https://arxiv.org/abs/2510.14476 (2025).
+An $L^\infty$-variational problem involving the Fractional Laplacian}, Preprint arXiv https://arxiv.org/abs/2510.14476v2 (2025). To appear on Nonlin. Anal. (2026).
 
 
 \bibitem{Dac}
