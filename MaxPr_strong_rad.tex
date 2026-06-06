@@ -119,14 +119,14 @@ If $u\in C^k(\overline\Om,\R^N)$ and $\rom{H}\in C(\Om\times\R^\alpha)$, this ca
 $$
 \max_{\overline U} \rom{H}(\cdot, \mathrm D ^{[k]}u)=\max_{\partial U}\rom{H}(\cdot,\mathrm D ^{[k]}u)\qquad\forall U\subseteq\Om \mbox{ open}.
 $$
-We prove that this property is necessarily satisfied by absolute minimisers. Although it is not sufficient: the cone function $u(x)=|x|$ belongs to $W^{1,\infty}(\R^n)$ and clearly satisfies the energy (or, equivalently, gradient) maximum principle for $E_\infty(u,\Om):=\esssup_\Om|\mathrm Du|$, but it is not an absolute minimiser. However, we will see that the energy maximum principle is a property that characterises a class of maps which is larger than the one of absolute minimisers, and are the ones that minimise $E_\infty(\cdot,U)$ with respect to compactly supported variations in $U$, for every $U\subseteq\Om$.
+We prove that this property is necessarily satisfied by absolute minimisers. Although it is not sufficient: the cone function $u(x)=|x|$ belongs to $W^{1,\infty}(\R^n)$ and clearly satisfies the energy (or, equivalently, gradient) maximum principle for $E_\infty(u,\Om):=\esssup_\Om|\mathrm Du|$, but it is not an absolute minimiser if $\Om$ contains the origin. However, we will see that the energy maximum principle is a property that characterises a class of maps which is larger than the one of absolute minimisers, and are the ones that minimise $E_\infty(\cdot,U)$ with respect to compactly supported variations in $U$, for every $U\subseteq\Om$.
 
 Before stating our main results, we underline that $E_\infty$ in \eqref{E infty} is the general object of study in the $L^\infty$-Calculus of Variations, a field initiated by Aronsson in \cite{A}. his pioneering work on the scalar first order case (namely when $N=k=1$) has been well developed by now, and most challenges have been thoroughly analysed and understood (see \cite{Kbook} for a survey reference). More recently,  the vectorial case ($N>1$) and the higher order case ($k>1$) have been approached respectively in \cite{K1} and \cite{KM,KP2}. In these contexts, a complete theory is still far from reach. Without any pretension of being exhaustive, we refer also to \cite{K3,K4,KM1} for a glimpse of the literature on vectorial first order problems and to \cite{CKM,DK,KP1,KM2,KM3} for higher order ones. Furthermore, the fractional order case ($k\notin\N$) has been recently explored in \cite{CM}.  
 
 It is worth mentioning that, given boundary data $u_0\in W^{k,\infty}(\Om,\R^N)$, the existence (and/or uniqueness) of absolute minimisers to the Dirichlet problem in $W_{u_0}^{k,\infty}(\Om,\R^N)$ associated to $E_\infty$ in \eqref{E infty} 
  is an open problem already when $k=1$ and $n,N>1$ or when $N=1$ and $n,k>1$. There are some exceptions in the second order case, whenever $\rom H$ has special dependence in the second derivatives of $u$: relevant works are \cite{KM, KM3, KP2, CKM}; surprisingly, similar results hold true also in the fractional case \cite{CM}.
 
-Now we proceed to specify the assumptions on the function $\rom{H}$. By denoting $X=(X_0,X_1,\ldots,X_k)\in R^N\times \R^{Nn}\times\ldots\R^{Nn^k}=\R^\alpha$, we assume that $\rom{H}:\Om\times\R^\alpha\to\R$ is Carathéodory and \textit{strongly radially increasing} on $\R^\alpha$, uniformly w.r.t $x\in \Omega$. In symbols, we assume that there exists a continuous function $c:[0,1]\times\R^+\to\R^+$, with $c(1,\cdot)=c(\cdot,0)=0$ and $c>0$ in $(0,1)\times(0,\infty)$, such that
+Now we proceed to specify the assumptions on the function $\rom{H}$. By denoting $X=(X_0,X_1,\ldots,X_k)\in \R^N\times \R^{Nn}\times\ldots\R^{Nn^k}=\R^\alpha$, we assume that $\rom{H}:\Om\times\R^\alpha\to\R$ is Carathéodory and \textit{strongly radially increasing} on $\R^\alpha$, uniformly w.r.t $x\in \Omega$. In symbols, we assume that there exists a continuous function $c:[0,1]\times\R^+\to\R^+$, with $c(1,\cdot)=c(\cdot,0)=0$ and $c>0$ in $(0,1)\times(0,\infty)$, such that
 \begin{align}\label{strong mon}
 \rom{H}(x,tX)\leq \rom{H}(x,X)-c(t,|X|)\qquad\forall t\in[0,1]\quad\forall X\in\R^\alpha\quad\mbox{a.e. }x\in \Om.
 \end{align}
@@ -160,7 +160,7 @@ Before stating our second result, we give the definition of absolute minimiser w
 \begin{Definition}[The class $\mathrm {AM}_c(\Om,\R^N)$]
 We say that $u\in W^{k,\infty}(\Om,\R^N)$ is an absolute minimiser w.r.t. compactly supported variations, and we write $u\in \mathrm {AM}_c(\Om,\R^N)$, if
 $$
-E_\infty(u,U)\leq E_\infty (u+\Phi,U)\qquad\forall \Phi\in W^{k,\infty}_c(\Om,\R^N)\quad\forall U\subseteq\Om\mbox{ open}.
+E_\infty(u,U)\leq E_\infty (u+\Phi,U)\qquad\forall \Phi\in W^{k,\infty}_c(U,\R^N)\quad\forall U\subseteq\Om\mbox{ open}.
 $$
 \end{Definition}
 
