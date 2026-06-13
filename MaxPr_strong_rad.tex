@@ -115,7 +115,7 @@ We say that $u\in W^{k,\infty}(\Om,\R^N)$ satisfies the energy maximum principle
 \end{align}
 \end{Definition}
 \noindent
-If $u\in C^k(\overline\Om,\R^N)$ and $\rom{H}\in C(\Om\times\R^\alpha)$, this can be rephrased as
+If $u\in C^k(\overline\Om,\R^N)$ and $\rom{H}\in C(\overline\Om\times\R^\alpha)$, this can be rephrased as
 $$
 \max_{\overline U} \rom{H}(\cdot, \mathrm D ^{[k]}u)=\max_{\partial U}\rom{H}(\cdot,\mathrm D ^{[k]}u)\qquad\forall U\subseteq\Om \mbox{ open}.
 $$
@@ -202,10 +202,17 @@ Strongly radially increasing functions can be seen as strict radially increasing
 \begin{Example}\label{Ex}
 Relevant examples of strongly radially increasing functions are:
 \begin{itemize}
-\item Any strongly convex function with global minimum at the origin;
-\item Any convex $C^1$-function $h$ with $h(0)=0<h(X)$ for all $X\neq0$. Indeed, by \cite[Thm 2.52]{Dac}, we have $\rom Dh(X)\cdot X\geq h(X)$ for all $X\in \R^\alpha$, i.e. the radial speed of $h$ has a modulus of positivity given by $h$ itself. By integrating this inequality, one can see that $h$ satisfies Definition \ref{def rad} iii);
-\item The cone function associated to a (smooth) open set $S\subset\R^\alpha$ star shaped w.r.t. the origin with $\nu_{S}(X)\cdot X>0$ for every $X\in\partial S$, where $\nu_S$ is the outward normal vector to $\partial S$.
+\item Any strongly convex function with global minimum at the origin.
 \item Functions of the form $h_{\lambda,\beta}(X)=h(X)+\lambda|X|^\beta$, with $\lambda,\beta>0$ and $h$ radially non-decreasing. 
+\item Any convex $C^1$-function $h$ with $h(0)=0<h(X)$ for all $X\neq0$. Indeed, by \cite[Thm 2.52]{Dac}, we have $\rom Dh(X)\cdot X\geq h(X)$ for all $X\in \R^\alpha$, i.e. the radial speed of $h$ has a modulus of positivity given by $h$ itself. By integration, for $t\in[0,1]$ and $X\in \R^\alpha$, we obtain
+\begin{align*}
+h(X)-h(tX)&=\int_t^{1}\rom Dh(sX)\cdot Xds\\
+&\geq\frac1t\int_t^1h(sX)ds\\
+&\geq\frac{1-t}th(tX)\\
+&\geq\frac{1-t}t\min_{|Y|=t|X|}h(Y)=:c(t,|X|).
+\end{align*}
+\item The cone function $h$ associated to an bounded open set $S\subset\R^\alpha$ star shaped w.r.t. the origin. This can be seen in a similar way to the previous example, by simply observing that since $h$ is $1$-homogeneous, one has $\frac{d}{dt}h(tX)=h(X)$ for all $X\in \R^\alpha$.
+
 \end{itemize}
 \end{Example}
 
@@ -317,7 +324,7 @@ u_\lambda:=\lambda u + (1-\lambda)\varphi_\eps u.
 $$
 Notice that $u_\lambda\in W^{k,\infty}{(U,\R^N)}$. Moreover, $u_\lambda=u$ on $(\partial U)^{\eps/2}\cap U$, so that 
 \begin{align}\label{u lambda}
-u_\lambda\in u+W^{k,\infty}_c(U,\R^N)\subset W_u^{1,\infty}(U,\R^N).
+u_\lambda\in u+W^{k,\infty}_c(U,\R^N)\subset W_u^{k,\infty}(U,\R^N).
 \end{align}
 Let us compute $\mathrm D^{[k]} u_\lambda$.  For every $h=1,\ldots, k$, we have
 \begin{align}\label{deriv product}
@@ -412,7 +419,7 @@ The proof is complete.
 A straightforward consequence is Corollary \ref{thm2}, whose proof is detailed below.\\
 
 \textit{Proof of Corollary \ref{thm2}:}\\
-Let us show that satisfying the energy maximum principle implies the membership to the class $ \mathrm {AM}_c(\Om,\R^N)$. Fix $u\in W^{1,\infty}(\Om,\R^N)$, an open set $U\subseteq\Om$ and a map $\Phi\in W^{1,\infty}_c(U,\R^N)$. Let $U'\Subset U$ be an open subset with supp$(\Phi)\Subset U'$. Then we have
+Let us show that satisfying the energy maximum principle implies the membership to the class $ \mathrm {AM}_c(\Om,\R^N)$. Fix $u\in W^{k,\infty}(\Om,\R^N)$, an open set $U\subseteq\Om$ and a map $\Phi\in W^{k,\infty}_c(U,\R^N)$. Let $U'\Subset U$ be an open subset with supp$(\Phi)\Subset U'$. Then we have
 \begin{equation}\label{1st ine}
 \begin{aligned}
 E_\infty(u+\Phi,U)&=\esssup_U \rom{H}(\cdot, \mathrm D^{[k]}(u+\Phi))\\
@@ -435,8 +442,35 @@ E_\infty(u+\Phi,U)&\geq\sup_{\partial U}\rom{H}(\cdot, \mathrm D^{[k]}u)^*\\
 &=E_\infty(u,U),
 \end{align*}
 so that $u\in \mathrm{AM}_c(\Om,\R^N)$.\\
-For the reverse implication, one can just replicate the proof of Theorem \ref{thm1}. Indeed, inequality \eqref{one ineq} holds for every $u\in W^{1,\infty}(\Om,\R^N)$. The opposite inequality is obtained exactly with the same reasoning, since the competitor $u_\lambda$ belongs to the class $u+W^{1,\infty}_c(U,\R^N)$ (recall \eqref{u lambda}).
-\qed
+For the reverse implication, one can just replicate the proof of Theorem \ref{thm1}. Indeed, inequality \eqref{one ineq} holds for every $u\in W^{k,\infty}(\Om,\R^N)$. The opposite inequality is obtained exactly with the same reasoning, since the competitor $u_\lambda$ belongs to the class $u+W^{k,\infty}_c(U,\R^N)$ (recall \eqref{u lambda}).
+\qed\\
+
+
+Differently from the case of absolute minimisers, here we are able to establish existence results for absolute minimisers w.r.t. compactly supported variations for $L^\infty$ variational problems with Dirichlet boundary conditions. Moreover, together with existence, we have also a uniqueness result in the class $\mathrm {AM}_c(\Om,\R^N)$.
+\begin{Corollary}[Existence and non uniqueness in $\mathrm {AM}_c(\Om,\R^N)$]\label{cor}
+Let $\Om\subset\R^n$ be a bounded open set and let $\rom{H}:\Om\times\R^\alpha\to\R^+$ be a continuous function satisfying \eqref{strong mon} and \eqref{uniformity}, with $\rom{H}(x,0)=0$. Assume also that $\rom H(x,X_0,\ldots,X_{k-1}, \cdot)$ is convex in $\R^{Nn^k}$. Consider the functional $E_\infty$, defined in \eqref{E infty} and let $u_0\in W^{k,\infty}(\Om,\R^N)$. Then, there exist infinitely many $u\in W^{k,\infty}_{u_0}(\Om,\R^N)\cap \mathrm{AM}_c(\Om,\R^N)$.
+\end{Corollary}
+\begin{proof}
+For $\Lambda>E_\infty(u_0,\Om)$, consider the problem
+\begin{equation}\nonumber
+\left\{
+\begin{aligned}
+&\rom H(\cdot, \rom D^{[k]}u)=\Lambda \quad\mbox{a.e. in }\Om,\\
+&u\in W^{k,\infty}_{u_0}(\Om,\R^N).
+\end{aligned}
+\right.
+\end{equation}
+By \cite{K5}[Proposition 1], it admits infinitely many solutions $u\in W^{k,\infty}_{u_0}(\Om,\R^N)$. Each one of them trivially satisfies the energy maximum principle for $E_\infty$ in $\Om$:
+$$
+\esssup_U \rom{H}(\cdot, \mathrm D ^{[k]}u)=\sup_{\partial U}\rom{H}(\cdot,\mathrm D ^{[k]}u)^*=\Lambda\qquad\forall U\subseteq\Om \mbox{ open}.
+$$
+By Corollary \ref{thm2}, we have also that $u\in \mathrm{AM}_c(\Om,\R^N)$.
+\end{proof}
+
+\begin{Remark}
+The convexity assumption on $\rom H$ in the last variable can be relaxed to Morrey quasiconvexity, provided that the boundary data $u_0$ is piecewise $C^k$ (see \cite{K5}).\\
+Moreover, we underline that the functions $u$ constructed in Corollary \ref{cor} are not absolute minimisers. In fact, they are not even global minimisers, since their energy is strictly greater than the minimal value of $E_\infty$ in $W^{k,\infty}_{u_0}(\Om,\R^N)$.
+\end{Remark}
 
 
 \section{On the gradient maximum principle for $p$-harmonic maps}\label{sec grad}
@@ -453,8 +487,8 @@ in the sense of distributions. Then, for every open set $U\Subset \Om$, we have
 \end{align}
 \end{Theorem}
 
-\begin{Remark}
-We observe that the above maxima are well defined since $u\in C^{1,\alpha}_{\mathrm{loc}}(\Om,\R^N)$, from regularity theory for $p$-harmonic maps \cite{U}.\\
+\begin{Remark}\label{rem holder}
+We observe that the above maxima are well defined since $u\in C^{1,\alpha}_{\mathrm{loc}}(\Om,\R^N)$, for some $\alpha>0$, from regularity theory for $p$-harmonic maps \cite{U}.\\
 Moreover, we underline that Theorem \ref{thm1}, in the particular case when $E_\infty(u,U)=\esssup_U|\rom Du|$, cannot be deduced from Theorem \ref{thm p} by passing to the limit as $p\to \infty$. Indeed, it is not known if vector valued absolute minimisers of $E_\infty$ can be approximated locally uniformly by $p$-harmonic maps. More in general, the lack of good approximation results for absolute minimisers via $p$-harmonic maps is one of the reasons why existence of absolute minimisers is still open in the vectorial case. 
 \end{Remark}
 
@@ -572,7 +606,7 @@ Therefore, since $U'$ and $U$ were arbitrary, we have just shown that $|\rom Du|
 The content of the following lemma is probably well known, but we present its proof for sake of completeness.
 
 \begin{Lemma}\label{smoothness}
-Let $\Om\subset\R^n$ be an open set and $u:\Om\to\R^N$ be a $p$-harmonic map, $p\in[2,\infty)$. Set $\mathscr{C}:=\{x\in\Om:\mathrm Du(x)=0\}$. Then $u\in C^\infty(\Omega\setminus\mathscr C)$.
+Let $\Om\subset\R^n$ be an open set and $u:\Om\to\R^N$ be a $p$-harmonic map, $p\in[2,\infty)$. Set $\mathscr{C}:=\{x\in\Om:\mathrm Du(x)=0\}$. Then $u\in C^\infty(\Omega\setminus\mathscr C, \R^N)$.
 \end{Lemma}
 \begin{proof}
 Define $F:\R^{N\times n}\to \R^{N\times n}$ as $F(X):=|X|^{p-2}X$. Then, we have
@@ -620,7 +654,7 @@ Observe that
 $$
 \mathbb A(x):=\int_0^1\rom DF\left(\rom Du(x)+th\rom D_h^i\rom Du(x)\right)dt
 $$
-is a symmetric $4$-tensor field on $U'$. Let us prove that it is Legendre elliptic: first notice that there exists $\lambda>0$ such that $|\rom Du|\geq\lambda$ in $U'$. In addition, since $u\in C^{1,\alpha}(U)$, for $|h|$ sufficiently small we have
+is a symmetric $4$-tensor field on $U'$. Let us prove that it is Legendre elliptic: first notice that there exists $\lambda>0$ such that $|\rom Du|\geq\lambda$ in $U'$. In addition, since $u\in C^{1,\alpha}(U,\R^N)$, for $|h|$ sufficiently small we have
 $$
 |\rom Du(x+he_i)-\rom Du(x)|\leq\frac{\lambda}{2}\qquad\forall x\in U'.
 $$
@@ -637,14 +671,14 @@ Therefore, we have proved that $w:=\rom D_h^i \rom Du$ solves the linear ellipti
 $$
 {\rm div}(\mathbb Aw)=0\qquad\mbox{in } U'.
 $$
-By Schauder estimates \cite[Thm. 5.19]{GM}, since $\mathbb A$ has $\alpha$-H\"older coefficients, we have $w\in C^{1,\alpha}(U')$. From the properties of the difference quotient, we infer $\rom D u\in C^{2,\alpha}(U')$. By a bootstrap argument and arbitrariness of $U'$, we conclude $u\in C^\infty(\Om\setminus\mathscr C)$.
+By Schauder estimates \cite[Thm. 5.19]{GM}, since $\mathbb A$ has $\alpha$-H\"older coefficients (recall Remark \ref{rem holder}), we have $w\in C^{1,\alpha}(U', \R^{N\times n})$. From the properties of the difference quotient, we infer $\rom D u\in C^{2,\alpha}(U',\R^{N\times n})$. By a bootstrap argument and arbitrariness of $U'$, we can conclude that $u\in C^\infty(\Om\setminus\mathscr C, \R^N)$.
 \end{proof}
 
 Now, we are ready to prove Theorem \ref{thm p}.\\
 
 \textit{Proof of Theorem \ref{thm p}:}\\
 First, we observe that if $p=2$, the result is straightforward: every harmonic map $u:\Om\to\R^N$ is smooth and satisfies $\Delta|\rom Du|^2\geq0$ on $\Om$.
-So, we can assume $p>2$ in the following. \\
+So, we may assume $p>2$ in the following. \\
 We divide the proof in two steps: firstly, we prove the gradient maximum principle outside the closed set $\mathscr{C}=\{x\in\Om:\mathrm Du(x)=0\}$; second, we show the argument for a generic open set $U\Subset\Om$.\\
 Of course, we can assume that $\Om\setminus\mathscr C\neq \varnothing$, otherwise $u$ is constant on $\Om$.\\
 
@@ -703,7 +737,7 @@ yielding \eqref{GMP}.\\
 \textit{Step 2}: general case.\\
 Let $U\Subset\Om$ be an open subset. Then, without loss of generality, we can assume that $U\not\subset\mathscr C$. Indeed, if $U\subset\mathscr C$, then also $\overline U\subset\mathscr C$, so that \eqref{GMP} trivially holds. Therefore, since $U\setminus \mathscr C$ is a non-empty open subset of $\Om$, there exists $\eps>0$ such that $U_\eps:=U\setminus\overline{\mathscr C^\eps}$ is a non-empty open subset of $\Om$, where ${\mathscr C^\eps}$ is the open $\eps$-neighbourhood of ${\mathscr C}$. Thanks to \textit{Step 1}, since $U_\eps\Subset\R^n\setminus \mathscr C$, we have
 \begin{align}\label{GMP eps}
-\max_{\overline U_\eps}|Du|=\max_{\partial U_\eps}|Du|.
+\max_{\overline U_\eps}|\rom Du|=\max_{\partial U_\eps}|\rom Du|.
 \end{align}
 Now, set $M:=\max_{\overline U}|\rom Du|>0$. By possibly reducing $\eps$ in size, the continuity of $\rom Du$ ensures
 \begin{align}\label{eps small}
@@ -715,7 +749,7 @@ M=\sup_{U}|\rom Du|=\max\left\{\sup_{U_\eps}|\rom Du|,\max_{\overline{\mathscr C
 $$
 In particular, from \eqref{GMP eps} we have
 $$
-\max_{\partial U_\eps}|Du|=M.
+\max_{\partial U_\eps}|\rom Du|=M.
 $$
 On the other hand, we can write
 $$
@@ -723,7 +757,7 @@ $$
 $$
 so that, using \eqref{eps small}, 
 $$
-M=\sup_{\partial U_\eps}|Du|=\max\left\{\sup_{\partial U\setminus\overline{\mathscr C^\eps}}|\rom Du|, \sup_{U\cap \partial{\mathscr C^\eps}}|\rom Du|\right\}\leq\max\left\{\max_{\partial U}|\rom Du|, \max_{ \overline{\mathscr C^\eps}}|\rom Du|\right\}=\max_{\partial U}|\rom Du|,
+M=\sup_{\partial U_\eps}|\rom Du|=\max\left\{\sup_{\partial U\setminus\overline{\mathscr C^\eps}}|\rom Du|, \sup_{U\cap \partial{\mathscr C^\eps}}|\rom Du|\right\}\leq\max\left\{\max_{\partial U}|\rom Du|, \max_{ \overline{\mathscr C^\eps}}|\rom Du|\right\}=\max_{\partial U}|\rom Du|,
 $$
 which ensures the validity of \eqref{GMP} .\qed\\
 
@@ -808,6 +842,9 @@ N. Katzourakis, {\it $\infty$-minimal submanifolds}, Proc. Amer. Math. Soc. {\bf
 \bibitem{K4}
 N. Katzourakis, {\it On the structure of $\infty$-harmonic maps}, Comm. Partial Differential
 Equations {\bf 39}, 2091–2124 (2014).
+
+\bibitem{K5}
+N. Katzourakis, {\it On the minimisation of the peak–to–average ratio}, Nonlinear Differ. Equ. Appl. {\bf 33}(4) (2026). 
 
 %\bibitem{K5}
 %N. Katzourakis. {\it Nonuniqueness in vector-valued calculus of variations in $L^\infty$ and some linear elliptic systems}, Commun. Pure Appl. Anal. {\bf 14}, 313–327 (2015).
